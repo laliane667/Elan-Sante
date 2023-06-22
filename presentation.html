@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Élan Santé • Accueil</title>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link rel="icon" type="image/x-icon" href="src/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="style/reset.css">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/presentation.css">
+  <link rel="stylesheet" href="style/card.css">
+
+</head>
+
+<body>
+  <div class="loader">
+    <div style="position: absolute; width: 100%; height: 100%; display: flex;">
+      <img id="loader-logo" src="src/images/logo_elan_sante.png" alt=":)">
+    </div>
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar">
+    <img id="navbar__logo" src="src/images/logo_elan_sante.png" alt="logo">
+    <div class="navbar__container">
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item" id="navbar__linkLogoContainer">
+          <a href="index.html" class="navbar__links">Accueil</a>
+        </li>
+        <li class="navbar__item">
+          <a href="presentation.html" class="navbar__links">Qui sommes-nous ?</a>
+        </li>
+        <li class="navbar__item">
+          <a href="actualite.html" class="navbar__links">Publications & Annonces</a>
+        </li>
+
+        <li class="navbar__item">
+          <a href="/secondProject/tech.html" class="navbar__links">Adhésion & Inscription</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main_introduction">
+    <h5 id="main_introduction_title">Présentation de l'équipe :</h5>
+    <p id="main_introduction_paragraph">(A changer)Elan Santé est une association loi 1901 qui se consacre à la création d'un environnement favorable au bien-être
+      et à la
+      santé, offrant une variété d'activités allant de l'activité physique adaptée aux
+      sessions d'hypnose, en passant par des ateliers sur l'alimentation saine et des sessions d'étirements pour le
+      bien-être.</p>
+  </div>
+
+  <div class="main__top">
+    <div class="topcard_container">
+
+      <div class="card" id="card1">
+        <img class="cardFamily" src="src/images/cards/person-hiking-solid.svg">
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/mathieu.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke1" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h3 class="title">Mathieu Kaminski</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Activité physique adaptée</h1>
+        <h2>Voir plus</h2>
+      </div>
+
+      <div class="card" id="card1">
+        <img class="cardFamily" src="src/images/cards/person-hiking-solid.svg">
+        <h3 class="title">Sylvie Legiemble</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Marche Bungy Pum</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/Sabrina.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke1" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h2>Voir plus</h2>
+      </div>
+
+      <div class="card" id="card2">
+        <img class="cardFamily" src="src/images/cards/brain-solid.svg">
+        <h3 class="title">Pascale Fontaine</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Journal créatif</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/Sylvie.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke2" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h2>Voir plus</h2>
+      </div>
+
+      <div class="card" id="card2">
+        <img class="cardFamily" src="src/images/cards/brain-solid.svg">
+        <h3 class="title">Sabrina Gautier</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Sophro-Relaxation</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/Sylvie.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke2" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h2>Voir plus</h2>
+      </div>
+
+      <div class="card" id="card4">
+        <img class="cardFamily" src="src/images/cards/seedling-solid.svg">
+        <h3 class="title">Dominique Rousseau</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Alimentation</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/Pascale.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke4" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h2>Voir plus</h2>
+      </div>
+
+    </div>
+
+
+
+    <div class="container">
+      <div class="card" id="card1">
+        <img class="cardFamily" src="src/images/cards/person-hiking-solid.svg">
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/mathieu.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke1" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h3 class="title">Sylvie Lamouroux</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Étirements Bien-être</h1>
+        <h2>Voir plus</h2>
+      </div>
+
+      <div class="card" id="card2">
+        <img class="cardFamily" src="src/images/cards/brain-solid.svg">
+        <h3 class="title">Audrey Haziza</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Journal créatif</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/Pascale.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke2" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h2>Voir plus</h2>
+      </div>
+      <div class="card" id="card2">
+        <img class="cardFamily" src="src/images/cards/brain-solid.svg">
+        <h3 class="title">Veronique Sansnom</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Étirements Bien-être</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/Sylvie.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke2" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h2>Voir plus</h2>
+      </div>
+
+      <div class="card" id="card4">
+        <img class="cardFamily" src="src/images/cards/calculator-solid.svg">
+        <h3 class="title">Morgane Noname</h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Trésorerie</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/Sabrina.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke4" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <h2>Voir plus</h2>
+      </div>
+    </div>
+
+    <div class="pres">
+
+        <div class="pres_indiv_container" id="pres_container_ap">
+          
+          
+
+        </div>
+
+      <div class="pres_indiv_container" id="pres_container_sr">
+
+          <a class="indiv_name_label" name="dr-pres">
+            <h1>Audrey Haziza</h1>
+          </a>
+          <h2 class="indiv_presentation">
+            J'ai rejoins Elan santé pour partager autours de la cognition, du comportement, des émotions. Rejetons les idées reçues et essayons ensemble de mieux comprendre ce qui nous anime, nous pousse à agir. Construisons ensemble une notion de bien-être qui correspond à chacun.  
+          </h2>
+
+          <ul class="timeline">
+
+            <li>
+              <div class="direction-r">
+                <div class="flag-wrapper">
+                  <span class="flag">Formation TSA</span>
+                  <span class="time-wrapper"><span class="time">2022</span></span>
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="direction-l">
+                <div class="flag-wrapper">
+                  <span class="flag">Master de psychologie</span>
+                  <span class="time-wrapper"><span class="time">2020</span></span>
+                </div>
+                <div class="desc">(Spécialisation Neuropsychologie)</div>
+              </div>
+            </li>
+          
+            <li>
+              <div class="direction-r">
+                <div class="flag-wrapper">
+                  <span class="flag">Licence de psychologie</span>
+                  <span class="time-wrapper"><span class="time">2018</span></span>
+                </div>
+              </div>
+            </li>
+            
+          </ul>
+      </div>
+
+      <div class="pres_indiv_container" id="pres_container_alim">
+        <a class="indiv_name_label" name="dr-pres">
+          <h1>Dominique Richier-Rousseau</h1>
+        </a>
+        <h2 class="indiv_presentation">
+          Ce qui m’anime c’est d’apporter à notre public des informations pertinentes pour mettre en place une alimentation protectrice pour la santé, car dans ce domaine il existe beaucoup d’informations erronées. Or l’alimentation est un des « piliers de la santé » et fait partie des facteurs sur lesquels on peut agir à tout âge avec un bénéfice réel pour sa santé et son bien-être.
+        </h2>
+
+        <ul class="timeline">
+
+          <li>
+            <div class="direction-r">
+              <div class="flag-wrapper">
+                <span class="flag">DU de Micronutrition et Alimentation santé</span>
+                <span class="time-wrapper"><span class="time">2014</span></span>
+              </div>
+              <div class="desc">(Diplôme Universitaire)</div>
+            </div>
+          </li>
+          
+          <li>
+            <div class="direction-l">
+              <div class="flag-wrapper">
+                <span class="flag">Diplôme de Docteur en pharmacie</span>
+                <span class="time-wrapper"><span class="time">1992</span></span>
+              </div>
+            </div>
+          </li>
+          
+        </ul>
+    </div>
+
+
+
+  </div>
+  <div class="footer">
+    <div class="footer_hdir">
+      <a href="index.html">Accueil</a>
+      <a href="presentation.html">Qui sommes-nous ?</a>
+      <a href="">Actualités</a>
+      <a href="">Publications</a>
+      <a href="">Adhésion & Inscription</a>
+    </div>
+  </div>
+  <script>
+    /* $(document).ready(function () {
+      $(".topcard_container").hover(function () {
+        $(".container").stop().animate({ marginTop: "30px" }, 500);
+      }, function () {
+        $(".container").stop().animate({ marginTop: "0px" }, 500);
+      });
+    }); */
+
+    /* $(document).ready(function(){
+        $(".card").each(function() {
+            var randomMargin = Math.floor(Math.random() * 31);
+            $(this).css("margin-top", randomMargin + "px");
+        });
+    }); */
+  </script>
+  <script src="app/app.js"></script>
+</body>
+
+</html>

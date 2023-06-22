@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élan Santé • Accueil</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://kit.fontawesome.com/5c4b16e6c8.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="src/favicon/favicon.ico">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="stylesheet" href="style/accueil.css">
+    <link rel="stylesheet" href="style/carousel.css">
+    <link rel="stylesheet" href="style/section.css">
+
+</head>
+
+<body>
+    <div class="loader">
+        <div style="position: absolute; width: 100%; height: 100%; display: flex;">
+            <img id="loader-logo" src="src/images/logo_elan_sante.png" alt=":)">
+        </div>
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
+
+        <div class="navbar__container">
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item" id="navbar__linkLogoContainer">
+                    <a href="index.html" class="navbar__links">Accueil</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="presentation.html" class="navbar__links">Qui sommes-nous ?</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="news.html" class="navbar__links">Actualités</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="news.html" class="navbar__links">Publications</a>
+                </li>
+
+                <li class="navbar__item">
+                    <a href="/secondProject/tech.html" class="navbar__links">Adhésion & Inscription</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="animated_title_container">
+        <h1 id="animated_title">Élan Santé s'occupe de votre
+            <div class="scroller">
+                <span>
+                    activité physique.<br />
+                    alimentation.<br />
+                    bien-être.
+                </span>
+            </div>
+        </h1>
+    </div>
+    <div class="main__top">
+        <div class="carouselContainer">
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" checked />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <main id="carousel">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <main>
+
+        </div>
+
+        <h3 id="presentation_sentance">Élan Santé est une association basée à l'Isle-Adam qui a pour objectif de
+            promouvoir la <span style="font-size: 2.1rem;">santé physique et mentale</span> via des activités centrées sur les <span style="font-size: 2.1rem;">piliers de la santé</span>.</h3>
+
+        <div class="main__downButton">
+            <h1><i class="fa-solid fa-chevron-down"></i></h1>
+        </div>
+        
+        <div class="sectionContainer">
+
+            <div class="section" id="section1">
+                <div class="panel">
+                    <h1>Activité physique</h1>
+                </div>
+                <div class="circle" id="circle1"></div>
+                <img class="sectionImg" src="src/images/mpCatalog1.jpg" alt="image1">
+                <img class="sectionRightChevron" src="src/items/chevron-right-solid.svg" alt=">">
+                <ul class="section_right_content">
+                    <li>
+                        <href>Activité physique adaptée</href>
+                    </li>
+                    <li>
+                        <href>Étirements Bien-être</href>
+                    </li>
+                    <li>
+                        <href>Marche Bungy Pump</href>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section" id="section3">
+                <div class="panel">
+                    <h1>Gestion du stress</h1>
+                </div>
+                <div class="circle" id="circle3"></div>
+                <img class="sectionImg" src="src/images/mpCatalog3.png" alt="image3">
+                <img class="sectionRightChevron" src="src/items/chevron-right-solid.svg" alt=">">
+                <ul class="section_right_content">
+                    <li>
+                        <href>Hypnose</href>
+                    </li>
+                    <li>
+                        <href>Art théraphie</href>
+                    </li>
+                    <li>
+                        <href>Sophro-Relaxation</href>
+                    </li>
+                    <li>
+                        <href>Pleine conscience</href>
+                    </li>
+                    <li>
+                        <href>Shiatsu</href>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section" id="section2">
+                <div class="panel">
+                    <h1>
+                        <ul>
+                            <li style="margin-left: -15px;">Alimentation</li>
+                        </ul>
+                    </h1>
+                </div>
+                <div class="circle" id="circle2"></div>
+                <img class="sectionImg" src="src/images/mpCatalog2.jpg" alt="image2">
+                <img class="sectionRightChevron" src="src/items/chevron-right-solid.svg" alt=">">
+                <ul class="section_right_content">
+                    <li>
+                        <href>Alimentation santé</href>
+                    </li>
+                    <li>
+                        <href>Comportement Alimentaire</href>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_hdir">
+          <a href="index.html">Accueil</a>
+          <a href="presentation.html">Qui sommes-nous ?</a>
+          <a href="">Actualités</a>
+          <a href="">Publications</a>
+          <a href="">Adhésion & Inscription</a>
+        </div>
+    </div>
+    
+    <script src="app/app.js"></script>
+    <script src="app/section.js"></script>
+</body>
+
+</html>
