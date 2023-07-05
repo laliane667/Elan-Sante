@@ -391,7 +391,7 @@ body{
 
 
 
-
+/* 
 .footer{
     width: 100%;
     height: fit-content;
@@ -403,12 +403,32 @@ body{
     padding-top: 25px;
     padding-left: 25px;
     padding-bottom: 25px;
-    color: #fff;
 }
 
 .footer_hdir{
-    background-color: #43be8d;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    text-decoration: none;
+    color: #fff;
+} */
+
+.footer__container{
+    color: #000;
+    font-size: 13px;
+    line-height: 1.5rem;
+    padding: 20px 40px;
+}
+
+.footer__container h1{
+    cursor: pointer;
+    width: fit-content;
+}
+
+.footer__container h1:hover{
+    color: #333;
+}
+
+.footer__container h2{
+    text-align: center;
 }

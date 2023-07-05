@@ -10,6 +10,16 @@
 }
  */
 
+.pres__top{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 35px;
+}
+
 #main_introduction{
     height: auto;
     margin: 25px 7%;
@@ -28,23 +38,24 @@
 
 
 .container, .topcard_container {
-    position: absolute;
-    height: 300px;
+    /* position: absolute; */
+    height: fit-content;
     width: 100%;
-    left: 0;
+    /* left: 0; */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 0;
 }
 
-.container{
-    top: 610px;
+/* .topcard_container{
+  top: 310px; 
+}  */
+ .container{
+    /* top: 610px; */
+    margin-top: -25px;
 }
 
-.topcard_container{
-    top: 310px;
-}
 
 .pres{
     overflow-x: hidden;
@@ -70,12 +81,45 @@
 }
 .pres_indiv_container{
   margin: 0;
-  padding: 7%;
+  padding: 0 5%;
+  padding-top: 120px;
+  padding-bottom: 25px;
   width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
   text-align: left;
+}
+
+
+.pres_circle {
+  position: absolute;
+    top: 15px;
+    left: calc(50% - 60px);
+    display: flex;
+}
+
+.pres_circleImage {
+  position: absolute;
+  width: 92px;  
+  height: auto; 
+  border-radius: 50%;
+  object-fit: cover; 
+  left: 14px;
+  top: 14px;
+}
+
+.pres_stroke {
+  /* stroke: white; */
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+  width: 100%;
+}
+
+.pres_indiv_container:hover .stroke {
+  stroke-dashoffset: 0;
+  transition: 0.6s ease-out;
 }
 
 .indiv_presentation, .pres_indiv_container h3{
@@ -100,11 +144,11 @@
 }
 
 @media screen and (max-width: 960px) {
-  .topcard_container{
+  /* .topcard_container{
     width: 100%;
     overflow-x: hidden;
     height: 350px;
-  }
+  } */
   #main_introduction_title{
       font-size: 1.5rem;
   }

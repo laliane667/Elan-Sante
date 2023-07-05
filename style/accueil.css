@@ -47,16 +47,27 @@
     }
   }
 
-  #presentation_sentance{
+  .presentation_sentance_container{
     position: absolute;
-    bottom: 35%;
-    font-size: 1.9rem;
-    font-weight: 100;
+    display: flex;
+    align-items: center;
+    top: 54vh;
     width: 100%;
+    height: 18vh;
+    /* background-color: aqua; */
+    word-wrap: break-word;  /* breaks the word and wrap onto the next line */
+  }
+
+  #presentation_sentance{
+    text-transform: uppercase;
+    /* font-size: 1.9rem; */
+    font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1400 - 300)));
+    font-family: 'Roboto-Thin';
     padding: 0 10%;
     text-align: center;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0);
+    line-height: 5vh;
+    /* background-color: rgba(0, 0, 0, 0); */
   }
 
   @media screen and (max-width: 1200px) {
@@ -65,7 +76,7 @@
     }
 
     #animated_title{
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     .animated_title_container{
@@ -79,13 +90,87 @@
       top: 5.2em;
     }
 
+    
+  }
+
+  @media screen and (max-width: 800px) {
+    .presentation_sentance_container{
+      height: 40vh;
+      top: 50vh;
+    }
+
     #presentation_sentance{
-      top: 500px;
-      font-size: 1.5rem;
-      padding: 0 2%;
+      font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300)));
     }
   }
 
+  @media screen and (max-height: 1000px) {
+    .presentation_sentance_container{
+      height: 20vh;
+      top: 45vh;
+      /* top: auto; */
+    }
+
+    #presentation_sentance{
+      /* font-size: calc(18px + (24 - 18) * ((100vw - 300px) / (1400 - 300))); */
+      font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300)));
+    }
+  }
+
+  @media screen and (max-height: 900px) {
+    .presentation_sentance_container{
+      height: 20vh;
+      top: 40vh;
+    }
+
+    #presentation_sentance{
+      font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300)));
+    }
+  }
+
+  @media screen and (max-height: 850px) {
+    .presentation_sentance_container{
+      top: 50vh;
+    }
+  }
+
+  @media screen and (max-height: 740px) {
+    .presentation_sentance_container{
+      height: 35vh;
+      bottom: 5vh;
+      top: auto;
+    }
+
+    #presentation_sentance{
+      font-size: calc(16px + (22 - 16) * ((100vw - 300px) / (1400 - 300)));
+    }
+  }
+
+  @media screen and (max-height: 640px) {
+    .presentation_sentance_container{
+      height: 10vh;
+      bottom: 15vh;
+      top: auto;
+    }
+
+    #presentation_sentance{
+      line-height: 3vh;
+      font-size: calc(14px + (20 - 14) * ((100vw - 300px) / (1400 - 300)));
+    }
+  }
+
+  @media screen and (max-height: 540px) {
+    .presentation_sentance_container{
+      height: 10vh;
+      bottom: 10vh;
+      top: auto;
+    }
+
+    #presentation_sentance{
+      line-height: 2.5vh;
+      font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1400 - 300)));
+    }
+  }
 
 .main__downButton{
   opacity: 0;

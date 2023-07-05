@@ -6,7 +6,7 @@ window.addEventListener('load', () =>{
     loader.classList.add('index-out');
     $("body").css({'overflow' : 'visible'});
 
-    if ($(window).width() < 1060) {
+    if ($(window).width() < 800) {
         $('.main__downButton').css("opacity" ,'1');
     }
 })
@@ -31,7 +31,7 @@ window.addEventListener('resize', function(event) {
 function updateWidthResponse(){
     let li = '<li class="navbar__item" id="navbar__linkLogoContainer"></li>';
     
-    if ($(window).width() < 960) {
+    if ($(window).width() < 800) {
         if(this.scrollY <= 200){
             $('.main__downButton').css("opacity" ,'1');
         }

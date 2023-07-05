@@ -1,24 +1,23 @@
 .sectionContainer{
   width: 100%;
-  height: fit-content;
+  height: 35vh;
   display: flex;
   flex-direction:row;
   justify-content: space-around;
   position: absolute;
-  bottom: 10%;
+  top: 65vh;
+  align-items: center;
 }
 
 .section {
   width: 30%;
-  height: auto;
+  height: 20vh;
   display: flex;
   position: relative;
-  /* top: -50px; */
   overflow: hidden;
   aspect-ratio: 10 / 4;
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
-  /* border-radius: 15px; */
   z-index: 10;
   box-shadow: 15px 15px 40px rgba(0, 0, 0, .5);
 }
@@ -41,7 +40,9 @@
 
 .section_right_content li{
   cursor: pointer;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  max-width: 75%;
+  font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1400 - 300)));
   transition: all 0.5s ease;  /* Optional: for smooth transition */
   margin: 0 5px;
   padding-left: 5px; /* create some space for the ">" symbol */
@@ -75,21 +76,28 @@
   width: 50%;
   height: 100%;
   background: inherit;
-  position: relative;
+  /* position: relative; */
   z-index: 2;
   transition: width 0.5s;
   border: none;
+  display: flex;
+  align-items: center;
   /* border-top-left-radius: 15px;
   border-bottom-left-radius: 15px; */
 }
 
 .panel h1 {
   position: absolute;
-  max-width: 10vh;
-  top: 48%;
-  left: 70px;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
+  width: 50%;
+  text-align: center;
+  left: 0;
+  /* padding-left: 15px; */
+ /*  left: 200px; */
+  /* top: 48%;
+  left: 10px; */
+  /* right: 50%; */
+  /* transform: translate(-50%, -50%); */
+  font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1400 - 300)));
   font-weight: 100;
   color: #fff;
   z-index: 4;
@@ -144,25 +152,25 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .panel h1 {
+  /* .panel h1 {
     font-size: 1.6rem;
     left: 65px;
-  }
+  } */
 
-  .section_right_content li{
+  /* .section_right_content li{
     font-size: 1.1rem;
-  }
+  } */
 }
 
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 800px){
   .sectionContainer{
     width: 100%;
-    height: fit-content;
+    height: 60vh;
     display: flex;
     flex-direction:column;
     position: relative;
-    bottom: -600px;
+    top: 80vh;
   }
 
   .section {
@@ -171,12 +179,29 @@
     min-width: 75%;
   }
 
-  .panel h1 {
+  /* .panel h1 {
     font-size: 1.4rem;
     left: 75px;
+  } */
+
+  /* .section_right_content li{
+    font-size: 1.1rem;
+  } */
+}
+
+@media screen and (max-height: 740px){
+  .sectionContainer{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction:column;
+    position: relative;
+    top: 80vh;
   }
 
-  .section_right_content li{
-    font-size: 1.1rem;
+  .section {
+    margin: 35px auto;
+    aspect-ratio: 3 / 1;
+    min-width: 75%;
   }
 }

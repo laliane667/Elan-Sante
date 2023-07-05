@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../src/fonts/Roboto/Roboto-Thin.eot');
+    src: url('../src/fonts/Roboto/Roboto-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/Roboto/Roboto-Thin.woff2') format('woff2'),
+        url('../src/fonts/Roboto/Roboto-Thin.woff') format('woff'),
+        url('../src/fonts/Roboto/Roboto-Thin.ttf') format('truetype'),
+        url('../src/fonts/Roboto/Roboto-Thin.svg#Roboto-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../src/fonts/Roboto/Roboto-Light.eot');
+    src: url('../src/fonts/Roboto/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/Roboto/Roboto-Light.woff2') format('woff2'),
+        url('../src/fonts/Roboto/Roboto-Light.woff') format('woff'),
+        url('../src/fonts/Roboto/Roboto-Light.ttf') format('truetype'),
+        url('../src/fonts/Roboto/Roboto-Light.svg#Roboto-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}

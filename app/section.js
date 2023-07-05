@@ -9,7 +9,7 @@ document.querySelectorAll('.section').forEach(function(section) {
         // Other elements
         this.querySelector('.panel').style.width = '100%';
         this.querySelector('.circle').style.left = '75%';
-        this.querySelector('.panel h1').style.left = '90px';
+        this.querySelector('.panel h1').style.left = '15px';
         this.querySelector('.circle').style.opacity = '0';
         this.querySelector('.sectionRightChevron').style.left = '75%';
         this.querySelector('.sectionRightChevron').style.opacity = '0';
@@ -25,7 +25,7 @@ document.querySelectorAll('.section').forEach(function(section) {
         // Other elements
         this.querySelector('.panel').style.width = '50%';
         this.querySelector('.circle').style.left = '50%';
-        this.querySelector('.panel h1').style.left = '75px';
+        this.querySelector('.panel h1').style.left = '0';
         this.querySelector('.circle').style.opacity = '1';
         this.querySelector('.sectionRightChevron').style.left = '51%';
         this.querySelector('.sectionRightChevron').style.opacity = '.7';

@@ -22,21 +22,22 @@
 .card {
     overflow: hidden;
     display: flex;
-    height: 300px;
-    width: 225px;
+    height: 30vh;
+    width: 14vw;
     border-radius: 15px;
     box-shadow: -1rem 0px 20px rgba(0, 0, 0, 0.3);
     transition: 0.8s ease-out;
     position: relative;
     left: 0px;
+    z-index: 202;
 }
 
 .card:not(:first-child) {
-    margin-left: -20px;
+    margin-left: -15px;
 }
 
 .card:hover {
-    transform: translateY(-20px);
+    transform: translateY(-30px);
     transition: 0.8s ease-out;
 }
 
@@ -64,32 +65,37 @@
     font-size: 1.2rem;
     color: #333;
     position: absolute;
-    left: 20px;
-    top: 150px;
-    width: fit-content;
+    left: 10%;
+    top: 52%;
+    width: 100%;
+    background-color: rgba(255,255,255, 0.5);
+    z-index: 1;
+    /* background-color: #0000FF; */
 }
 
 .animatedBar {
     position: absolute;
-    top: 180px;
-    left: 20px;
+    top: 69%;
+    left: 10%;
     height: 2px;
-    width: 150px;
+    width: 80%;
 }
 
 .card h1{
     position: absolute;
-    top: 190px;
+    top: 72%;
+    left: 10%;
     width: fit-content;
     color: #333;
     font-weight: 300;
     font-size: 1.2rem;
-    margin-left: 20px;
+    word-wrap: break-word;  /* breaks the word and wrap onto the next line */
 }
 
 .card h2{
     position: absolute;
-    top: 255px;
+    top: 90%;
+    left: 10%;
     width: fit-content;
     border-top: none;
     border-right: none;
@@ -100,7 +106,6 @@
     color: #0000FF;
     font-weight: 300;
     font-size: 1rem;
-    margin-left: 20px;
 }
 
 .emptybar {
@@ -130,6 +135,7 @@
     top: 15px;
     left: calc(50% - 60px);
     display: flex;
+    z-index: 0;
 }
 
 .circleImage {
@@ -173,39 +179,50 @@ svg {
 
 @media screen and (max-width: 960px) {
     .card {
-        width: 175px;
-        height: 270px;
+        width: 20vw;
+        height: 25vh;
     }
 
-    .card:not(:first-child) {
-        margin-left: -100px;
+    .title, .card h1 {
+        font-size: 1rem;
     }
 
-    .card:hover~.card {
-        left: 90px;
+    .cardFamily{
+        width: 15px;
     }
+    
+    /*
 
     .card:hover .filledbar {
         width: 100px;
     }
 
-    .title {
-        top: 135px;
-        font-size: 1rem;
-        max-width: 50%;
-    }
+    
     
     .animatedBar {
         width: 100px;
     }
     
-    .card h1{
-        font-size: 1rem;
-    }
+    
 
     .card h2{
         top: 245px;
     }
-    
+    */
+}
+
+@media screen and (max-width: 560px) {
+    .card {
+        width: 30vw;
+        height: 30vh;
+    }
+
+    .card:not(:first-child) {
+        margin-left: -4vw;
+    }
+
+    .card:hover~.card {
+        left: 10vw;
+    } 
 }
   
