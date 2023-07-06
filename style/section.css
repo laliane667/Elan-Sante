@@ -46,11 +46,29 @@
   transition: all 0.5s ease;  /* Optional: for smooth transition */
   margin: 0 5px;
   padding-left: 5px; /* create some space for the ">" symbol */
+  border-color: rgba(0, 0, 0, 0);
 }
+
+.section_right_content li a{
+  color: #fff;
+  text-decoration: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid;
+  border-width: 1px;
+  line-height: normal;
+  border-color: inherit
+}
+
+/* .section_right_content li a:hover{
+  border-color: #fff;
+} */
 
 .section_right_content li:hover {
   text-align: left;
   padding-left: 10px; /* create some space for the ">" symbol */
+  border-color: #fff;
 }
 
 .section_right_content li:hover:before {

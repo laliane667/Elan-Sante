@@ -92,7 +92,7 @@
     word-wrap: break-word;  /* breaks the word and wrap onto the next line */
 }
 
-.card h2{
+.card a{
     position: absolute;
     top: 90%;
     left: 10%;
@@ -106,6 +106,7 @@
     color: #0000FF;
     font-weight: 300;
     font-size: 1rem;
+    text-decoration: none;
 }
 
 .emptybar {

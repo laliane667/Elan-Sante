@@ -23,3 +23,29 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'BarlowCondensed-Thin';
+    src: url('../src/fonts/Barlow_Condensed/font-face/thin/BarlowCondensed-Thin.eot');
+    src: url('../src/fonts/Barlow_Condensed/font-face/thin/BarlowCondensed-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/Barlow_Condensed/font-face/thin/BarlowCondensed-Thin.woff2') format('woff2'),
+        url('../src/fonts/Barlow_Condensed/font-face/thin/BarlowCondensed-Thin.woff') format('woff'),
+        url('../src/fonts/Barlow_Condensed/font-face/thin/BarlowCondensed-Thin.ttf') format('truetype'),
+        url('../src/fonts/Barlow_Condensed/font-face/thin/BarlowCondensed-Thin.svg#BarlowCondensed-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BarlowCondensed-Light';
+    src: url('../src/fonts/Barlow_Condensed/font-face/light/BarlowCondensed-Light.eot');
+    src: url('../src/fonts/Barlow_Condensed/font-face/light/BarlowCondensed-Light.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/Barlow_Condensed/font-face/light/BarlowCondensed-Light.woff2') format('woff2'),
+        url('../src/fonts/Barlow_Condensed/font-face/light/BarlowCondensed-Light.woff') format('woff'),
+        url('../src/fonts/Barlow_Condensed/font-face/light/BarlowCondensed-Light.ttf') format('truetype'),
+        url('../src/fonts/Barlow_Condensed/font-face/light/BarlowCondensed-Light.svg#BarlowCondensed-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
