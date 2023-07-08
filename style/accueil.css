@@ -51,7 +51,7 @@
     position: absolute;
     display: flex;
     align-items: center;
-    top: 54vh;
+    top: 425px;
     width: 100%;
     height: 18vh;
     /* background-color: aqua; */
@@ -96,7 +96,6 @@
   @media screen and (max-width: 800px) {
     .presentation_sentance_container{
       height: 40vh;
-      top: 50vh;
     }
 
     #presentation_sentance{
@@ -106,36 +105,36 @@
 
   @media screen and (max-height: 1000px) {
     .presentation_sentance_container{
-      height: 20vh;
-      top: 45vh;
+      /* height: 20vh;
+      top: 45vh; */
       /* top: auto; */
     }
 
     #presentation_sentance{
       /* font-size: calc(18px + (24 - 18) * ((100vw - 300px) / (1400 - 300))); */
-      font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300)));
+      /* font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300))); */
     }
   }
 
   @media screen and (max-height: 900px) {
-    .presentation_sentance_container{
+    /* .presentation_sentance_container{
       height: 20vh;
       top: 40vh;
-    }
+    } */
 
-    #presentation_sentance{
+    /* #presentation_sentance{
       font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300)));
-    }
+    } */
   }
 
   @media screen and (max-height: 850px) {
-    .presentation_sentance_container{
+    /* .presentation_sentance_container{
       top: 50vh;
-    }
+    } */
   }
 
   @media screen and (max-height: 740px) {
-    .presentation_sentance_container{
+    /* .presentation_sentance_container{
       height: 35vh;
       bottom: 5vh;
       top: auto;
@@ -143,24 +142,24 @@
 
     #presentation_sentance{
       font-size: calc(16px + (22 - 16) * ((100vw - 300px) / (1400 - 300)));
-    }
+    } */
   }
 
   @media screen and (max-height: 640px) {
-    .presentation_sentance_container{
+    /* .presentation_sentance_container{
       height: 10vh;
       bottom: 15vh;
       top: auto;
-    }
+    } */
 
-    #presentation_sentance{
+    /* #presentation_sentance{
       line-height: 3vh;
       font-size: calc(14px + (20 - 14) * ((100vw - 300px) / (1400 - 300)));
-    }
+    } */
   }
 
   @media screen and (max-height: 540px) {
-    .presentation_sentance_container{
+    /* .presentation_sentance_container{
       height: 10vh;
       bottom: 10vh;
       top: auto;
@@ -169,21 +168,24 @@
     #presentation_sentance{
       line-height: 2.5vh;
       font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1400 - 300)));
-    }
+    } */
   }
 
 .main__downButton{
   opacity: 0;
   position: fixed;
   width: 100%;
+  height: fit-content;
   text-align: center;
-  bottom: 4%;
+  bottom: 0vh;
   color: #fff;
   font-size: 2rem;
+  background-color: rgba(1, 1, 1, 0.4);
 }
 
 .main__downButton h1{
   cursor: pointer;
+  padding: 2vh 0;
 }
 
 .main__downButton h1:hover{
