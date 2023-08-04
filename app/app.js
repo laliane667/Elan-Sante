@@ -6,9 +6,9 @@ window.addEventListener('load', () =>{
     loader.classList.add('index-out');
     $("body").css({'overflow' : 'visible'});
 
-    if ($(window).width() < 800) {
+    /* if ($(window).width() < 800) {
         $('.main__downButton').css("opacity" ,'1');
-    }
+    } */
 })
 
 const menu = document.querySelector('#mobile-menu');
@@ -19,8 +19,8 @@ const mainTop = document.querySelector('.main__top');
 menu.addEventListener('click', function(){
     menu.classList.toggle('is-active');
     menuLink.classList.toggle('active');
-    catalogContainer.classList.toggle('position');
-    mainTop.classList.toggle('height');
+    /* catalogContainer.classList.toggle('position'); */
+    /* mainTop.classList.toggle('height'); */
 });
 
 let addOrRemoveLogo = false;
@@ -63,11 +63,11 @@ function updateWidthResponse(){
     
 }
 
-$('.main__downButton').click(function(){
+/* $('.main__downButton').click(function(){
     $("html, body").animate({ scrollTop: "750" }, 800);
 });
-
-window.addEventListener("scroll", function(event) {
+ */
+/* window.addEventListener("scroll", function(event) {
     updateVisuals();
 });
 
@@ -78,4 +78,4 @@ function updateVisuals(){
     }else if ($(window).width() < 1060) {
         $('.main__downButton').css("opacity" ,'1');
     }
-}
+} */

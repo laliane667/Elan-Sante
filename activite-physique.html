@@ -24,6 +24,140 @@
     <link rel="stylesheet" href="style/carousel.css">
     <link rel="stylesheet" href="style/section.css">
 
+    <style>
+        body {
+            background-color: #66BCDF;
+            background: #66BCDF;
+        }
+
+        .activity-header {
+            width: 75%;
+            margin: auto;
+            overflow: hidden;
+            height: 30px;
+            display: flex;
+        }
+
+        .activity-header-button {
+            height: 100%;
+            width: fit-content;
+            padding: 0 5px;
+            display: flex;
+            align-items: center;
+        }
+        .activity-header-button img {
+            cursor: pointer;
+            height: 50%;
+            filter: invert(1);
+        }
+
+        .activity-dropdown-container{
+            position: relative;
+            width: 100%;
+            height: 0px;
+            opacity: 0;
+        }
+
+        .activity-dropdown{
+            width: 75%;
+            margin: auto;
+        }
+
+        .activity-dropdown li {
+            padding-top: 5px;
+            padding-left: 70px;
+        }
+
+        .activity-dropdown li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .activity-dropdown li a:hover {
+            text-decoration: underline;
+        }
+        .activity-container {
+            width: 100%;
+            margin: 50px 0;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        header {
+            background: #35424a;
+            color: white;
+            padding: 5px 0;
+            min-height: 30px;
+            border-bottom: #ca1b1b 3px solid;
+        }
+
+        header h1 {
+            margin: auto 0;
+            float: left;
+        }
+
+        .activity {
+            width: 75%;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .section-title {
+            color: #ca1b1b;
+            font-size: 24px;
+            text-decoration: none;
+            /* margin-bottom: 20px; */
+        }
+
+        .section-content {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .section-teacher {
+            font-size: 16px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            color: #777;
+        }
+        
+        .section-frequency,
+        .section-place,
+        .section-price,
+        .section-conditions {
+            font-size: 16px;
+            padding: 15px 0;
+            color: #777;
+        }
+
+        .section-conditions {
+            margin-bottom: 20px;
+        }
+
+        .section-conditions li {
+            padding-top: 10px;
+            padding-left: 25px;
+        }
+
+        .section-image {
+            height: auto;
+            min-width: 25%;
+            max-width: 50%;
+        }
+
+        .section-subscription{
+            background-color: #35424a;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 30px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -78,5 +212,124 @@
             </ul>
         </div>
     </nav>
+
+    <header style="position: sticky;">
+        <div class="activity-header">
+            <h1>Accueil > Activités physique </h1> <div class="activity-header-button" > <img src="src/items/circle-chevron-down-solid.svg" alt="v"> </div>
+        </div>
+
+        <div class="activity-dropdown-container">
+            <ul class="activity-dropdown">
+                <li> <a href="">Alimentation</a> </li>
+                <li> <a href="gestion-du-stress.html">Gestion du stress</a> </li>
+                
+            </ul>
+        </div>
+    </header>
+
+    <div class="activity-container">
+        <section class="activity">
+            <a name="apa" class="section-title">Activité physique adaptée</a>
+            <p class="section-teacher">Présenté par: <a href="presentation.html#mk">Mathieu Kaminski</a> </p>
+
+            <p class="section-content">Objectif : maintenir sa musculature, son équilibre ainsi que sa mobilité
+                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
+                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
+                convivial pour « bouger » en sécurité.</p>
+
+            <img class="section-image" src="src/images/photos/carousel/EBE.jpg" alt="">
+
+            <p class="section-frequency">Planning : Toute l’année hors vacances scolaires, les mardis et jeudis de 10h à
+                11h et de 15h à 16h.</p>
+            <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                Adam</p>
+            <p class="section-price">Tarif (année): 50€</p>
+
+            <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+            </ul>
+
+            <a class="section-subscription" href="">
+                Je m'inscris
+            </a>
+        </section>
+
+        <section class="activity">
+            <a name="ebe" class="section-title">Étirements bien-être</a>
+            <p class="section-teacher">Présenté par: <a href="presentation.html#mk">Sylvie Lamouroux</a> </p>
+
+            <p class="section-content">Les "étirements bien-être"  associent un travail musculaire suivi d' étirement doux avec des exercices de mobilité et d'équilibre. Ils se pratiquent avec une respiration calme et profonde qui invite le corps à se relâcher et à se relaxer.
+                Ils permettent de rééquilibrer les postures , de regagner de l'amplitude et de la mobilité.</p>
+            <p class="section-frequency">Site web : <a href="http://www.etreenpleineconscience.fr">http://www.etreenpleineconscience.fr</a> </p>
+
+            <img class="section-image" src="src/images/photos/carousel/MS_groupe.JPG" alt="">
+
+            <p class="section-frequency">Planning : Toute l’année hors vacances scolaires, les mardis , jeudis et vendredis de 11h à 12h.</p>
+            <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle Adam</p>
+            <p class="section-price">Tarif (année): 50€</p>
+
+            <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+            </ul>
+
+            <a class="section-subscription" href="">
+                Je m'inscris
+            </a>
+        </section>
+
+        <section class="activity">
+            <a name="mbp" class="section-title">Marche Bungy Pump</a>
+            <p class="section-teacher">Présenté par: <a href="presentation.html#mk">Sylvie Lamouroux</a> </p>
+
+            <p class="section-content">Les "étirements bien-être"  associent un travail musculaire suivi d' étirement doux avec des exercices de mobilité et d'équilibre. Ils se pratiquent avec une respiration calme et profonde qui invite le corps à se relâcher et à se relaxer.
+                Ils permettent de rééquilibrer les postures , de regagner de l'amplitude et de la mobilité.</p>
+
+            <img class="section-image" src="src/images/photos/carousel/MS_groupe.JPG" alt="">
+
+            <p class="section-frequency">Planning : Toute l’année hors vacances scolaires, les mardis et jeudis de 10h à
+                11h et de 15h à 16h.</p>
+            <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle Adam</p>
+            <p class="section-price">Tarif (année): 50€</p>
+
+            <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+            </ul>
+
+            <a class="section-subscription" href="">
+                Je m'inscris
+            </a>
+        </section>
+
+    </div>
+
 </body>
+<script>
+var isDropdownOpen = false;
+var button = document.querySelector('.activity-header-button');
+
+button.addEventListener('click', function() {
+    isDropdownOpen = !isDropdownOpen;
+    openOrCloseActivityDropdown();
+});
+
+function openOrCloseActivityDropdown() {
+    if (isDropdownOpen) {
+        document.querySelector('.activity-dropdown-container').style.height = '50px';
+        document.querySelector('.activity-dropdown-container').style.opacity = '1';
+    }else{
+        document.querySelector('.activity-dropdown-container').style.height = '0px';
+        document.querySelector('.activity-dropdown-container').style.opacity = '0';
+    }
+}
+
+</script>
+<script src="app/app.js"></script>
+<!-- <script src="app/activity.js"></script> -->
+
 </html>

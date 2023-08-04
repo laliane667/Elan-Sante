@@ -2,73 +2,92 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Élan Santé • Accueil</title>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <link rel="icon" type="image/x-icon" href="src/favicon/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élan Santé • Accueil</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://kit.fontawesome.com/5c4b16e6c8.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="src/favicon/favicon.ico">
 
-  <link rel="stylesheet" href="style/reset.css">
-  <link rel="stylesheet" href="style/font.css">
-  <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/presentation.css">
-  <link rel="stylesheet" href="style/card.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="stylesheet" href="style/presentation.css">
+    <link rel="stylesheet" href="style/card.css">
 
 </head>
 
 <body>
-  <div class="loader">
-    <div style="position: absolute; width: 100%; height: 100%; display: flex;">
-      <img id="loader-logo" src="src/images/logo_elan_sante.png" alt=":)">
-    </div>
-    <div class="loader-inner">
-      <div class="loader-line-wrap">
-        <div class="loader-line"></div>
-      </div>
-      <div class="loader-line-wrap">
-        <div class="loader-line"></div>
-      </div>
-      <div class="loader-line-wrap">
-        <div class="loader-line"></div>
-      </div>
-      <div class="loader-line-wrap">
-        <div class="loader-line"></div>
-      </div>
-      <div class="loader-line-wrap">
-        <div class="loader-line"></div>
-      </div>
-    </div>
-  </div>
-  <nav class="navbar">
-    <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
-
-    <div class="navbar__container">
-        <div class="navbar__toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+    <div class="loader">
+        <div style="position: absolute; width: 100%; height: 100%; display: flex;">
+            <img id="loader-logo" src="src/images/logo_elan_sante.png" alt=":)">
         </div>
-        <ul class="navbar__menu">
-            <li class="navbar__item" id="navbar__linkLogoContainer">
-                <a href="index.html" class="navbar__links">Accueil</a>
-            </li>
-            <li class="navbar__item">
-                <a href="presentation.html" class="navbar__links">Qui sommes-nous ?</a>
-            </li>
-            <li class="navbar__item">
-                <a href="news.html" class="navbar__links">Actualités</a>
-            </li>
-            <li class="navbar__item">
-                <a href="news.html" class="navbar__links">Publications</a>
-            </li>
-
-            <li class="navbar__item">
-                <a href="/secondProject/tech.html" class="navbar__links">Adhésion & Inscription</a>
-            </li>
-        </ul>
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <!-- <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div> -->
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <!-- <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div> -->
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
     </div>
-</nav>
+    <nav class="navbar">
+        <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
+
+        <div class="navbar__container">
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item" id="navbar__linkLogoContainer">
+                    <div class="btn-container">
+                        <a href="index.html" class="animated-word">ACCUEIL</a>
+                    </div>
+                </li>
+                <li class="navbar__item" id="navbar__linkLogoContainer">
+                    <div class="btn-container">
+                        <a href="activites.html" class="animated-word">ACTIVITÉS</a>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="publications.html" class="animated-word">PUBLICATIONS</a>
+                    </div>
+                </li>
+
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="presentation.html" class="animated-word">QUI SOMMES-NOUS ?</a>
+                    </div>
+                </li>
+
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="index.html" class="animated-word">ADHÉSION</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
   <!-- <div id="main_introduction">
     <h5 id="main_introduction_title">Présentation de l'équipe :</h5>
@@ -79,9 +98,31 @@
       bien-être.</p>
   </div> -->
 
+
+
   <div class="pres__top">
+
+
     <div class="topcard_container">
 
+      <div class="card" id="card2">
+        <img class="cardFamily" src="src/images/cards/brain-solid.svg">
+        <h3 class="title">Audrey <br>
+          Haziza
+        </h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Journal créatif</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/AH-profile.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke2" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <a href="presentation.html#ah">Voir plus</a>
+      </div>
 
       <div class="card" id="card2">
         <img class="cardFamily" src="src/images/cards/brain-solid.svg">
@@ -121,27 +162,6 @@
         <a href="presentation.html#sg">Voir plus</a>
       </div>
 
-
-
-
-      <div class="card" id="card2">
-        <img class="cardFamily" src="src/images/cards/brain-solid.svg">
-        <h3 class="title">Audrey <br>
-          Haziza
-        </h3>
-        <div class="animatedBar">
-          <div class="emptybar"></div>
-          <div class="filledbar"></div>
-        </div>
-        <h1>Journal créatif</h1>
-        <div class="circle">
-          <img class="circleImage" src="src/images/profiles/AH-profile.jpg">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle id="stroke2" class="stroke" cx="60" cy="60" r="50" />
-          </svg>
-        </div>
-        <a href="presentation.html#ah">Voir plus</a>
-      </div>
       <div class="card" id="card2">
         <img class="cardFamily" src="src/images/cards/brain-solid.svg">
         <h3 class="title">Véronique <br>
@@ -161,12 +181,15 @@
         <a href="presentation.html#dr">Voir plus</a>
       </div>
 
+
+
+
+
+
     </div>
 
-
-
-
     <div class="container">
+
       <div class="card" id="card1">
         <img class="cardFamily" src="src/images/cards/person-hiking-solid.svg">
         <div class="circle">
@@ -185,6 +208,8 @@
         <h1>Activité physique adaptée</h1>
         <a href="presentation.html#mk">Voir plus</a>
       </div>
+
+
 
       <div class="card" id="card1">
         <img class="cardFamily" src="src/images/cards/person-hiking-solid.svg">
@@ -223,6 +248,8 @@
         <h1>Étirements Bien-être</h1>
         <a href="presentation.html#sla">Voir plus</a>
       </div>
+
+
     </div>
 
 
@@ -246,6 +273,7 @@
         <a href="presentation.html#dr">Voir plus</a>
       </div>
 
+
       <div class="card" id="card4">
         <img class="cardFamily" src="src/images/cards/calculator-solid.svg">
         <h3 class="title">Morgane <br>
@@ -264,39 +292,87 @@
         </div>
         <a href="presentation.html#md">Voir plus</a>
       </div>
+      <!-- <div class="card" id="card4">
+        <img class="cardFamily" src="src/images/cards/seedling-solid.svg">
+        <h3 class="title">Dominique<br>
+          Rousseau
+        </h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Alimentation</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/DR-profile.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke4" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <a href="presentation.html#dr">Voir plus</a>
+      </div> -->
+
+      <!-- <div class="card" id="card4">
+        <img class="cardFamily" src="src/images/cards/calculator-solid.svg">
+        <h3 class="title">Morgane <br>
+          Delbart
+        </h3>
+        <div class="animatedBar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <h1>Trésorerie</h1>
+        <div class="circle">
+          <img class="circleImage" src="src/images/profiles/MG-profile.jpg">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="stroke4" class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+        <a href="presentation.html#md">Voir plus</a> 
+      </div> -->
+
     </div>
+
+
+
+
+
+
 
     <div class="global_pres_container">
 
       <div class="pres">
         <a name="ah"></a>
-        <div class="pres_indiv_container" id="pres_container_sr">
+        <div class="pres_indiv_container" id="pres_container_alim">
           <div class="pres_circle">
             <img class="pres_circleImage" src="src/images/profiles/AH-profile.jpg">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle id="stroke2" class="stroke" cx="60" cy="60" r="50" />
+              <circle id="stroke4" class="stroke" cx="60" cy="60" r="50" />
             </svg>
           </div>
           <a class="indiv_name_label" name="dr-pres">
-            <h1>AUDREY HAZIZA</h1>
+            <h1>
+              AUDREY <br>
+              HAZIZA
+            </h1>
           </a>
-          <h2 class="indiv_presentation">
-            J'ai rejoins Elan santé pour partager autours de la cognition, du comportement, des émotions. Rejetons les
-            idées reçues et essayons ensemble de mieux comprendre ce qui nous anime, nous pousse à agir. Construisons
-            ensemble une notion de bien-être qui correspond à chacun.
-          </h2>
-  
+          <div class="indiv_presentation">
+            <h2>J'ai rejoint Élan Santé pour partager autour de la cognition, du comportement, des émotions. Rejetons les
+              idées reçues et essayons ensemble de mieux comprendre ce qui nous anime, nous pousse à agir. Construisons
+              ensemble une notion de bien-être qui correspond à chacun.</h2>
+          </div>
+
           <ul class="timeline">
-  
+
             <li>
               <div class="direction-r">
                 <div class="flag-wrapper">
                   <span class="flag">Formation TSA</span>
                   <span class="time-wrapper"><span class="time">2022</span></span>
                 </div>
+                <div class="desc">(Troubles du Spectre Autistique)</div>
               </div>
             </li>
-  
+
             <li>
               <div class="direction-l">
                 <div class="flag-wrapper">
@@ -306,7 +382,7 @@
                 <div class="desc">(Spécialisation Neuropsychologie)</div>
               </div>
             </li>
-  
+
             <li>
               <div class="direction-r">
                 <div class="flag-wrapper">
@@ -315,12 +391,14 @@
                 </div>
               </div>
             </li>
-  
+
           </ul>
+          <a class="indiv-activity" href="activite-physique.html#apa">Activité : Relations à l'alimentation</a>
+
         </div>
       </div>
-  
-  
+
+
       <div class="pres">
         <a name="mk"></a>
         <div class="pres_indiv_container" id="pres_container_ap">
@@ -331,15 +409,17 @@
             </svg>
           </div>
           <a class="indiv_name_label" name="dr-pres">
-            <h1>MATHIEU KAMINSKI</h1>
+            <h1>MATHIEU <br>
+              KAMINSKI
+            </h1>
           </a>
-          <h2 class="indiv_presentation">
-            Ce qui m’anime : permettre au plus grand nombre de mettre en place une bonne hygiène de vie en
-            jouant sur la Tête, l’Assiette et les Basket.
-          </h2>
-  
+          <div class="indiv_presentation">
+            <h2>Ce qui m’anime : permettre au plus grand nombre de mettre en place une bonne hygiène de vie en
+              jouant sur la Tête, l’Assiette et les Basket.</h2>
+          </div>
+
           <ul class="timeline">
-  
+
             <li>
               <div class="direction-r">
                 <div class="flag-wrapper">
@@ -349,16 +429,16 @@
                 <div class="desc">(Spécialisation Activité Physique Adaptée à la Santé)</div>
               </div>
             </li>
-  
+
             <li>
               <div class="direction-l">
                 <div class="flag-wrapper">
-                  <span class="flag">Certification en Education Thérapeutique du patient</span>
+                  <span class="flag">Certif. Education Thérapeutique du patient</span>
                   <span class="time-wrapper"><span class="time">2016</span></span>
                 </div>
               </div>
             </li>
-  
+
             <li>
               <div class="direction-r">
                 <div class="flag-wrapper">
@@ -391,11 +471,13 @@
                 </div>
               </div>
             </li>
-  
+
           </ul>
+          <a class="indiv-activity" href="activite-physique.html#apa">Activité : Activité physique adaptée</a>
+
         </div>
       </div>
-  
+
       <div class="pres">
         <a name="dr"></a>
         <div class="pres_indiv_container" id="pres_container_alim">
@@ -406,17 +488,24 @@
             </svg>
           </div>
           <a class="indiv_name_label">
-            <h1>DOMINIQUE RICHIER-ROUSSEAU</h1>
+            <h1>DOMINIQUE <br>
+              RICHIER-ROUSSEAU
+            </h1>
           </a>
-          <h2 class="indiv_presentation">
-            Ce qui m’anime c’est d’apporter à notre public des informations pertinentes pour mettre en place une
-            alimentation protectrice pour la santé, car dans ce domaine il existe beaucoup d’informations erronées. Or
-            l’alimentation est un des « piliers de la santé » et fait partie des facteurs sur lesquels on peut agir à tout
-            âge avec un bénéfice réel pour sa santé et son bien-être.
-          </h2>
-  
+          <div class="indiv_presentation">
+            <h2>Ce qui m’anime c’est d’apporter les informations pertinentes pour mettre en place une alimentation protectrice pour la santé : notre santé commence dans notre assiette !</h2>
+          
+            <div class="more">
+              Pour cela, mieux connaître les liens entre alimentation et santé est la base; beaucoup d’informations erronées, ou fake news sont diffusées largement. Or il faut être bien informé pour positivement sur son alimentation, avec un bénéfice réel pour son bien-être. J’interviens lors d’ateliers thématiques sur l’alimentation, et également auprès de différentes structures (mairies, écoles …) pour expliquer ce sur quoi repose une alimentation santé.<br><br>
+              En 2018 , j’ai créé l’association Elan Santé, qui a rapidement convaincu le public et des professionnels de la santé de l’intérêt de « prendre sa santé en mains », ce que nous avons fait au travers d’activités variées : séances d’activité physique, ateliers de gestion du stress, d’alimentation santé, et conférences. Aujourd’hui vice-présidente d’Elan Santé, je coordonne les actions et projets avec Sylvie Lamouroux, Présidente et les 8 autres membres.
+            </div>
+            <span class="show-more">Voir plus...</span>
+            <span class="show-less" style="display: none;"><br>Voir moins...</span>
+          </div>
+
+
           <ul class="timeline">
-  
+
             <li>
               <div class="direction-r">
                 <div class="flag-wrapper">
@@ -426,7 +515,7 @@
                 <div class="desc">(Diplôme Universitaire)</div>
               </div>
             </li>
-  
+
             <li>
               <div class="direction-l">
                 <div class="flag-wrapper">
@@ -436,9 +525,12 @@
               </div>
             </li>
           </ul>
+
+          <a class="indiv-activity" href="activite-physique.html#apa">Activité : Alimentation santé</a>
+
         </div>
       </div>
-  
+
       <div class="pres">
         <a name="sg"></a>
         <div class="pres_indiv_container" id="pres_container_sr">
@@ -449,23 +541,30 @@
             </svg>
           </div>
           <a class="indiv_name_label">
-            <h1>SABRINA GAUTIER - ADIGE</h1>
+            <h1>SABRINA <br>
+              GAUTIER - ADIGE
+            </h1>
           </a>
-          <h2 class="indiv_presentation">
-            Je suis Sophrologue à L’Isle-Adam / Parmain et dans tout le Val d’Oise. 
-            La sophrologie est pour moi une passion que je pratique à mi-temps en plus de mon activité de
-            salariée en tant qu’ingénieur qualité dans le domaine de l’Industrie pharmaceutique.<br><br>
-            J’interviens auprès des particuliers (enfants, adolescents et adultes), en milieu scolaire, et en
-            entreprise. Je suis certifiée en sophrologie depuis décembre 2017, après 2 ans de formation au CEAS
-            Paris. Je me suis spécialisée autour des problématiques liées à l’enfance, à l’adolescence, au
-            sommeil, à la douleur et aussi pour accompagner par la Sophrologie les personnes atteintes du
-            cancer.<br><br>
-            Je suis animée par la nécessité de transmettre des outils qui permette à chacun d’être acteur de sa
-            santé et de son bien-être.
-          </h2>
-  
+          <div class="indiv_presentation">
+            <h2>La sophrologie est pour moi une passion que je pratique à mi-temps en plus de mon activité de
+              salariée en tant qu’ingénieur qualité dans le domaine de l’Industrie pharmaceutique.</h2>
+          
+            <div class="more">
+              J’interviens auprès des particuliers (enfants, adolescents et adultes), en milieu scolaire, et en
+              entreprise à L’Isle-Adam, Parmain et dans tout le Val d’Oise. Je suis certifiée en sophrologie depuis
+              décembre 2017, après 2 ans de formation au CEAS
+              Paris. Je me suis spécialisée autour des problématiques liées à l’enfance, à l’adolescence, au
+              sommeil, à la douleur et aussi pour accompagner les personnes atteintes du
+              cancer.<br><br>
+              Je suis animée par la nécessité de transmettre des outils qui permettent à chacun d’être acteur de sa
+              santé et de son bien-être.
+            </div>
+            <span class="show-more">Voir plus...</span>
+            <span class="show-less" style="display: none;"><br>Voir moins...</span>
+          </div>
+
           <ul class="timeline">
-  
+
             <li>
               <div class="direction-r">
                 <div class="flag-wrapper">
@@ -474,7 +573,7 @@
                 </div>
               </div>
             </li>
-  
+
             <li>
               <div class="direction-l">
                 <div class="flag-wrapper">
@@ -484,37 +583,87 @@
               </div>
             </li>
           </ul>
+
+          <a class="indiv-activity" href="activite-physique.html#apa">Activité : Sophro-Relaxation</a>
+
+        </div>
+      </div>
+
+
+
+      <div class="pres">
+        <a name="slam"></a>
+        <div class="pres_indiv_container" id="pres_container_ap">
+          <div class="pres_circle">
+            <img class="pres_circleImage" src="src/images/profiles/SL1-profile.jpg">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle id="stroke1" class="stroke" cx="60" cy="60" r="50" />
+            </svg>
+          </div>
+          <a class="indiv_name_label">
+            <h1>SYLVIE <br>
+              LAMOUROUX
+            </h1>
+          </a>
+          <div class="indiv_presentation">
+            <h2>Ce qui m'anime : donner à chacun.e l'envie de se mouvoir tout en acceptant son corps et ses limites avec
+              bienveillance et sans jugement.</h2>
+          </div>
+
+          <ul class="timeline">
+
+            <li>
+              <div class="direction-r">
+                <div class="flag-wrapper">
+                  <span class="flag">Diplôme d'éducateur sportif</span>
+                  <span class="time-wrapper"><span class="time">2021</span></span>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="direction-l">
+                <div class="flag-wrapper">
+                  <span class="flag">Certification sport-santé Pescri'forme</span>
+                  <span class="time-wrapper"><span class="time">2022</span></span>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <a class="indiv-activity" href="activite-physique.html#apa">Activité : Étirements Bien-être</a>
+
         </div>
       </div>
 
     </div>
-    
 
-
-    <!-- <div class="footer">
-      <div class="footer_hdir">
-        <a href="index.html">Accueil</a>
-        <a href="presentation.html">Qui sommes-nous ?</a>
-        <a href="">Actualités</a>
-        <a href="">Publications</a>
-        <a href="">Adhésion & Inscription</a>
-      </div>
-    </div> -->
     <script>
-      /* $(document).ready(function () {
-        $(".topcard_container").hover(function () {
-          $(".container").stop().animate({ marginTop: "30px" }, 500);
-        }, function () {
-          $(".container").stop().animate({ marginTop: "0px" }, 500);
-        });
-      }); */
 
-      /* $(document).ready(function(){
-          $(".card").each(function() {
-              var randomMargin = Math.floor(Math.random() * 31);
-              $(this).css("margin-top", randomMargin + "px");
-          });
-      }); */
+      const showMoreButtons = Array.from(document.querySelectorAll('.pres'));
+
+      showMoreButtons.forEach(item => {
+        var showMoreButton = item.querySelector('.show-more');
+        var showLessButton = item.querySelector('.show-less');
+        var moreText = item.querySelector('.more');
+
+        if(showMoreButton && showLessButton && moreText){
+          showMoreButton.addEventListener('click', function () {
+          moreText.style.display = 'flex';
+          showMoreButton.style.display = 'none';
+          showLessButton.style.display = 'inline';
+        });
+
+        showLessButton.addEventListener('click', function () {
+          moreText.style.display = 'none';
+          showMoreButton.style.display = 'inline';
+          showLessButton.style.display = 'none';
+        });
+        }
+        
+      });
+
+      
     </script>
     <script src="app/app.js"></script>
 </body>

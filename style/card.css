@@ -4,6 +4,7 @@
     background: #fff;
 }
 
+
 #card2{
     /* background: #ffd670; */
     background: #fff;
@@ -115,19 +116,37 @@
     height: 100%;
 }
 
+
+#card1 .filledbar{
+    background: #6abfe3;
+    /* background: linear-gradient(90deg, #000 0%, #6abfe3 25%, #6abfe3 85%); */
+}
+
+#card2 .filledbar{
+    background: #ffd670;
+    /* background: linear-gradient(90deg, #000 0%, #6abfe3 25%, #6abfe3 85%); */
+}
+
+#card4 .filledbar{
+    background: #88d16b;
+    /* background: linear-gradient(90deg, #000 0%, #6abfe3 25%, #6abfe3 85%); */
+}
+
+
 .filledbar {
     position: absolute;
     top: 0px;
     z-index: 3;
     width: 0px;
     height: 100%;
-    background: rgb(0, 154, 217);
-    background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
+    /* background: rgb(0, 154, 217);
+    background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%); */
     transition: 0.6s ease-out;
 }
 
+
 .card:hover .filledbar {
-    width: 150px;
+    width: 100%;
     transition: 0.4s ease-out;
 }
 
@@ -170,7 +189,7 @@
 
 svg {
     fill: #33333333;
-    stroke-width: 3px;
+    stroke-width: 2px;
 }
 
 .card:hover .stroke {

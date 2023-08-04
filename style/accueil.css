@@ -1,3 +1,10 @@
+body{
+  /* background-image: linear-gradient(to right, #c5ebff, #a9dbf7, #8ecbee, #71bae7, #51aadf, #51aadf, #51aadf, #51aadf, #71bae7, #8ecbee, #a9dbf7, #c5ebff); */
+  background-image: linear-gradient(to left, #023e73, #034e86, #055f98, #0771ab, #0a83bd, #0a83bd, #0a83bd, #0a83bd, #0771ab, #055f98, #034e86, #023e73);
+  /* background-image: linear-gradient(to left, #6accf6, #56bff0, #43b1eb, #2fa4e5, #1b96de, #1b96de, #1b96de, #1b96de, #2fa4e5, #43b1eb, #56bff0, #6accf6); */
+  background-color: var(--backGround);
+}
+
 .main__top{
   padding-bottom: 600px;
 }
@@ -59,15 +66,21 @@
   }
 
   #presentation_sentance{
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     /* font-size: 1.9rem; */
-    font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1400 - 300)));
-    font-family: 'Roboto-Thin';
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1400 - 300)));
     padding: 0 10%;
     text-align: center;
     color: #fff;
     line-height: 5vh;
     /* background-color: rgba(0, 0, 0, 0); */
+  }
+
+  .presentation-keyword{
+    font-size: 1.8rem;
+    font-weight: 400;
   }
 
   @media screen and (max-width: 1200px) {
@@ -103,18 +116,6 @@
     }
   }
 
-  @media screen and (max-height: 1000px) {
-    .presentation_sentance_container{
-      /* height: 20vh;
-      top: 45vh; */
-      /* top: auto; */
-    }
-
-    #presentation_sentance{
-      /* font-size: calc(18px + (24 - 18) * ((100vw - 300px) / (1400 - 300))); */
-      /* font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300))); */
-    }
-  }
 
   @media screen and (max-height: 900px) {
     /* .presentation_sentance_container{

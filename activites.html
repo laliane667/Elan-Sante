@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Élan Santé • Accueil</title>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://kit.fontawesome.com/5c4b16e6c8.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="src/favicon/favicon.ico">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style/reset.css">
+  <link rel="stylesheet" href="style/font.css">
+  <link rel="stylesheet" href="style/style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0771ab;
+      /* background: linear-gradient(to left, #023e73, #034e86, #055f98, #0771ab, #0a83bd, #0a83bd, #0a83bd, #0a83bd, #0771ab, #055f98, #034e86, #023e73); */
+    }
+
+    #page_container {
+      position: absolute;
+      width: 100%;
+      height: fit-content;
+      transition: background-color 2s ease-out;
+    }
+
+    #sidebar {
+      font-family: 'Roboto', sans-serif;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: fit-content;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    #sidebar nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #sidebar ul li {
+      transform: translateX(0);
+      transition: transform 0.8s ease-out;
+    }
+
+    #sidebar ul li a {
+      margin-top: 2px;
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: rgba(0, 0, 0, 0.124);
+      width: 250px;
+      font-size: 1.2rem;
+      /* transition: all 0.4 ease-in-out; */
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    #sidebar ul li:hover {
+      transform: translateX(10px);
+    }
+
+
+    .activity-global-container {
+      background-color: #69696962;
+      position: relative;
+      max-width: 55%;
+      margin: 25px auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .activity-global-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+
+    .timeline-item {
+      padding: 20px;
+      position: relative;
+      background-color: #ffffff;
+      border-radius: 6px;
+      margin-bottom: 5vh;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .timeline-item .article-content-wrapper {
+      height: fit-content;
+      opacity: 1;
+      overflow: hidden;
+      transition: height 800ms ease-out, opacity 0.8s ease-in-out;
+    }
+
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+
+
+    .content-item {
+      margin-top: 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+
+    .activity-header {
+      font-family: 'Roboto', sans-serif;
+      width: 100%;
+      display: inline-flex;
+    }
+
+    .activity-data {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      margin: auto 0;
+    }
+
+    .activity-title {
+      /* width: 50%; */
+      text-align: left;
+      font-size: 1.5rem;
+      color: #3d3d3d;
+      overflow: hidden;
+      padding-right: 2%;
+      margin-bottom: 5px;
+      padding: 5px 0 5px 2%;
+    }
+
+    .activity-presentator {
+      /* width: 50%; */
+      text-align: left;
+      padding: 5px 0 5px 2%;
+    }
+
+    .activity-presentator,
+    .activity-presentator a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #777;
+      overflow: hidden;
+    }
+
+    .activity-presentator a:hover {
+      text-decoration: underline;
+    }
+
+
+    .activity-image {
+      width: 50%;
+      height: fit-content;
+      display: flex;
+    }
+
+    .activity-image img {
+      width: 40%;
+      margin: auto;
+      transition: all 0.6s linear;
+    }
+
+    /* section-image {
+            margin-top: 15px;
+            height: auto;
+            min-width: 25%;
+            max-width: 50%;
+        } */
+
+
+    .toggle-content {
+      background: none;
+      border: none;
+      color: #337ab7;
+      cursor: pointer;
+      padding: 0;
+      font: inherit;
+      text-decoration: none;
+      text-align: left;
+
+    }
+
+    .toggle-content:hover {
+      text-decoration: underline;
+    }
+
+    .section-description{
+      margin: 15px 0;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .section-frequency,
+    .section-place,
+    .section-price,
+    .section-conditions {
+      padding: 15px 0;
+      color: #777;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .section-conditions {
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .section-conditions li {
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding-top: 10px;
+      padding-left: 25px;
+    }
+
+
+
+
+    .section-subscription {
+      background-color: #35424a;
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 30px;
+      border-radius: 10px;
+    }
+
+
+    /* @media screen and (max-width: 1600px) {
+      .activity-global-container {
+        max-width: 75%;
+        margin-right: 17px;
+      }
+    } */
+
+    @media screen and (max-width: 1000px) {
+      #sidebar {
+        display: none;
+      }
+
+      .activity-global-container {
+        max-width: 68%;
+        margin: 25px auto;
+        padding: 10px 5px;
+      }
+
+      .activity-data {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .activity-header {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .activity-image {
+        width: 70%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .activity-global-container {
+        background-color: transparent;
+        box-shadow: none;
+        max-width: 98%;
+        margin: 25px 1%;
+      }
+      .activity-image {
+        width: 50%;
+      }
+    }
+
+
+    .activity-image-body ul,
+    .activity-image-body li {
+      display: block;
+    }
+
+    .activity-image-body {
+      opacity: 1;
+      width: 100%;
+      aspect-ratio: 8 / 5;
+      height: auto;
+      display: block;
+      position: relative;
+      transition: all 1.2s ease-in-out;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .activity-image-body * {
+      user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    .activity-image-body input { display: none; }
+
+    #galery-apa #img-inner,
+    #galery-ebe #img-inner,
+    #galery-mb #img-inner{
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+
+      transform: scale(0);
+      -moz-transform: scale(0);
+      -webkit-transform: scale(0);
+
+      transition: all .7s ease-in-out;
+      -moz-transition: all .7s ease-in-out;
+      -webkit-transition: all .7s ease-in-out;
+      overflow: hidden;
+
+    }
+
+    #galery-apa #img-inner img,
+    #galery-ebe #img-inner img,
+    #galery-mb #img-inner img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+    }
+
+    /* #galery-apa #img-inner:nth-of-type(1),
+    #galery-ebe #img-inner:nth-of-type(1){
+        background-image:
+            url("src/images/photos/apa1.jpg"),
+            url("src/images/photos/apa2.jpg"),
+            url("src/images/photos/apa3.jpg"),
+            url("src/images/photos/apa4.jpg");
+    } */
+
+    #galery-apa #img-inner:hover ~ label.sb-bignav,
+    #galery-ebe #img-inner:hover ~ label.sb-bignav,
+    #galery-mb #img-inner:hover ~ label.sb-bignav {
+      opacity: 0.5;
+    }
+
+    #galery-apa label.sb-bignav:hover,
+    #galery-ebe label.sb-bignav:hover,
+    #galery-mb label.sb-bignav:hover{
+      opacity: 1;
+    }
+
+    #galery-apa .sb-bignav,
+    #galery-ebe .sb-bignav,
+    #galery-mb .sb-bignav{
+      width: 25%;
+      height: 100%;
+      display: none;
+      position: absolute;
+
+      opacity: 0;
+      z-index: 9;
+      cursor: pointer;
+
+      transition: opacity .2s;
+      -moz-transition: opacity .2s;
+      -webkit-transition: opacity .2s;
+
+      color: white;
+      font-size: 5rem;
+      text-align: center;
+      font-family: "Varela Round", sans-serif;
+      background-color: rgba(255, 255, 255, .2);
+      text-shadow: 0px 0px 15px rgb(119, 119, 119);
+    }
+
+    #galery-apa .sb-bignav-icon,
+    #galery-ebe .sb-bignav-icon,
+    #galery-mb .sb-bignav-icon {
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    label[title="Next"] {
+      right: 0;
+    }
+
+    #galery-apa input:checked + li > #img-inner,
+    #galery-ebe input:checked + li > #img-inner,
+    #galery-mb input:checked + li > #img-inner {
+      opacity: 1;
+
+      transform: scale(1);
+      -moz-transform: scale(1);
+      -webkit-transform: scale(1);
+
+      transition: opacity 1s ease-in-out;
+      -moz-transition: opacity 1s ease-in-out;
+      -webkit-transition: opacity 1s ease-in-out;
+    }
+
+    #galery-apa input:checked + li > label { display: block; }
+    #galery-ebe input:checked + li > label { display: block; }
+    #galery-mb input:checked + li > label { display: block; }
+  </style>
+</head>
+
+<body>
+  <div class="loader">
+    <div style="position: absolute; width: 100%; height: 100%; display: flex;">
+      <img id="loader-logo" src="src/images/logo_elan_sante.png" alt=":)">
+    </div>
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar">
+    <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
+
+    <div class="navbar__container">
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item" id="navbar__linkLogoContainer">
+          <div class="btn-container">
+            <a href="index.html" class="animated-word">ACCUEIL</a>
+          </div>
+        </li>
+        <li class="navbar__item" id="navbar__linkLogoContainer">
+          <div class="btn-container">
+            <a href="activites.html" class="animated-word">ACTIVITÉS</a>
+          </div>
+        </li>
+        <li class="navbar__item">
+          <div class="btn-container">
+            <a href="publications.html" class="animated-word">PUBLICATIONS</a>
+          </div>
+        </li>
+
+        <li class="navbar__item">
+          <div class="btn-container">
+            <a href="presentation.html" class="animated-word">QUI SOMMES-NOUS ?</a>
+          </div>
+        </li>
+
+        <li class="navbar__item">
+          <div class="btn-container">
+            <a href="index.html" class="animated-word">ADHÉSION</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="page_container">
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#apa" onclick="javascript: openActivity('apa')" data-target="apa">Activité Physique Adaptée</a>
+          </li>
+          <li><a href="#ebe" onclick="javascript: openActivity('ebe')" data-target="ebe">Étirements Bien-Être</a></li>
+          <li><a href="#mb" onclick="javascript: openActivity('mb')" data-target="mb">Marche Bungypump</a></li>
+          <li><a href="#sr" onclick="javascript: openActivity('sr')" data-target="sr">Sophro-Relaxation</a></li>
+          <li><a href="#pc" onclick="javascript: openActivity('pc')" data-target="pc">Pleine Conscience</a></li>
+          <li><a href="#hy" onclick="javascript: openActivity('hy')" data-target="hy">Hypnose</a></li>
+          <li><a href="#sh" onclick="javascript: openActivity('sh')" data-target="sh">Shiatsu</a></li>
+          <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Art-Thérapie</a></li>
+          <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Alimentation Santé</a></li>
+          <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Comportement Alimentaire</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="activity-global-container" id="activity-sport">
+      <h1 class="activity-global-title">Activité physique</h1>
+
+      <div class="timeline-item sport" id="apa" data-type="sport">
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Activité Physique Adaptée</h1>
+            <h1 class="activity-presentator">Par : <a href="">Mathieu Kaminski</a></h1>
+          </div>
+
+          <div class="activity-image">
+            <ul class="activity-image-body" id="galery-apa">
+              <input type="radio" name="radio-btn-apa" id="img-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa1.jpg">
+                </div>
+                <label for="img-4" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-2" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-apa" id="img-2" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa2.jpg">
+                </div>
+                <label for="img-1" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-3" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-apa" id="img-3" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa3.jpg">
+                </div>
+                <label for="img-2" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-4" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-apa" id="img-4" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa4.jpg">
+                </div>
+                <label for="img-3" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-1" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="section-description">Objectif : maintenir sa musculature, son équilibre ainsi que sa mobilité
+                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
+                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
+                convivial pour « bouger » en sécurité.</p>
+
+              <p class="section-frequency">Planning :<br> Toute l’année hors vacances scolaires, les mardis et jeudis de 10h
+                à
+                11h et de 15h à 16h.</p>
+              <p class="section-place">Lieu :<br> Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                Adam</p>
+              <p class="section-price">Tarif (année): 50€</p>
+
+              <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+
+
+
+      <div class="timeline-item sport" id="ebe" data-type="sport">
+
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Étirements Bien-Être</h1>
+            <h1 class="activity-presentator">Par : <a href="">Sylvie Lamouroux</a></h1>
+          </div>
+
+          <div class="activity-image">
+            <ul class="activity-image-body" id="galery-ebe">
+              <input type="radio" name="radio-btn-ebe" id="img-ebe-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/conférence 10:2018.jpg">
+                </div>
+                <label for="img-4" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-2" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-ebe" id="img-ebe-2" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/conférence 10:2018.jpg">
+                </div>
+                <label for="img-1" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-3" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-ebe" id="img-ebe-3" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa3.jpg">
+                </div>
+                <label for="img-2" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-4" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-ebe" id="img-ebe-4" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa4.jpg">
+                </div>
+                <label for="img-3" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-1" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="">Les "étirements bien-être" associent un travail musculaire suivi d' étirement doux avec des
+                exercices de mobilité et d'équilibre. Ils se pratiquent avec une respiration calme et profonde qui
+                invite le corps à se relâcher et à se relaxer. Ils permettent de rééquilibrer les postures , de regagner
+                de l'amplitude et de la mobilité.</p>
+
+              <p class="section-frequency">Planning : toute l'année hors vacances scolaires, les mardis, jeudis et
+                vendredis de 11h à 12h.</p>
+              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 Isle
+                Adam</p>
+              <p class="section-price">Tarif (année): 50€</p>
+
+              <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+
+
+
+      <div class="timeline-item sport" id="mb" data-type="sport">
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Marche Bungypump</h1>
+            <h1 class="activity-presentator">Par : <a href="">Sylvie Legiemble</a></h1>  
+          </div>
+
+          <div class="activity-image">
+            <ul class="activity-image-body" id="galery-mb">
+              <input type="radio" name="radio-btn-mb" id="img-mb-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/conférence 10:2018.jpg">
+                </div>
+                <label for="img-4" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-2" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-mb" id="img-mb-2" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/conférence 10:2018.jpg">
+                </div>
+                <label for="img-1" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-3" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-mb" id="img-mb-3" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa3.jpg">
+                </div>
+                <label for="img-2" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-4" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-mb" id="img-mb-4" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa4.jpg">
+                </div>
+                <label for="img-3" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-1" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="">Par la marche et des exercices statiques, ses bâtons spécifiques à résistance, vous
+                permettront de
+                développer votre force. Ludique et intuitif par l’effet rebond, il y a peu d’apprentissage technique.
+                Ils soulagent le poids du corps de 30 % et par conséquent allègent toutes les articulations, dont le
+                dos, les genoux. La dépense énergétique est supérieure, car elle engage davantage le buste, les
+                bras et les abdominaux. On marche plus vite. Amélioration de sa capacité pulmonaire, grâce aussi
+                à l’extérieur. Détente et un bien-être immédiats. La séance est progressive, elle commence par un
+                échauffement et se termine par des étirements.
+                C’est une activité adaptée pour le plus grand nombre : du débutant, au sportif chevronné, de la
+                marche douce à la marche sportive grâce aux différentes forces de l’élastique de 4 à 10 kg de
+                résistance. Les bâtons s’adaptent à toutes les tailles et morphologies.
+                Petit groupe 10-12 personnes. Une séance d’essai gratuite.</p>
+
+              <p class="section-frequency">Planning : <br>
+                Mercredi 14h-15h : Bungy Pump doux, peu de distance et contenu adapté aux participants.
+                Séance réservée à ceux qui ont une pathologie qui ne leur permette pas de « forcer », qui marche
+                à moins de 4kms/heure
+                Mercredi 15h15-16h45 : Bungy Pump de modéré à soutenu, distance d’environ de 5 kms
+                (progressif au fur et à mesure de l’année) – Pas de pathologie handicapante – Pouvoir marcher
+                environ à 5kms/heure.</p>
+              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                Adam</p>
+              <p class="section-price">Tarif (année): 50€</p>
+
+              <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+    </div>
+
+    <div class="activity-global-container" id="activity-mind">
+      <h1 class="activity-global-title">Gestion du stress</h1>
+
+      <div class="timeline-item mind" id="sr" data-type="mind">
+        <div class="activity-header">
+          <h1 class="activity-title">Sophro-Relaxation</h1>
+          <h1 class="activity-presentator">Par : <a href="">Sabrina Gautier–Adige</a></h1>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="">Les ateliers de Sophro-relaxation sont une occasion de s’offrir un temps pour :
+                • Relâcher les tensions physiques et mentales
+                • Mieux respirer et vivre sereinement ses émotions
+                • Amplifier son bien- être et sa sérénité
+                • S’évader et positiver en utilisation son imagination
+                La Sophrologie utilise des outils accessibles à tous, respiration, relaxation en mouvement et
+                visualisation positive. Il suffit d’une chaise pour la pratique.
+                La sophrologie s’adresse à tous à l’exception des personnes atteintes de maladies liées à une
+                altération de la conscience (ex : schizophrénie, maniaco-dépressif, …).</p>
+
+              <p class="section-frequency">Planning : cours d’1H30 le vendredi après-midi hors périodes de vacances
+                scolaires.
+                Séance d’essai possible toute l’année sur demande.</p>
+              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                Adam</p>
+              <p class="section-price">Tarif (année): 50€</p>
+
+              <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+
+
+
+      <div class="timeline-item mind" id="pc" data-type="mind">
+        <div class="activity-header">
+          <h1 class="activity-title">PLeine conscience</h1>
+          <h1 class="activity-presentator">Par : <a href="">Caroline Reverdy-Bazin</a></h1>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="">Qu’est-ce que la pleine conscience ? Pourquoi et comment méditer ? Quelques heures pour
+                expérimenter la méditation de pleine conscience et ainsi se familiariser avec cette pratique millénaire
+                pour peut-être développer l’envie d’aller plus loin dans cette découverte du fonctionnement de soi, de
+                ses pensées, de ses émotions, du lien corps esprit avec tous les benefices qui peuvent en découler.</p>
+
+              <p class="section-frequency">Planning :
+              <ul class="section-conditions">Conditions requises :
+                <li>• lundi 8 /01/2024 de 17H30 à 19H</li>
+                <li>• lundi 5/02/2024 de 17H30 à 19H</li>
+              </ul>
+              </p>
+              <p class="section-place">Lieu : salle cours 2, premier étage, Centre Culturel Michel Poniatowski, 1 chemin
+                Pierre Terver, 95290 L’Isle
+                Adam</p>
+              <p class="section-price">Tarif (pour 1 atelier): 20€</p>
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+
+      <div class="timeline-item mind" id="hy" data-type="mind">
+        <div class="activity-header">
+          <h1 class="activity-title">Hypnose</h1>
+          <h1 class="activity-presentator">Par : <a href="">Véronique Vivat</a></h1>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="">L’objectif n’est pas de faire de la thérapie, ni individuelle, ni de groupe.
+                Mais simplement, expérimenter et apprécier ensemble cet état naturel qu’est
+                l’hypnose (que nous traversons plusieurs fois par jour, sans le savoir !) et
+                réaliser que les solutions sont en nous.
+                Chaque atelier commence par des questions/réponses sur l’hypnose et le
+                thème que l’on abordera.</p>
+
+              <p class="section-frequency">Planning : Toute l’année hors vacances scolaires, les mardis et jeudis de 10h
+                à
+                11h et de 15h à 16h.</p>
+              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                Adam</p>
+              <p class="section-price">Tarif (année): 50€</p>
+
+              <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+
+
+      <div class="timeline-item mind" id="sh" data-type="mind">
+        <div class="activity-header">
+          <h1 class="activity-title">Shiatsu</h1>
+          <h1 class="activity-presentator">Par : <a href="">Benoit Chevojon</a></h1>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="">
+              <ul class="section-conditions">Conditions requises :
+                <li>• présentation du shiatsu : sa philosophie, ses concepts, le corps entre Ciel et Terre</li>
+                <li>• exercices pratiques où vous pourrez recevoir un court Shiatsu sur futon pour ressentir le geste et
+                  échanger ensemble.</li>
+                <li>• Mini soins démonstratifs sur personnes volontaires.</li>
+              </ul>
+              </p>
+
+              <p class="section-frequency">Planning :
+              <ul class="section-conditions">Conditions requises :
+                <li>• lundi 2 /10/2023 de 18H30 à 20H30</li>
+                <li>• vendredi 26/01/2023 de 16H à 18H</li>
+              </ul>
+              </p>
+
+              <p class="section-place">Lieu : salle cours 2, premier étage, Centre Culturel Michel Poniatowski, 1 chemin
+                Pierre Terver, 95290 L’Isle
+                Adam</p>
+
+              <p class="section-price">Tarif (pour 1 atelier): 20€</p>
+
+
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+
+    </div>
+
+    <div class="activity-global-container" id="activity-food">
+      <h1 class="activity-global-title">Alimentation</h1>
+
+      <div class="timeline-item food" id="at" data-type="food">
+        <div class="activity-header">
+          <h1 class="activity-title">Activité physique adaptée</h1>
+          <h1 class="activity-presentator">Par : <a href="">Mathieu Kaminski</a></h1>
+        </div>
+
+        <div class="article-content-wrapper">
+          <div class="content-container">
+            <div class="content-item full-width">
+              <p class="">Objectif : maintenir sa musculature, son équilibre ainsi que sa mobilité
+                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
+                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
+                convivial pour « bouger » en sécurité.Objectif : maintenir sa musculature, son équilibre ainsi que sa
+                mobilité
+                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
+                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
+                convivial pour « bouger » en sécurité.Objectif : maintenir sa musculature, son équilibre ainsi que sa
+                mobilité
+                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
+                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
+                convivial pour « bouger » en sécurité.</p>
+
+              <p class="section-frequency">Planning : Toute l’année hors vacances scolaires, les mardis et jeudis de 10h
+                à
+                11h et de 15h à 16h.</p>
+              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                Adam</p>
+              <p class="section-price">Tarif (année): 50€</p>
+
+              <ul class="section-conditions">Conditions requises :
+                <li>• Être adhérent</li>
+                <li>• Avoir plus de 60 ans</li>
+                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <button class="toggle-content">Voir moins</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="app/activity.js"></script>
+  <script src="app/app.js"></script>
+</body>
+
+</html>
