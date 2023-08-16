@@ -70,18 +70,19 @@ body{
     /* font-size: 1.9rem; */
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-    font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1400 - 300)));
+    font-size: calc(24px + (30 - 24) * ((100vw - 300px) / (1400 - 300)));
     padding: 0 10%;
     text-align: center;
     color: #fff;
+    width: 100%;
     line-height: 5vh;
     /* background-color: rgba(0, 0, 0, 0); */
   }
 
-  .presentation-keyword{
+ /*  .presentation-keyword{
     font-size: 1.8rem;
     font-weight: 400;
-  }
+  } */
 
   @media screen and (max-width: 1200px) {
     .main__top{

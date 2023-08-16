@@ -137,6 +137,8 @@
   /* transform: translate(-50%, -50%); */
   font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1400 - 300)));
   font-weight: 100;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   color: #fff;
   z-index: 4;
   transition: left 0.5s ease-out;
