@@ -25,7 +25,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #0771ab;
+      background-color: #66BCDF;
       /* background: linear-gradient(to left, #023e73, #034e86, #055f98, #0771ab, #0a83bd, #0a83bd, #0a83bd, #0a83bd, #0771ab, #055f98, #034e86, #023e73); */
     }
 
@@ -218,16 +218,23 @@
       font-size: 1.2rem;
     }
 
-    .section-frequency,
+    .section-conditions,
     .section-place,
-    .section-price,
-    .section-conditions {
+    .section-frequency{
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding: 10px 0;
+      color: #3d3d3d;
+      font-size: 1.4rem;
+    }
+
+    .section-price
+    /* .section-conditions  */{
       padding: 15px 0;
       color: #777;
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: 1.2rem;
     }
-
+/* 
     .section-conditions {
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       margin-bottom: 20px;
@@ -237,10 +244,46 @@
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       padding-top: 10px;
       padding-left: 25px;
+    } */
+
+
+    .section-conditions ul,
+    .section-place ul,
+    .section-frequency ul{
+      color: #777;
+      font-size: 1.2rem;
+        margin-top: 5px;
+        padding: 4px 0;
+        border-top: #92929267 solid 1px;
+        border-bottom: #92929267 solid 1px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
     }
 
+    .section-conditions li::before,
+    .section-frequency li::before {
+    content: "•";
+    margin-right: 8px; 
+}
 
+    .section-conditions li,
+    .section-place li,
+    .section-frequency li{
+      margin: 6px 0;
+      list-style-type: none; 
+      color: #777;
+      font-size: 1.2rem;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
 
+    /* .section-place{
+      border-top: #006297 solid 1px;
+      border-bottom: #006297 solid 1px;
+    } */
+/* 
+    .section-place span{
+      color: #3d3d3d;
+    } */
 
     .section-subscription {
       background-color: #35424a;
@@ -591,19 +634,32 @@
                 forme, sa santé et son bien-être, apprendre et comprendre son corps en mouvement. Un moment
                 convivial pour «&nbsp;bouger&nbsp;» en sécurité.</p>
 
-              <p class="section-frequency">Planning :<br> Toute l’année hors vacances scolaires, les mardis et jeudis de 10h
-                à
-                11h et de 15h à 16h.</p>
-              <p class="section-place">Lieu :<br> Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
-                Adam</p>
-              <p class="section-price">Tarif (année) : 50€</p>
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                    <li>Mardi 10h à 11h et 15h à 16h</li>
+                    <li>Jeudi 10h à 11h et 15h à 16h</li>
+                    (Toute l'année, hors vacances scolaires.)
+                </ul>
+              </div>
 
-              <ul class="section-conditions">Conditions requises :
-                <li>• Être adhérent</li>
-                <li>• Avoir plus de 60 ans</li>
-                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
-                <li>• Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
-              </ul>
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                    Adam</li>
+                </ul>
+              </div>
+              <div class="section-conditions">
+                Conditions requises :
+                <ul>
+                  <li>Être adhérent</li>
+                  <li>Avoir plus de 60 ans</li>
+                  <li>Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+                  <li>Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
+                </ul>
+              </div>
+              <p class="section-price">Tarif (année) : 50€</p>
             </div>
 
           </div>
@@ -688,17 +744,29 @@
                 invite le corps à se relâcher et à se relaxer. Ils permettent de rééquilibrer les postures , de regagner
                 de l'amplitude et de la mobilité.</p>
 
-              <p class="section-frequency">Planning : mardi et jeudi de 11h à 12h et vendredi de 9h à 10h</p>
+                <div class="section-frequency">
+                  Planning :
+                  <ul>
+                    <li>Mardi de 11h à 12h</li>
+                    <li>Jeudi de 11h à 12h</li>
+                    <li>Vendredi de 9h à 10h</li>
+                    (Toute l'année, hors vacances scolaires.)
+                  </ul>
+                </div>
               <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 Isle
                 Adam</p>
               <p class="section-price">Tarif (année) : 50€</p>
 
-              <ul class="section-conditions">Conditions requises :
-                <li>• Être adhérent</li>
-                <li>• Avoir plus de 60 ans</li>
-                <li>• Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
-                <li>• Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
-              </ul>
+              <div class="section-conditions">
+                Conditions requises :
+                <ul>
+                  <li>Être adhérent</li>
+                  <li>Avoir plus de 60 ans</li>
+                  <li>Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
+                  <li>Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
+                </ul>
+              </div>
+              
             </div>
 
           </div>
@@ -791,14 +859,21 @@
                 Bénéfices santé : amélioration de la capacité pulmonaire, également liée à la pratique en
                 extérieur, et auto-grandissement par une meilleure posture. Détente et bien-être immédiats.</p>
 
-              <p class="section-frequency">Planning : <br>
-                Séances chaque mercredi (hors vacances scolaires) en petit groupe.
-Une séance d’essai gratuite.
-RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par mail.
-2 groupes selon les capacités et l’objectif
-
-<!-- Mettre horaires en liste -->
-</p>
+                <div class="section-frequency">
+                  Planning :
+                  <ul>
+                    <li>Mercredi 14h-15h 
+                      <br>BungyPump doux, peu de distance et contenu adapté aux participants. <br>
+                      Séance réservée à celles et ceux qui ont une pathologie qui ne leur permet pas de «forcer», ou qui
+                      marchent à moins de 4km/heure<br></li>
+                    <li>Mercredi 15h15-16h45
+                      <br>BungyPump de niveau modéré à soutenu, distance d’environ 5 km
+                      (progressif au fur et à mesure de l’année).<br>Pour celles et ceux qui n’ont pas de pathologie
+                      handicapante, pouvant marcher environ à 5km/heure.<br></li>
+                  </ul>
+                </div>
+              
+              
               <p class="section-place">Lieu : RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par mail.</p>
               <p class="section-price">Tarif : Carte de 10 séances (les séances peuvent être réalisées tout au long de l’année) :
                 80 € avec bâtons fournis à chaque séance.</p>
@@ -963,12 +1038,13 @@ RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par ma
               </ul>
               </p>
 
-              <p class="section-frequency">
-              <ul class="section-conditions">Planning :
-                <li>• lundi 2/10/2023 de 18H30 à 20H30</li>
-                <li>• vendredi 26/01/2024 de 16H à 18H</li>
-              </ul>
-              </p>
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>• lundi 2/10/2023 de 18H30 à 20H30</li>
+                  <li>• vendredi 26/01/2024 de 16H à 18H</li>
+                </ul>
+              </div>
 
               <p class="section-place">Lieu : salle cours 2, premier étage, Centre Culturel Michel Poniatowski, 1 chemin
                 Pierre Terver, 95290 L’Isle
@@ -1036,30 +1112,44 @@ RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par ma
       <h1 class="activity-global-title">Alimentation</h1>
 
       <div class="timeline-item food" id="at" data-type="food">
-        <div class="activity-data">
-          <h1 class="activity-title">Alimentation santé</h1>
-          <h1 class="activity-presentator">Avec : <a href="">Dominique Rousseau</a></h1>
+
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Alimentation santé</h1>
+            <h1 class="activity-presentator">Avec : <a href="">Dominique Rousseau</a></h1>
+          </div>
+
+          <div class="activity-image">
+                  <img src="src/images/activity/alimentation.png">
+          </div>
         </div>
 
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">Objectif : maintenir sa musculature, son équilibre ainsi que sa mobilité
-                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
-                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
-                convivial pour « bouger » en sécurité.Objectif : maintenir sa musculature, son équilibre ainsi que sa
-                mobilité
-                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
-                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
-                convivial pour « bouger » en sécurité.Objectif : maintenir sa musculature, son équilibre ainsi que sa
-                mobilité
-                et sa souplesse à travers des exercices variés, et ainsi conserver son autonomie. Pour préserver sa
-                forme, sa santé et son bien-être, Apprendre et, comprendre son corps en mouvement, Un moment
-                convivial pour « bouger » en sécurité.</p>
+              <p class="">
+                En matière d’alimentation, nous avons tous des idées reçues et des habitudes;<br>
+                Or, pour adopter une alimentation protectrice pour la santé, il est nécessaire de comprendre les liens entre alimentation et santé. Ces ateliers ont pour objectif de faire le point sur une thématique alimentaire et d’échanger en petit groupe pour une assiette « santé et plaisir ».
+              </p>
 
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>lundi 6/11/23 - L’alimentation anti-inflammatoire <!-- : qu’est-ce que c’est et quels bénéfices ? Pour qui ? --></li>
+                  <li>vendredi 4/03/23 - Les fake news en nutrition <!-- : déjouer les messages santé qui sont faux  
+                    Faire le tri entre  « ce qu’on pense être vrai » et « ce qui a été prouvé par les études ». <br> Explications sur la base d’exemples concrets. -->
+                  </li>
+                </ul>
+              </div>
+
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                    Adam</li>
+                </ul>
+              </div>
               
-              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
-                Adam</p>
             </div>
 
           </div>
@@ -1072,9 +1162,15 @@ RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par ma
   
 
       <div class="timeline-item food" id="at" data-type="food">
-        <div class="activity-data">
-          <h1 class="activity-title">Relations à l'alimentation</h1>
-          <h1 class="activity-presentator">Avec : <a href="">Audrey Haziza, Dominique Richier-Rousseau</a></h1>
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Relations à l'alimentation</h1>
+            <h1 class="activity-presentator">Avec : <a href="">Audrey Haziza, Dominique Richier-Rousseau</a></h1>
+          </div>
+
+          <div class="activity-image">
+              <img src="src/images/activity/comportement_alimentaire.jpg">
+          </div>
         </div>
 
         <div class="article-content-wrapper">
@@ -1086,9 +1182,19 @@ RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par ma
                 apprendre à déjouer les idées reçues et les comportements acquis.<br><br>
                 Au final : se sentir mieux dans sa tête et son assiette !</p>
 
-              <p class="section-frequency">Planning : samedi 3 février 2024 - 10h à 12h</p>
-              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
-                Adam</p>
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>samedi 3 février 2024 - 10h à 12h</li> 
+                </ul>
+              </div>
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                    Adam</li>
+                </ul>
+              </div>
               <p class="section-price">Tarif : 20€</p>
 
             </div>
@@ -1101,6 +1207,7 @@ RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par ma
       </div>
 
     </div>
+
 
   </div>
 
