@@ -212,12 +212,17 @@
       text-decoration: underline;
     }
 
-    .section-description {
+    .section-description{
       margin: 15px 0;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: 1.2rem;
     }
 
+    .section-description-ul li{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 1.2rem;
+    }
+    
     .section-conditions,
     .section-place,
     .section-frequency {
@@ -226,10 +231,26 @@
       color: #3d3d3d;
       font-size: 1.4rem;
     }
+    .section-disclaimer{
+      margin: 15px 0;
+    }
+
+    .section-disclaimer h1{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding: 10px 0;
+      color: #3d3d3d;
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
+
+    .section-disclaimer h2{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: #777;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
 
     .section-price
-
-    /* .section-conditions  */
       {
       padding: 15px 0;
       color: #777;
@@ -493,6 +514,23 @@
     #galery-mb input:checked+li>label {
       display: block;
     }
+
+
+.more {
+  display: none;
+  height: fit-content;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #777;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.show-more, .show-less {
+  width: 100%;
+  text-align: center;
+  color: blue;
+  cursor: pointer;
+  font-size: 1rem;
+}
   </style>
 </head>
 
@@ -868,20 +906,47 @@
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">Ces bâtons spécifiques à résistance demandent peu d’apprentissage technique.
-                Ludiques et intuitifs par l’effet rebond, ils soulagent le poids du corps de 30 % sans charge pour les
+              <p class="section-description">Ces bâtons spécifiques à résistance demandent peu d’apprentissage technique.
+                Ludiques et intuitifs par l’effet rebond, ils soulagent le poids du corps de 30% sans charge pour les
                 articulations.<br><br>
                 La dépense énergétique est supérieure, car elle engage davantage le buste, les bras et les
-                abdominaux.<br><br>
+                abdominaux.<br>
                 La séance est progressive, avec un échauffement et se termine par des étirements.
                 <br><br>
-                • Activité adaptée au plus grand nombre : du débutant au sportif chevronné, de la marche douce à
+                Activité adaptée au plus grand nombre : du débutant au sportif chevronné, de la marche douce à
                 la marche sportive grâce aux différentes forces de l’élastique de 4 à 10 kg de résistance. Les
                 bâtons s’adaptent à toutes les tailles et morphologies.
                 <br><br>
                 Bénéfices santé : amélioration de la capacité pulmonaire, également liée à la pratique en
                 extérieur, et auto-grandissement par une meilleure posture. Détente et bien-être immédiats.
               </p>
+
+              
+
+              <div class="section-disclaimer">
+                <h1>Important :</h1>
+                <h2>Séances en extérieur, même en cas de mauvais temps</h2>
+                <h2>Equipement conseillé</h2> 
+                
+                <div class="more">
+                  <br>
+                  Choisir des vêtements souples adaptés aux conditions météorologiques, « respirants ». <br><br>
+                  Privilégier les
+                  « sous-couches » (type « pelure d’oignon » pour enlever au fur et à mesure une épaisseur avec le
+                  réchauffement du corps et en remettre à l’arrêt de l’activité) .<br><br>
+                  Le petit sac à dos (ou banane autour de la ceinture) ne doit pas (ainsi que les vêtements) entraver le mouvement des bras et la prise en main des
+                  bâtons avec les gantelets.<br><br>
+                  Chaussures souples, respirantes de type « Trail » au rayon « Athlétisme » ou au rayon « Marche
+                  Nordique » ; pour votre confort « imperméables » pour l’hiver ! <br><br>
+                  Quant aux chaussettes choisissez-les
+                  bien
+                  aussi pour qu’il n’y ait pas de frottements avec l’échauffement du pied.
+                </div>
+                <span class="show-more">Voir plus...</span>
+                <span class="show-less" style="display: none;"><br>Voir moins...</span><!-- VOIR PLUS -->
+                
+              </div>
+              
 
               <div class="section-frequency">
                 Planning :
@@ -914,21 +979,7 @@
                 </ul>
               </div>
 
-              <p>
-                Important :
-                Séances en extérieur, même en cas de mauvais temps
-                Equipement conseillé <!-- VOIR PLUS -->
-                Choisir des vêtements souples adaptés aux conditions météorologiques, « respirants », privilégier les
-                « sous-couches » (type « pelure d’oignon » pour enlever au fur et à mesure une épaisseur avec le
-                réchauffement du corps et en remettre à l’arrêt de l’activité) ; le petit sac à dos (ou banane autour de
-                la
-                ceinture) ne doit pas (ainsi que les vêtements) entraver le mouvement des bras et la prise en main des
-                bâtons avec les gantelets
-                Chaussures souples, respirantes de type « Trail » au rayon « Athlétisme » ou au rayon « Marche
-                Nordique » ; pour votre confort « imperméables » pour l’hiver ! Quant aux chaussettes choisissez-les
-                bien
-                aussi pour qu’il n’y ait pas de frottements avec l’échauffement du pied.
-              </p>
+             
 
               <p class="section-price">Tarif : Carte de 10 séances (les séances peuvent être réalisées tout au long de
                 l’année) :
@@ -955,13 +1006,16 @@
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">Les ateliers de Sophro-relaxation sont une occasion de s’offrir un temps pour :
-                • Relâcher les tensions physiques et mentales
-                • Mieux respirer et vivre sereinement ses émotions
-                • Amplifier son bien- être et sa sérénité
-                • S’évader et positiver en utilisation son imagination
-                La Sophrologie utilise des outils accessibles à tous, respiration, relaxation en mouvement et
-                visualisation positive. Il suffit d’une chaise pour la pratique.
+              <p class="section-description">Les ateliers de Sophro-relaxation sont une occasion de s’offrir un temps pour : </p>
+                <ul class="section-description-ul">
+                    <li>&nbsp;• Relâcher les tensions physiques et mentales</li>
+                    <li>&nbsp;• Mieux respirer et vivre sereinement ses émotions</li>
+                    <li>&nbsp;• Amplifier son bien- être et sa sérénité</li>
+                    <li>&nbsp;• S’évader et positiver en utilisation son imagination</li>
+                </ul>
+              
+                <p class="section-description">La Sophrologie utilise des outils accessibles à tous, respiration, relaxation en mouvement et
+                visualisation positive. Il suffit d’une chaise pour la pratique. <br>
                 La sophrologie s’adresse à tous à l’exception des personnes atteintes de maladies liées à une
                 altération de la conscience (ex : schizophrénie, maniaco-dépressif, …).</p>
 
@@ -981,12 +1035,17 @@
                     Adam</li>
                 </ul>
               </div>
+
+              <div class="section-conditions">
+                Conditions requises :
+                <ul>
+                  <li>Être adhérent</li>
+                  <li>Avoir plus de 60 ans</li>
+                </ul>
+              </div>
               <p class="section-price">Tarif (année): 50€</p>
 
-              <ul class="section-conditions">Conditions requises :
-                <li>• Être adhérent</li>
-                <li>• Avoir plus de 60 ans</li>
-              </ul>
+             
             </div>
 
           </div>
@@ -1043,7 +1102,7 @@
       <div class="timeline-item mind" id="hy" data-type="mind">
         <div class="activity-data">
           <h1 class="activity-title">Hypnose</h1>
-          <h1 class="activity-presentator">Avec : <a href="">Véronique Vivat</a></h1>
+          <h1 class="activity-presentator">Avec : <a href="">Véronique Vicat</a></h1>
         </div>
 
         <div class="article-content-wrapper">
@@ -1312,6 +1371,33 @@
 
   </div>
 
+  <script>
+
+    const showMoreButtons = Array.from(document.querySelectorAll('.content-item'));
+
+    showMoreButtons.forEach(item => {
+      var showMoreButton = item.querySelector('.show-more');
+      var showLessButton = item.querySelector('.show-less');
+      var moreText = item.querySelector('.more');
+
+      if(showMoreButton && showLessButton && moreText){
+        showMoreButton.addEventListener('click', function () {
+        moreText.style.display = 'flex';
+        showMoreButton.style.display = 'none';
+        showLessButton.style.display = 'inline';
+      });
+
+      showLessButton.addEventListener('click', function () {
+        moreText.style.display = 'none';
+        showMoreButton.style.display = 'inline';
+        showLessButton.style.display = 'none';
+      });
+      }
+      
+    });
+
+    
+  </script>
   <script src="app/activity.js"></script>
   <script src="app/app.js"></script>
 </body>
