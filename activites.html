@@ -212,29 +212,32 @@
       text-decoration: underline;
     }
 
-    .section-description{
+    .section-description {
       margin: 15px 0;
-      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: 1.2rem;
     }
 
     .section-conditions,
     .section-place,
-    .section-frequency{
-      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    .section-frequency {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       padding: 10px 0;
       color: #3d3d3d;
       font-size: 1.4rem;
     }
 
     .section-price
-    /* .section-conditions  */{
+
+    /* .section-conditions  */
+      {
       padding: 15px 0;
       color: #777;
-      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: 1.2rem;
     }
-/* 
+
+    /* 
     .section-conditions {
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       margin-bottom: 20px;
@@ -249,38 +252,39 @@
 
     .section-conditions ul,
     .section-place ul,
-    .section-frequency ul{
+    .section-frequency ul {
       color: #777;
       font-size: 1.2rem;
-        margin-top: 5px;
-        padding: 4px 0;
-        border-top: #92929267 solid 1px;
-        border-bottom: #92929267 solid 1px;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+      margin-top: 5px;
+      padding: 4px 0;
+      border-top: #c0c0c054 solid 1px;
+      border-bottom: #c0c0c054 solid 1px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      text-align: center;
     }
 
     .section-conditions li::before,
     .section-frequency li::before {
-    content: "•";
-    margin-right: 8px; 
-}
+      content: "•";
+      margin-right: 8px;
+    }
 
     .section-conditions li,
     .section-place li,
-    .section-frequency li{
+    .section-frequency li {
+      text-align: left;
       margin: 6px 0;
-      list-style-type: none; 
+      list-style-type: none;
       color: #777;
       font-size: 1.2rem;
-      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
     /* .section-place{
       border-top: #006297 solid 1px;
       border-bottom: #006297 solid 1px;
     } */
-/* 
+    /* 
     .section-place span{
       color: #3d3d3d;
     } */
@@ -334,6 +338,7 @@
         max-width: 98%;
         margin: 25px 1%;
       }
+
       .activity-image {
         width: 50%;
       }
@@ -366,11 +371,13 @@
       -webkit-touch-callout: none;
     }
 
-    .activity-image-body input { display: none; }
+    .activity-image-body input {
+      display: none;
+    }
 
     #galery-apa #img-inner,
     #galery-ebe #img-inner,
-    #galery-mb #img-inner{
+    #galery-mb #img-inner {
       top: 0;
       opacity: 0;
       width: 100%;
@@ -408,21 +415,21 @@
             url("src/images/photos/apa4.jpg");
     } */
 
-    #galery-apa #img-inner:hover ~ label.sb-bignav,
-    #galery-ebe #img-inner:hover ~ label.sb-bignav,
-    #galery-mb #img-inner:hover ~ label.sb-bignav {
+    #galery-apa #img-inner:hover~label.sb-bignav,
+    #galery-ebe #img-inner:hover~label.sb-bignav,
+    #galery-mb #img-inner:hover~label.sb-bignav {
       opacity: 0.5;
     }
 
     #galery-apa label.sb-bignav:hover,
     #galery-ebe label.sb-bignav:hover,
-    #galery-mb label.sb-bignav:hover{
+    #galery-mb label.sb-bignav:hover {
       opacity: 1;
     }
 
     #galery-apa .sb-bignav,
     #galery-ebe .sb-bignav,
-    #galery-mb .sb-bignav{
+    #galery-mb .sb-bignav {
       width: 25%;
       height: 100%;
       display: none;
@@ -461,9 +468,9 @@
       right: 0;
     }
 
-    #galery-apa input:checked + li > #img-inner,
-    #galery-ebe input:checked + li > #img-inner,
-    #galery-mb input:checked + li > #img-inner {
+    #galery-apa input:checked+li>#img-inner,
+    #galery-ebe input:checked+li>#img-inner,
+    #galery-mb input:checked+li>#img-inner {
       opacity: 1;
 
       transform: scale(1);
@@ -475,9 +482,17 @@
       -webkit-transition: opacity 1s ease-in-out;
     }
 
-    #galery-apa input:checked + li > label { display: block; }
-    #galery-ebe input:checked + li > label { display: block; }
-    #galery-mb input:checked + li > label { display: block; }
+    #galery-apa input:checked+li>label {
+      display: block;
+    }
+
+    #galery-ebe input:checked+li>label {
+      display: block;
+    }
+
+    #galery-mb input:checked+li>label {
+      display: block;
+    }
   </style>
 </head>
 
@@ -552,9 +567,9 @@
           <li><a href="#pc" onclick="javascript: openActivity('pc')" data-target="pc">Pleine Conscience</a></li>
           <li><a href="#hy" onclick="javascript: openActivity('hy')" data-target="hy">Hypnose</a></li>
           <li><a href="#sh" onclick="javascript: openActivity('sh')" data-target="sh">Shiatsu</a></li>
-          <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Art-Thérapie</a></li>
-          <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Alimentation Santé</a></li>
-          <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Comportement Alimentaire</a></li>
+          <!-- <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Art-Thérapie</a></li> -->
+          <li><a href="#as" onclick="javascript: openActivity('as')" data-target="as">Alimentation Santé</a></li>
+          <li><a href="#ra" onclick="javascript: openActivity('ra')" data-target="ra">Relations à l'alimentation</a></li>
         </ul>
       </nav>
     </div>
@@ -637,9 +652,8 @@
               <div class="section-frequency">
                 Planning :
                 <ul>
-                    <li>Mardi 10h à 11h et 15h à 16h</li>
-                    <li>Jeudi 10h à 11h et 15h à 16h</li>
-                    (Toute l'année, hors vacances scolaires.)
+                  <li>Mardi 10h à 11h et 15h à 16h</li>
+                  <li>Jeudi 10h à 11h et 15h à 16h</li>
                 </ul>
               </div>
 
@@ -656,7 +670,8 @@
                   <li>Être adhérent</li>
                   <li>Avoir plus de 60 ans</li>
                   <li>Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
-                  <li>Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
+                  <li>Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant
+                    <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
                 </ul>
               </div>
               <p class="section-price">Tarif (année) : 50€</p>
@@ -739,23 +754,28 @@
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">Les «&nbsp;étirements bien-être&nbsp;» associent un travail musculaire suivi d' étirement doux avec des
+              <p class="section-description">Les «&nbsp;étirements bien-être&nbsp;» associent un travail musculaire suivi d'étirements doux
+                avec des
                 exercices de mobilité et d'équilibre. Ils se pratiquent avec une respiration calme et profonde qui
                 invite le corps à se relâcher et à se relaxer. Ils permettent de rééquilibrer les postures , de regagner
                 de l'amplitude et de la mobilité.</p>
 
-                <div class="section-frequency">
-                  Planning :
-                  <ul>
-                    <li>Mardi de 11h à 12h</li>
-                    <li>Jeudi de 11h à 12h</li>
-                    <li>Vendredi de 9h à 10h</li>
-                    (Toute l'année, hors vacances scolaires.)
-                  </ul>
-                </div>
-              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 Isle
-                Adam</p>
-              <p class="section-price">Tarif (année) : 50€</p>
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>Mardi de 11h à 12h</li>
+                  <li>Jeudi de 11h à 12h</li>
+                  <li>Vendredi de 9h à 10h</li>
+                </ul>
+              </div>
+
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                    Adam</li>
+                </ul>
+              </div>
 
               <div class="section-conditions">
                 Conditions requises :
@@ -763,10 +783,13 @@
                   <li>Être adhérent</li>
                   <li>Avoir plus de 60 ans</li>
                   <li>Prévoir une tenue adaptée, un tapis, une serviette et une bouteille d’eau.</li>
-                  <li>Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
+                  <li>Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant
+                    <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
                 </ul>
               </div>
-              
+
+              <p class="section-price">Tarif (année) : 50€</p>
+
             </div>
 
           </div>
@@ -782,7 +805,7 @@
         <div class="activity-header">
           <div class="activity-data">
             <h1 class="activity-title">Marche Bungypump</h1>
-            <h1 class="activity-presentator">Avec : <a href="">Sylvie Legiemble</a></h1>  
+            <h1 class="activity-presentator">Avec : <a href="">Sylvie Legiemble</a></h1>
           </div>
 
           <div class="activity-image">
@@ -857,31 +880,39 @@
                 bâtons s’adaptent à toutes les tailles et morphologies.
                 <br><br>
                 Bénéfices santé : amélioration de la capacité pulmonaire, également liée à la pratique en
-                extérieur, et auto-grandissement par une meilleure posture. Détente et bien-être immédiats.</p>
+                extérieur, et auto-grandissement par une meilleure posture. Détente et bien-être immédiats.
+              </p>
 
-                <div class="section-frequency">
-                  Planning :
-                  <ul>
-                    <li>Mercredi 14h-15h 
-                      <br>BungyPump doux, peu de distance et contenu adapté aux participants. <br>
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>Mercredi 14h-15h - BungyPump doux<!-- , peu de distance et contenu adapté aux participants. <br>
                       Séance réservée à celles et ceux qui ont une pathologie qui ne leur permet pas de «forcer», ou qui
-                      marchent à moins de 4km/heure<br></li>
-                    <li>Mercredi 15h15-16h45
-                      <br>BungyPump de niveau modéré à soutenu, distance d’environ 5 km
+                      marchent à moins de 4km/heure<br> --></li>
+                  <li>Mercredi 15h15-16h45 - BungyPump de niveau modéré à soutenu<!-- , distance d’environ 5 km
                       (progressif au fur et à mesure de l’année).<br>Pour celles et ceux qui n’ont pas de pathologie
-                      handicapante, pouvant marcher environ à 5km/heure.<br></li>
-                  </ul>
-                </div>
-              
-              
-              <p class="section-place">Lieu : RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par mail.</p>
-              <p class="section-price">Tarif : Carte de 10 séances (les séances peuvent être réalisées tout au long de l’année) :
-                80 € avec bâtons fournis à chaque séance.</p>
+                      handicapante, pouvant marcher environ à 5km/heure.<br> --></li>
+                </ul>
+              </div>
 
-              <ul class="section-conditions">Conditions requises :
-                <li>• Être adhérent</li>
-                <li>• Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
-              </ul>
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>RDV sur L’Isle-Adam, selon un planning défini à l’avance et envoyé par mail.</li>
+                </ul>
+              </div>
+              
+
+              
+
+              <div class="section-conditions">
+                Conditions requises :
+                <ul>
+                  <li>Être adhérent</li>
+                  <li>Imprimer le questionnaire médical, le remplir et le remettre à l'intervenant
+                    <!-- (faire un lien cliquable permettant d’imprimer le document) --> </li>
+                </ul>
+              </div>
 
               <p>
                 Important :
@@ -889,14 +920,19 @@
                 Equipement conseillé <!-- VOIR PLUS -->
                 Choisir des vêtements souples adaptés aux conditions météorologiques, « respirants », privilégier les
                 « sous-couches » (type « pelure d’oignon » pour enlever au fur et à mesure une épaisseur avec le
-                réchauffement du corps et en remettre à l’arrêt de l’activité) ; le petit sac à dos (ou banane autour de la
+                réchauffement du corps et en remettre à l’arrêt de l’activité) ; le petit sac à dos (ou banane autour de
+                la
                 ceinture) ne doit pas (ainsi que les vêtements) entraver le mouvement des bras et la prise en main des
                 bâtons avec les gantelets
                 Chaussures souples, respirantes de type « Trail » au rayon « Athlétisme » ou au rayon « Marche
-                Nordique » ; pour votre confort « imperméables » pour l’hiver ! Quant aux chaussettes choisissez-les bien
+                Nordique » ; pour votre confort « imperméables » pour l’hiver ! Quant aux chaussettes choisissez-les
+                bien
                 aussi pour qu’il n’y ait pas de frottements avec l’échauffement du pied.
               </p>
-              
+
+              <p class="section-price">Tarif : Carte de 10 séances (les séances peuvent être réalisées tout au long de
+                l’année) :
+                80 € avec bâtons fournis à chaque séance.</p>
             </div>
 
           </div>
@@ -929,11 +965,22 @@
                 La sophrologie s’adresse à tous à l’exception des personnes atteintes de maladies liées à une
                 altération de la conscience (ex : schizophrénie, maniaco-dépressif, …).</p>
 
-              <p class="section-frequency">Planning : cours d’1H30 le vendredi après-midi hors périodes de vacances
+              <!--  <p class="section-frequency">Planning : cours d’1H30 le vendredi après-midi hors périodes de vacances
                 scolaires.
-                Séance d’essai possible toute l’année sur demande.</p>
-              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
-                Adam</p>
+                Séance d’essai possible toute l’année sur demande.</p> -->
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>Vendredi de 14h à 15h30</li> <!-- A CHANGER -->
+                </ul>
+              </div>
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                    Adam</li>
+                </ul>
+              </div>
               <p class="section-price">Tarif (année): 50€</p>
 
               <ul class="section-conditions">Conditions requises :
@@ -960,20 +1007,28 @@
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">Qu’est-ce que la pleine conscience ? Pourquoi et comment méditer ? Quelques heures pour
+              <p class="section-description">Qu’est-ce que la pleine conscience ? Pourquoi et comment méditer ? Quelques heures pour
                 expérimenter la méditation de pleine conscience et ainsi se familiariser avec cette pratique millénaire
                 pour peut-être développer l’envie d’aller plus loin dans cette découverte du fonctionnement de soi, de
                 ses pensées, de ses émotions, du lien corps esprit avec tous les benefices qui peuvent en découler.</p>
 
-              <p class="section-frequency">
-              <ul class="section-conditions">Planning :
-                <li>• lundi 8/01/2024 de 17H30 à 19H</li>
-                <li>• lundi 5/02/2024 de 17H30 à 19H</li>
-              </ul>
-              </p>
-              <p class="section-place">Lieu : salle cours 2, premier étage, Centre Culturel Michel Poniatowski, 1 chemin
-                Pierre Terver, 95290 L’Isle
-                Adam</p>
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>Lundi 8/01/2024 de 17H30 à 19H</li>
+                  <li>Lundi 5/02/2024 de 17H30 à 19H</li>
+                </ul>
+              </div>
+
+
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Salle cours 2, premier étage, Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290
+                    L’Isle
+                    Adam</li>
+                </ul>
+              </div>
               <p class="section-price">Tarif (pour 1 atelier) : 20€</p>
             </div>
 
@@ -994,21 +1049,57 @@
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">L’objectif n’est pas de faire de la thérapie, ni individuelle, ni de groupe.
+              <p class="section-description">L’objectif n’est pas de faire de la thérapie, ni individuelle, ni de groupe.
                 Mais simplement, expérimenter et apprécier ensemble cet état naturel qu’est
-                l’hypnose (que nous traversons plusieurs fois par jour, sans le savoir !) et
+                l’hypnose (que nous traversons plusieurs fois par jour, sans le savoir !) et
                 réaliser que les solutions sont en nous.
                 Chaque atelier commence par des questions/réponses sur l’hypnose et le
                 thème que l’on abordera.</p>
 
-              <p class="section-frequency">Planning : Toute l’année hors vacances scolaires, les mardis et jeudis de 10h
-                à
-                11h et de 15h à 16h.</p> <!-- REVOIR LE PLANNING FICHE ENVOYEE PAR MAIL VV  -->
-              <p class="section-place">Lieu : Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
-                Adam</p>
-              <p class="section-price">Tarif (année): 50€</p> 
+              <div class="section-frequency">
+                Planning :
+                <ul>
+                  <li>Vendredi 06/10/2023 de 15h30 à 17h00 -
+                    Thème : La confiance en soi</li>
 
+                  <li>Vendredi 08/12/2023 de 15h30 à 17h00 -
+                    Thème : Apaisement et calme intérieur
+                  </li>
+
+                  <li>Vendredi 09/02/2024 de 15h30 à 17h00 -
+                    Thème : L’auto-hypnose
+                  </li>
+
+                  <li>Vendredi 05/04/2024 de 15h30 à 17h00 -
+                    Thème : Réduire son stress
+                  </li>
+
+                  <li>Vendredi 07/06/2024 de 15h30 à 17h00 -
+                    Thème : Lâcher-prise
+                  </li>
+                </ul>
+              </div> 
               
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290 L’Isle
+                    Adam</li>
+                </ul>
+              </div>
+
+              <div class="section-conditions">
+                Conditions requises :
+                <ul>
+                  <li>Être adhérent</li>
+                  <li>L’atelier est accessible à tout public, en capacité de s’allonger par terre.</li>
+                  <li>Afin de favoriser l’interactivité, le groupe est de 8 personnes maximum.</li>
+                </ul>
+              </div>
+
+              <p class="section-price">Tarif (année): 50€</p>
+
+
             </div>
 
           </div>
@@ -1041,14 +1132,19 @@
               <div class="section-frequency">
                 Planning :
                 <ul>
-                  <li>• lundi 2/10/2023 de 18H30 à 20H30</li>
-                  <li>• vendredi 26/01/2024 de 16H à 18H</li>
+                  <li>Lundi 2/10/2023 de 18H30 à 20H30</li>
+                  <li>Vendredi 26/01/2024 de 16H à 18H</li>
                 </ul>
               </div>
 
-              <p class="section-place">Lieu : salle cours 2, premier étage, Centre Culturel Michel Poniatowski, 1 chemin
-                Pierre Terver, 95290 L’Isle
-                Adam</p>
+              <div class="section-place">
+                Lieu :
+                <ul>
+                  <li>Salle cours 2, premier étage, Centre Culturel Michel Poniatowski, 1 chemin Pierre Terver, 95290
+                    L’Isle
+                    Adam</li>
+                </ul>
+              </div>
 
               <p class="section-price">Tarif (pour 1 atelier) : 20€</p>
 
@@ -1072,7 +1168,7 @@
 
         <div class="article-content-wrapper">
           <div class="content-container">
-            <div class="content-item full-width">
+            <!-- <div class="content-item full-width">
               <p class="">
 
               <ul class="section-conditions">Contenu de l'atelier :
@@ -1085,7 +1181,7 @@
 
               <p class="section-frequency">
               <ul class="section-conditions">Planning :
-                <li>• lundi 2/10/2023 de 18H30 à 20H30</li>
+                <li>Lundi 2/10/2023 de 18H30 à 20H30</li>
                 <li>• vendredi 26/01/2024 de 16H à 18H</li>
               </ul>
               </p>
@@ -1097,7 +1193,7 @@
               <p class="section-price">Tarif (pour 1 atelier) : 20€</p>
 
 
-            </div>
+            </div> -->
 
           </div>
 
@@ -1111,7 +1207,7 @@
     <div class="activity-global-container" id="activity-food">
       <h1 class="activity-global-title">Alimentation</h1>
 
-      <div class="timeline-item food" id="at" data-type="food">
+      <div class="timeline-item food" id="as" data-type="food">
 
         <div class="activity-header">
           <div class="activity-data">
@@ -1120,23 +1216,27 @@
           </div>
 
           <div class="activity-image">
-                  <img src="src/images/activity/alimentation.png">
+            <img src="src/images/activity/alimentation.png">
           </div>
         </div>
 
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">
+              <p class="section-description">
                 En matière d’alimentation, nous avons tous des idées reçues et des habitudes;<br>
-                Or, pour adopter une alimentation protectrice pour la santé, il est nécessaire de comprendre les liens entre alimentation et santé. Ces ateliers ont pour objectif de faire le point sur une thématique alimentaire et d’échanger en petit groupe pour une assiette « santé et plaisir ».
+                Or, pour adopter une alimentation protectrice pour la santé, il est nécessaire de comprendre les liens
+                entre alimentation et santé. Ces ateliers ont pour objectif de faire le point sur une thématique
+                alimentaire et d’échanger en petit groupe pour une assiette « santé et plaisir ».
               </p>
 
               <div class="section-frequency">
                 Planning :
                 <ul>
-                  <li>lundi 6/11/23 - L’alimentation anti-inflammatoire <!-- : qu’est-ce que c’est et quels bénéfices ? Pour qui ? --></li>
-                  <li>vendredi 4/03/23 - Les fake news en nutrition <!-- : déjouer les messages santé qui sont faux  
+                  <li>lundi 6/11/23 - L’alimentation anti-inflammatoire
+                    <!-- : qu’est-ce que c’est et quels bénéfices ? Pour qui ? --></li>
+                  <li>vendredi 4/03/23 - Les fake news en nutrition
+                    <!-- : déjouer les messages santé qui sont faux  
                     Faire le tri entre  « ce qu’on pense être vrai » et « ce qui a été prouvé par les études ». <br> Explications sur la base d’exemples concrets. -->
                   </li>
                 </ul>
@@ -1149,7 +1249,7 @@
                     Adam</li>
                 </ul>
               </div>
-              
+
             </div>
 
           </div>
@@ -1159,9 +1259,9 @@
         <button class="toggle-content">Voir moins</button>
       </div>
 
-  
 
-      <div class="timeline-item food" id="at" data-type="food">
+
+      <div class="timeline-item food" id="ra" data-type="food">
         <div class="activity-header">
           <div class="activity-data">
             <h1 class="activity-title">Relations à l'alimentation</h1>
@@ -1169,14 +1269,14 @@
           </div>
 
           <div class="activity-image">
-              <img src="src/images/activity/comportement_alimentaire.jpg">
+            <img src="src/images/activity/comportement_alimentaire.jpg">
           </div>
         </div>
 
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="">Atelier d’échanges : « Et si on discutait de notre relation à l’alimentation ? »
+              <p class="section-description">Atelier d’échanges : « Et si on discutait de notre relation à l’alimentation ? »
                 Un temps d’échanges avec une psychologue et une micro-nutritionniste, pour
                 mieux comprendre les contrôles de la prise alimentaire
                 apprendre à déjouer les idées reçues et les comportements acquis.<br><br>
@@ -1185,7 +1285,7 @@
               <div class="section-frequency">
                 Planning :
                 <ul>
-                  <li>samedi 3 février 2024 - 10h à 12h</li> 
+                  <li>samedi 3 février 2024 - 10h à 12h</li>
                 </ul>
               </div>
               <div class="section-place">
