@@ -1,8 +1,8 @@
 document.querySelectorAll('.section').forEach(function(section) {
     section.addEventListener('mouseover', function() {
         const sectionRightContent = this.querySelector('.section_right_content');
-        sectionRightContent.style.transition = 'opacity 0.8s, right 0.5s';
-        sectionRightContent.style.transitionDelay = '0.25s';
+        sectionRightContent.style.transition = 'right 0.5s ease-out, opacity 0.5s ease-out';
+        /* sectionRightContent.style.transitionDelay = '0.2s'; */
         sectionRightContent.style.right = '5%';
         sectionRightContent.style.opacity = '1';
 

@@ -45,7 +45,7 @@ function centerSidebarLink(scroll_pos) {
 }
 
 window.addEventListener('scroll', function (e) {
-    last_known_scroll_position = window.scrollY;
+    last_known_scroll_position = this.window.scrollY;
 
     if (!ticking) {
         window.requestAnimationFrame(function () {
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const firstSidebarLink = document.querySelector("#sidebar a");
     if (firstSidebarLink) {
-        centerSidebarLink(firstSidebarLink);
+        centerSidebarLink(this.window.screenY);
     }
 
     const timelineItems = Array.from(document.querySelectorAll('.timeline-item'));

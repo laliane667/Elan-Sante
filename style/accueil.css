@@ -2,7 +2,7 @@ body{
   /* background-image: linear-gradient(to right, #c5ebff, #a9dbf7, #8ecbee, #71bae7, #51aadf, #51aadf, #51aadf, #51aadf, #71bae7, #8ecbee, #a9dbf7, #c5ebff); */
   background-image: linear-gradient(to left, #023e73, #034e86, #055f98, #0771ab, #0a83bd, #0a83bd, #0a83bd, #0a83bd, #0771ab, #055f98, #034e86, #023e73);
   /* background-image: linear-gradient(to left, #6accf6, #56bff0, #43b1eb, #2fa4e5, #1b96de, #1b96de, #1b96de, #1b96de, #2fa4e5, #43b1eb, #56bff0, #6accf6); */
-  background-color: var(--backGround);
+  background-color: #023e73;
 }
 
 .main__top{

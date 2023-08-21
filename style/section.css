@@ -55,7 +55,7 @@
   flex-direction: column;
   justify-content: space-around;
   color: #fff;
-  transition: right 0.5s ease-out, opacity 1.4s;
+  transition: right 0.5s ease-out, opacity 0.5s ease-out;
 }
 
 .section_right_content li{
@@ -136,9 +136,9 @@
   /* right: 50%; */
   /* transform: translate(-50%, -50%); */
   font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1400 - 300)));
-  font-weight: 100;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+  font-weight: 400;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #fff;
   z-index: 4;
   transition: left 0.5s ease-out;
