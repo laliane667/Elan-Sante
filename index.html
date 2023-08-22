@@ -130,11 +130,11 @@
 
 
     <div class="presentation_sentance_container">
-        <h3 id="presentation_sentance"><span class="presentation-keyword">Notre objectif :
-            promouvoir la santé physique et mentale.</span></h3>
+        <h3 id="presentation_sentance">Notre objectif :
+            promouvoir la santé physique et mentale.</h3>
     </div>
 
-
+    
 
     <div class="sectionContainer">
 
@@ -208,6 +208,12 @@
         </div>
     </div>
 
+
+    <div class="recent_news_container">
+        <h1>FORUM DES ASSOCIATIONS :</h1>
+        <h2>Retrouvez-nous et découvrez toutes nos activités samedi 9 septembre de 10h à 16h30 au gymnase A. Mauresmo à l’Isle Adam ! </h2>
+    </div>
+
     
     <!-- <div class="footer">
         <div class="footer_hdir">
@@ -227,7 +233,38 @@
         <h1>ADHÉSIONS</h1>
         <h2>&copy;ELAN SANTÉ</h2>
     </div> -->
-    
+    <script>
+        const inputs = document.querySelectorAll('.carouselContainer input[type="radio"]');
+let currentIndex = Array.from(inputs).indexOf(document.querySelector('.carouselContainer input[type="radio"]:checked'));
+let direction = 1; // Start with a positive direction (to the right)
+
+function switchRadio() {
+  // Uncheck the current radio
+  inputs[currentIndex].checked = false;
+
+  // Update the index
+  currentIndex += direction;
+
+  // If we've reached the far right, change direction to the left
+  if (currentIndex >= inputs.length) {
+    direction = -1;
+    currentIndex = inputs.length - 2; // We subtract 2 because we're counting zero-based and we've already incremented in this cycle
+  }
+
+  // If we've reached the far left, change direction to the right
+  if (currentIndex < 0) {
+    direction = 1;
+    currentIndex = 1; // We add 1 because we've already decremented in this cycle
+  }
+
+  // Check the next radio
+  inputs[currentIndex].checked = true;
+}
+
+// Switch the radio input every 2 seconds
+setInterval(switchRadio, 8000);
+
+    </script>
     <script src="app/app.js"></script>
     <script src="app/section.js"></script>
 </body>
