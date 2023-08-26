@@ -201,6 +201,11 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
+.navbar a{
+    width: fit-content;
+    height: 50px;
+}
+
 .navbar__container{
     display: flex;
     justify-content: center; 
@@ -256,7 +261,7 @@
 }
 
 #navbar__logo{
-    height: 60%;
+    height: 100%;
 }
 
 .navbar__links:hover{

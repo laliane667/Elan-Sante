@@ -397,6 +397,8 @@
 
     #galery-apa #img-inner,
     #galery-ebe #img-inner,
+    #galery-fb #img-inner,
+    #galery-sh #img-inner,
     #galery-mb #img-inner {
       top: 0;
       opacity: 0;
@@ -418,6 +420,8 @@
 
     #galery-apa #img-inner img,
     #galery-ebe #img-inner img,
+    #galery-fb #img-inner img,
+    #galery-sh #img-inner img,
     #galery-mb #img-inner img {
       height: 100%;
       width: 100%;
@@ -437,18 +441,24 @@
 
     #galery-apa #img-inner:hover~label.sb-bignav,
     #galery-ebe #img-inner:hover~label.sb-bignav,
+    #galery-fb #img-inner:hover~label.sb-bignav,
+    #galery-sh #img-inner:hover~label.sb-bignav,
     #galery-mb #img-inner:hover~label.sb-bignav {
       opacity: 0.5;
     }
 
     #galery-apa label.sb-bignav:hover,
     #galery-ebe label.sb-bignav:hover,
+    #galery-fb label.sb-bignav:hover,
+    #galery-sh label.sb-bignav:hover,
     #galery-mb label.sb-bignav:hover {
       opacity: 1;
     }
 
     #galery-apa .sb-bignav,
     #galery-ebe .sb-bignav,
+    #galery-fb .sb-bignav,
+    #galery-sh .sb-bignav,
     #galery-mb .sb-bignav {
       width: 25%;
       height: 100%;
@@ -473,6 +483,8 @@
 
     #galery-apa .sb-bignav-icon,
     #galery-ebe .sb-bignav-icon,
+    #galery-fb .sb-bignav-icon,
+    #galery-sh .sb-bignav-icon,
     #galery-mb .sb-bignav-icon {
       position: absolute;
       display: flex;
@@ -490,6 +502,8 @@
 
     #galery-apa input:checked+li>#img-inner,
     #galery-ebe input:checked+li>#img-inner,
+    #galery-fb input:checked+li>#img-inner,
+    #galery-sh input:checked+li>#img-inner,
     #galery-mb input:checked+li>#img-inner {
       opacity: 1;
 
@@ -502,17 +516,14 @@
       -webkit-transition: opacity 1s ease-in-out;
     }
 
+    #galery-mb input:checked+li>label,
+    #galery-fb input:checked+li>label,
+    #galery-ebe input:checked+li>label,
+    #galery-sh input:checked+li>label,
     #galery-apa input:checked+li>label {
       display: block;
     }
 
-    #galery-ebe input:checked+li>label {
-      display: block;
-    }
-
-    #galery-mb input:checked+li>label {
-      display: block;
-    }
 
 
 .more {
@@ -551,7 +562,9 @@
     </div>
   </div>
   <nav class="navbar">
-    <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
+    <a href="index.html">
+      <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
+    </a>
 
     <div class="navbar__container">
       <div class="navbar__toggle" id="mobile-menu">
@@ -600,11 +613,12 @@
           </li>
           <li><a href="#ebe" onclick="javascript: openActivity('ebe')" data-target="ebe">Étirements Bien-Être</a></li>
           <li><a href="#mb" onclick="javascript: openActivity('mb')" data-target="mb">Marche Bungypump</a></li>
+          <li><a href="#fb" onclick="javascript: openActivity('fb')" data-target="fb">Ateliers Fitball</a></li>
           <li><a href="#sr" onclick="javascript: openActivity('sr')" data-target="sr">Sophro-Relaxation</a></li>
           <li><a href="#pc" onclick="javascript: openActivity('pc')" data-target="pc">Pleine Conscience</a></li>
           <li><a href="#hy" onclick="javascript: openActivity('hy')" data-target="hy">Hypnose</a></li>
           <li><a href="#sh" onclick="javascript: openActivity('sh')" data-target="sh">Shiatsu</a></li>
-          <!-- <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Art-Thérapie</a></li> -->
+          <li><a href="#at" onclick="javascript: openActivity('at')" data-target="at">Art-Thérapie</a></li>
           <li><a href="#as" onclick="javascript: openActivity('as')" data-target="as">Alimentation Santé</a></li>
           <li><a href="#ra" onclick="javascript: openActivity('ra')" data-target="ra">Relations à l'alimentation</a></li>
         </ul>
@@ -967,13 +981,68 @@
       </div>
 
 
-      <div class="timeline-item sport" id="mb" data-type="sport">
+      <div class="timeline-item sport" id="fb" data-type="sport">
         <div class="activity-header">
           <div class="activity-data">
-            <h1 class="activity-title">Fitball</h1>
+            <h1 class="activity-title">Ateliers Fitball</h1>
             <h1 class="activity-presentator">Avec : <a href="">Sylvie Legiemble</a></h1>
           </div>
+          
+          <div class="activity-image">
+            <ul class="activity-image-body" id="galery-fb">
+              <input type="radio" name="radio-btn-fb" id="img-fb-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/fitball1.jpg">
+                </div>
+                <label for="img-fb-4" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-fb-2" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
 
+              <input type="radio" name="radio-btn-fb" id="img-fb-2" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/fitball2.jpg">
+                </div>
+                <label for="img-fb-1" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-fb-3" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-fb" id="img-fb-3" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/fitball3.jpg">
+                </div>
+                <label for="img-fb-2" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-fb-4" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-fb" id="img-fb-4" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/photos/apa4.jpg">
+                </div>
+                <label for="img-fb-3" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-fb-1" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="article-content-wrapper">
@@ -1020,7 +1089,7 @@
 
              
 
-              <p class="section-price">Tarif : 20€ l’atelier</p>
+              <p class="section-price">Tarif : 20 €/atelier</p>
             </div>
 
           </div>
@@ -1080,7 +1149,7 @@
                   <li>Avoir plus de 60 ans</li>
                 </ul>
               </div>
-              <p class="section-price">Tarif (année): 50€</p>
+              <p class="section-price">Tarif (année) : 50€</p>
 
              
             </div>
@@ -1125,7 +1194,7 @@
                     Adam</li>
                 </ul>
               </div>
-              <p class="section-price">Tarif (pour 1 atelier) : 20€</p>
+              <p class="section-price">Tarif : 20 €/atelier</p>
             </div>
 
           </div>
@@ -1185,7 +1254,7 @@
               </div>
 
               <div class="section-conditions">
-                Conditions requises :
+                Informations complémentaires :
                 <ul>
                   <li>Être adhérent</li>
                   <li>L’atelier est accessible à tout public, en capacité de s’allonger par terre.</li>
@@ -1193,7 +1262,7 @@
                 </ul>
               </div>
 
-              <p class="section-price">Tarif (année): 50€</p>
+              <p class="section-price">Tarif (année) : 50€</p>
 
 
             </div>
@@ -1207,10 +1276,59 @@
 
 
       <div class="timeline-item mind" id="sh" data-type="mind">
-        <div class="activity-data">
-          <h1 class="activity-title">Shiatsu</h1>
-          <h1 class="activity-presentator">Par : <a href="">Benoit Chevojon</a></h1>
+
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Shiatsu</h1>
+            <h1 class="activity-presentator">Par : <a href="">Benoit Chevojon</a></h1>
+          </div>
+
+          <div class="activity-image">
+            <ul class="activity-image-body" id="galery-sh">
+              <input type="radio" name="radio-btn-sh" id="img-sh-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/shiatsu1.jpeg">
+                </div>
+                <label for="img-sh-3" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-sh-2" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-sh" id="img-sh-2" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/shiatsu2.jpeg">
+                </div>
+                <label for="img-sh-1" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-sh-3" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              <input type="radio" name="radio-btn-sh" id="img-sh-3" />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/shiatsu3.jpeg">
+                </div>
+                <label for="img-sh-2" class="sb-bignav" title="Previous">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-sh-1" class="sb-bignav" title="Next">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+
+              
+            </ul>
+          </div>
         </div>
+       
 
         <div class="article-content-wrapper">
           <div class="content-container">
@@ -1231,6 +1349,7 @@
                 <ul>
                   <li>Lundi 2/10/2023 de 18H30 à 20H30</li>
                   <li>Vendredi 26/01/2024 de 16H à 18H</li>
+                  <li>Vendredi 26/04/2024 de 16H à 18H</li>
                 </ul>
               </div>
 
@@ -1243,7 +1362,7 @@
                 </ul>
               </div>
 
-              <p class="section-price">Tarif (pour 1 atelier) : 20€</p>
+              <p class="section-price">Tarif : 20 €/atelier</p>
 
 
             </div>
@@ -1322,19 +1441,16 @@
             <div class="content-item full-width">
               <p class="section-description">
                 En matière d’alimentation, nous avons tous des idées reçues et des habitudes;<br>
-                Or, pour adopter une alimentation protectrice pour la santé, il est nécessaire de comprendre les liens
-                entre alimentation et santé. Ces ateliers ont pour objectif de faire le point sur une thématique
-                alimentaire et d’échanger en petit groupe pour une assiette « santé et plaisir ».
+                Pour faire évoluer son alimentation, bien s’informer est nécessaire.
               </p>
 
               <div class="section-frequency">
                 Planning :
                 <ul>
-                  <li>lundi 6/11/23 - L’alimentation anti-inflammatoire
-                    <!-- : qu’est-ce que c’est et quels bénéfices ? Pour qui ? --></li>
-                  <li>vendredi 4/03/23 - Les fake news en nutrition
-                    <!-- : déjouer les messages santé qui sont faux  
-                    Faire le tri entre  « ce qu’on pense être vrai » et « ce qui a été prouvé par les études ». <br> Explications sur la base d’exemples concrets. -->
+                  <li>lundi 6/11/23 - L’alimentation anti-inflammatoire :<br>
+                    qu’est-ce que c’est et quels bénéfices ? Pour qui ?<br></li>
+                  <li>vendredi 4/03/23 - Les fake news en nutrition : <br>
+                    déjouer les messages santé qui sont faux. <br>Faire le tri entre «&nbsp;ce qu’on pense être vrai&nbsp;» et «&nbsp;ce qui a été prouvé par les études&nbsp;». Explications sur la base d’exemples concrets.
                   </li>
                 </ul>
               </div>
@@ -1392,7 +1508,7 @@
                     Adam</li>
                 </ul>
               </div>
-              <p class="section-price">Tarif : 20€</p>
+              <p class="section-price">Tarif : 20 €/atelier</p>
 
             </div>
 

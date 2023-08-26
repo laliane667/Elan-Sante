@@ -50,7 +50,9 @@
         </div>
     </div>
     <nav class="navbar">
-        <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
+        <a href="index.html">
+            <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
+        </a>
 
         <div class="navbar__container">
             <div class="navbar__toggle" id="mobile-menu">
@@ -106,13 +108,17 @@
         <input type="radio" name="position" />
         <input type="radio" name="position" />
         <input type="radio" name="position" />
+        <input type="radio" name="position" />
         <input type="radio" name="position" checked />
         <input type="radio" name="position" />
         <input type="radio" name="position" />
         <input type="radio" name="position" />
         <input type="radio" name="position" />
         <input type="radio" name="position" />
+        <input type="radio" name="position" />
         <main id="carousel">
+            <div class="item"></div>
+            <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
@@ -160,7 +166,7 @@
 
         <div class="section" id="section3">
             <div class="panel">
-                <h1>GESTION DU STRESS</h1>
+                <h1>BIEN-ÊTRE</h1>
             </div>
             <div class="circle" id="circle3"></div>
             <img class="sectionImg" src="src/images/mpCatalog3.png" alt="image3">
@@ -210,8 +216,9 @@
 
 
     <div class="recent_news_container">
-        <h1>FORUM DES ASSOCIATIONS :</h1>
-        <h2>Retrouvez-nous et découvrez toutes nos activités samedi 9 septembre de 10h à 16h30 au gymnase A. Mauresmo à l’Isle Adam ! </h2>
+        <h1>&#x25B7; FORUM DES ASSOCIATIONS :</h1>
+        <h2>Retrouvez-nous le samedi 9 septembre de 10h à 16h30 au gymnase A. Mauresmo à l’Isle Adam ! </h2>
+        <!-- <h2>&#x25B7;</h2> -->
     </div>
 
     
@@ -246,13 +253,13 @@ function switchRadio() {
   currentIndex += direction;
 
   // If we've reached the far right, change direction to the left
-  if (currentIndex >= inputs.length) {
+  if (currentIndex + 1 >= inputs.length) {
     direction = -1;
     currentIndex = inputs.length - 2; // We subtract 2 because we're counting zero-based and we've already incremented in this cycle
   }
 
   // If we've reached the far left, change direction to the right
-  if (currentIndex < 0) {
+  if (currentIndex - 1 < 0) {
     direction = 1;
     currentIndex = 1; // We add 1 because we've already decremented in this cycle
   }
