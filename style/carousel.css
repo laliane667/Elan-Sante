@@ -14,6 +14,7 @@
   input[type="radio"] {
     margin-top: -50px;
     cursor: pointer;
+    opacity: 0;
   }
 
 
@@ -35,9 +36,10 @@ main#carousel {
     /* margin-bottom: -340px; */
   }
   
-  .carousel_radio_container{
+ /*  .carousel_radio_container{
+    opacity: 0;
     background-color: #88d16b;
-  }
+  } */
   
   div.item {
     position: absolute;

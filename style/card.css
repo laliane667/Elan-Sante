@@ -200,7 +200,7 @@ svg {
 @media screen and (max-width: 960px) {
     .card {
         width: 20vw;
-        height: 25vh;
+        height: 28vh;
     }
 
     .title, .card h1 {

@@ -218,7 +218,7 @@
   } */
 /* } */
 
-@media screen and (max-height: 740px){
+@media screen and (max-height: 810px){
   @media screen and (max-width: 800px){
     .sectionContainer{
       width: 100%;
@@ -226,7 +226,7 @@
       display: flex;
       flex-direction:column;
       position: relative;
-      top: 80vh;
+      top: 70vh;
       padding-bottom: 35px;
     }
   
@@ -243,7 +243,7 @@
       display: flex;
       flex-direction:column;
       position: relative;
-      top: 70vh;
+      top: 60vh;
       padding-bottom: 35px;
     }
   
@@ -257,7 +257,7 @@
 }
 
 @media screen and (max-width: 800px){
-  @media screen and (min-height: 740px){
+  @media screen and (min-height: 810px){
     .sectionContainer{
       width: 100%;
       height: fit-content;
@@ -274,5 +274,12 @@
       min-width: 75%;
     }
 
+  }
+}
+
+
+@media screen and (max-height: 670px){
+  .sectionContainer{
+    top: 85vh;
   }
 }

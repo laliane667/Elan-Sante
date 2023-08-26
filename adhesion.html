@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élan Santé • Accueil</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://kit.fontawesome.com/5c4b16e6c8.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="src/favicon/favicon.ico">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="stylesheet" href="style/adhesion.css">
+
+</head>
+
+<body>
+    <div class="loader">
+        <div style="position: absolute; width: 100%; height: 100%; display: flex;">
+            <img id="loader-logo" src="src/images/logos/logo_elan_sante.png" alt=":)">
+        </div>
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <a href="index.html">
+            <img id="navbar__logo" src="src/images/logos/logo_accueil.png" alt="logo">
+        </a>
+
+        <div class="navbar__container">
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item" id="navbar__linkLogoContainer">
+                    <div class="btn-container">
+                        <a href="index.html" class="animated-word">ACCUEIL</a>
+                    </div>
+                </li>
+                <li class="navbar__item" id="navbar__linkLogoContainer">
+                    <div class="btn-container">
+                        <a href="activites.html" class="animated-word">ACTIVITÉS</a>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="publications.html" class="animated-word">PUBLICATIONS</a>
+                    </div>
+                </li>
+
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="presentation.html" class="animated-word">QUI SOMMES-NOUS ?</a>
+                    </div>
+                </li>
+
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="index.html" class="animated-word">ADHÉSION</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script src="app/app.js"></script>
+</body>
+</html>
