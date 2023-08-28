@@ -24,9 +24,9 @@ window.addEventListener('scroll', function (e) {
     }
 });
 
-function calculateRatio(entry) {
+/* function calculateRatio(entry) {
     return entry.intersectionRatio;
-}
+} */
 
 /* // On document ready
 document.addEventListener("DOMContentLoaded", () => {
@@ -57,6 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    const firstSidebarLink = document.querySelector("#sidebar a");
+    if (firstSidebarLink) {
+        centerSidebarLink(this.window.screenY);
+    }
     /* const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -127,13 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(item);
     });
 
-    const firstSidebarLink = document.querySelector("#sidebar a");
+    /* const firstSidebarLink = document.querySelector("#sidebar a");
     if (firstSidebarLink) {
         console.log('First sidebar link found');
         centerSidebarLink(firstSidebarLink);
     } else {
         console.log('First sidebar link not found');
-    }
+    } */
 
     const timelineItems = Array.from(document.querySelectorAll('.timeline-item'));
 

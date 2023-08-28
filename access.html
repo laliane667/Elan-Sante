@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élan Santé • Accueil</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://kit.fontawesome.com/5c4b16e6c8.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="src/favicon/favicon.ico">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="stylesheet" href="style/adhesion.css">
+
+    <style>
+        #login_container, #signup_container {
+            display: none;
+            left: 25%;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        #menu_container {
+            left: 25%;
+            opacity: 1;
+            z-index: 1;
+            
+        }
+
+        .adh_container {
+            top: 20%;
+            position: absolute;
+            width: 50%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            background-color: #00000023;
+            padding: 25px;
+        }
+
+        .adh_container h1 {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 100;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+        }
+
+        .adh_item {
+            margin: 25px 0;
+            width: 100%;
+            height: 75px;
+            background-color: #fff;
+            box-shadow: 15px 15px 40px rgba(0, 0, 0, .5);
+        }
+
+        .adh_link {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        .adh_link li {
+            transition: all 0.5s ease;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .access-button {
+            width: 50%;
+            border: none;
+            margin: auto 25%;
+            padding: 5px 10px;
+            cursor: pointer;
+            color: #000000;
+            background-color: #fff;
+            border-radius: 15px;
+            text-decoration: none;
+            border-width: 1px;
+            line-height: normal;
+            border: solid;
+            border-color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.5s ease;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .access-button:hover {
+            border-color: #000000;
+        }
+
+        .adh_link li:hover:before {
+            content: "> ";
+            position: absolute;
+            left: 30px;
+            margin-left: 10px;
+            font-size: 1.4rem;
+            font-weight: normal;
+        }
+
+        .access-input-container{
+            width: 80%;
+            margin: auto 10%;
+            padding: 5px 0;
+            height: fit-content;
+            display: flex;
+            justify-content:left;
+            border: none;
+            border-bottom: solid 1px #000;
+        }
+
+        .adh_link label{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.4rem;
+            margin-left: 15px;
+            margin-top: 3px;
+            flex-shrink: 0; 
+        }
+
+        .adh_link input{
+            padding: 2px 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            border: none;
+            flex-grow: 1; 
+        }
+
+        .access-back-button{
+            cursor: pointer;
+            transition: all 0.5s ease-out;
+            border-bottom: solid 1px #00000000;
+        }
+        .access-back-button:hover{
+            border-bottom: solid 1px #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader">
+        <div style="position: absolute; width: 100%; height: 100%; display: flex;">
+            <img id="loader-logo" src="src/images/logos/logo_elan_sante.png" alt=":)">
+        </div>
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <a href="index.html">
+            <img id="navbar__logo" src="src/images/logos/logo_accueil.png" alt="logo">
+        </a>
+
+        <div class="navbar__container">
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item" id="navbar__linkLogoContainer">
+                    <div class="btn-container">
+                        <a href="index.html" class="animated-word">ACCUEIL</a>
+                    </div>
+                </li>
+                <li class="navbar__item" id="navbar__linkLogoContainer">
+                    <div class="btn-container">
+                        <a href="activites.html" class="animated-word">ACTIVITÉS</a>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="publications.html" class="animated-word">PUBLICATIONS</a>
+                    </div>
+                </li>
+
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="presentation.html" class="animated-word">QUI SOMMES-NOUS ?</a>
+                    </div>
+                </li>
+
+                <li class="navbar__item">
+                    <div class="btn-container">
+                        <a href="index.html" class="animated-word">ADHÉSION</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="switch__container">
+        <form class="adh_container" id="signup_container">
+
+            <h1>Inscrivez-vous :</h1>
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <h1 style="opacity: 0;">< Retour</h1>
+                <h1 class="access-back-button">Retour ></h1>
+            </div>
+
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <div class="access-input-container">
+                            <label>Code de sécurité</label>
+                            <input name="security" type="password">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <div class="access-input-container">
+                            <label>Prénom</label>
+                            <input name="firstname">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <div class="access-input-container">
+                            <label>Nom</label>
+                            <input name="name">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <div class="access-input-container">
+                            <label>Email :</label>
+                            <input name="email" type="email">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <div class="access-input-container">
+                            <label>Mot de passe :</label>
+                            <input name="password" type="password">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <button class="access-button">Valider</button>
+
+            
+        </form>
+
+        <div class="adh_container" id="menu_container">
+
+            <h1>Bienvenue sur la page administrateur.</h1>
+    
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <button class="access-button" name="login">J'ai déjà un compte.</button>
+                    </li>
+                </ul>
+            </div>
+            <h1>OU</h1>
+    
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <button class="access-button" name="signup">Je me créer un compte.</button>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+
+        <form class="adh_container" id="login_container">
+
+            <h1>Connectez-vous :</h1>
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <h1 class="access-back-button">< Retour</h1>
+                <h1 style="opacity: 0;">Retour ></h1>
+            </div>
+    
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <div class="access-input-container">
+                            <label>Email :</label>
+                            <input name="email">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="adh_item">
+                <ul class="adh_link">
+                    <li>
+                        <div class="access-input-container">
+                            <label>Mot de passe :</label>
+                            <input name="password">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="access-button">Valider</button>
+
+            
+        </form>
+
+
+    </div>
+    <script>
+        $(document).ready(function() {
+    $('.access-button[name="login"]').on('click', function() {
+        // Animate the main div to slide out to the left
+        $('#menu_container').animate({
+            left: '0',
+            opacity: '0'
+        }, 0, function() {
+            $(this).hide();
+        });
+
+        $('#login_container').show().animate({
+            /* left: '35%',  */
+            opacity: '1'
+        }, 0);
+    });
+
+    $('.access-button[name="signup"]').on('click', function() {
+        $('#menu_container').animate({
+            right: '0',
+            opacity: '0'
+        }, 0, function() {
+            $(this).hide();
+        });
+
+        $('#signup_container').show().animate({
+            opacity: '1'
+        }, 0);
+    });
+
+    $('#login_container .access-back-button').on('click', function() {
+        $('#login_container').animate({
+            opacity: '0'
+        }, 0, function() {
+            $(this).hide();
+        });
+
+        $('#menu_container').show().css('left', '0').animate({
+            left: '25%', 
+            opacity: '1'
+        }, 0);
+    });
+
+    $('#signup_container .access-back-button').on('click', function() {
+        $('#signup_container').animate({
+            opacity: '0'
+        }, 0, function() {
+            $(this).hide();
+        });
+
+        $('#menu_container').show().css('right', '0').animate({
+            right: '25%', 
+            opacity: '1'
+        }, 0);
+    });
+});
+
+    </script>
+    <script src="app/app.js"></script>
+</body>
+
+</html>

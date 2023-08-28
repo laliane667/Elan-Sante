@@ -23,70 +23,136 @@
     <link rel="stylesheet" href="style/adhesion.css">
 
     <style>
+        .pdf_container{
+            width: 75%;
+            padding-top: 25px;
+            margin: 0 12.5%;
+            display: flex;
+            flex-direction: column;
+            background-color: #0000002c;
+        }
+        .pdf_container object{
+            margin: 25px 5%;
+        }
         .adh_container {
-            width: 30%;
-            margin: 100px 35% 35%;
+            width: 75%;
+            margin: auto 12.5%;
+            padding: 75px 10%;
             height: fit-content;
             display: flex;
             flex-direction: column;
+            background-color: #0000002c;
         }
 
         .adh_container h1 {
             color: #fff;
-            font-size: 1.4rem;
+            margin-top: 50px;
+            font-size: 1.6rem;
             font-weight: 100;
-            /* padding-left: 25px; */
             font-family: 'Roboto', sans-serif;
-            text-align: center;
+            text-align: left;
         }
 
         .adh_item {
-            margin: 25px 0;
+            margin: 15px 0;
             width: 100%;
-            height: 75px;
-            background-color: #fff;
+            padding: 5px;
+            height: fit-content;
+            background-color: #353535;
+            border-radius: 15px;
             /* display: flex;
             flex-direction: row;
             justify-content: left; */
-            box-shadow: 15px 15px 40px rgba(0, 0, 0, .5);
+            box-shadow: 15px 15px 40px rgba(0, 0, 0, .4);
             /* transition: all 0.5s ease; */
             /* align-items: center; */
         }
 
         .adh_link {
             margin: 0 auto;
-            width: fit-content;
+            width: 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items:flex-end;
         }
 
         .adh_link li {
             cursor: pointer;
             transition: all 0.5s ease;
             height: 100%;
+            padding: 5px 0;
+            width: 90%;
             display: flex;
-            align-items: center;
+            align-items: left;
         }
 
         .adh_link li a {
-            color: #000000;
+            color: #ffffff;
             text-decoration: none;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-bottom: solid;
+            border-width: 1px;
+            line-height: normal;
+            border-color: #ffffff00;
+            text-align: left;
+            transition: all 0.5s ease-out;
+        }
+
+        .adh_link li:hover a{
+            border-color: #ffffff;
         }
 
         .adh_link li:hover {
             text-align: left;
-            padding-left: 10px;
-            border-color: #000000;
+            padding-left: 5px;
         }
 
         .adh_link li:hover:before {
             content: "> ";
+            filter: invert(1);
             position: absolute;
-            left: 35%;
+            left: 25%;
             margin-left: 10px;
             font-size: 1.4rem;
             font-weight: normal;
+        }
+
+        @media screen and (max-width: 1060px) {
+            .pdf_container{
+                width: 100%;
+                height: 0;
+                margin: 0;
+                opacity: 0;
+                overflow: hidden;
+                display: none;
+            }
+            .pdf_container object{
+                margin: 25px 5%;
+            }
+            .adh_container {
+                width: 100%;
+                height: 92.5vh;
+                margin: 0;
+                padding: 50px 5%;
+            }
+
+            .adh_container h1 {
+                margin-top: 25px;
+                font-size: 1.2rem;
+            }
+            
+            .adh_link li:hover:before {
+                left: 10%;
+            }
+
+            .adh_link li:hover {
+                padding-left: 10px;
+            }
         }
     </style>
 </head>
@@ -153,25 +219,47 @@
 
 
     <div class="adh_container">
-        <h1>COMMENT ADHERER ?</h1>
-
+        <h1>1 - Le bulletin d'adhésion, obligatoire.</h1>
         <div class="adh_item">
             <ul class="adh_link">
-                <li>
-                    <a href="activites.html#sr">Je fais ma démarche en ligne.</a>
-                </li>
+                <li><p><a href="src/bulletin/BULLETIN_D'ADHESION_2023_24.pdf">Voir le pdf </a></p></li>
+                <li><p><a href="src/bulletin/BULLETIN_D'ADHESION_2023_24.pdf">Télécharger</a></p></li>
             </ul>
         </div>
-        <h1>OU</h1>
 
+        <h1>2 - Le choix des activités, pour tout âge.</h1>
         <div class="adh_item">
             <ul class="adh_link">
-                <li>
-                    <a href="bulletin.html">Je fais ma démarche sur papier.</a>
-                </li>
+                <li><p><a href="src/bulletin/ATELIERS_2023_24.pdf">Voir le pdf </a></p></li>
+                <li><p><a href="src/bulletin/BULLETIN_D'ADHESION_2023_24.pdf">Télécharger</a></p></li>
             </ul>
         </div>
+
+        <h1>3 - Le choix des activités, réservé aux plus de 60 ans.</h1>
+        <div class="adh_item">
+            <ul class="adh_link">
+                <li><p><a href="src/bulletin/ATELIERS_2023_24_60+.pdf">Voir le pdf </a></p></li>
+                <li><p><a href="src/bulletin/BULLETIN_D'ADHESION_2023_24.pdf">Télécharger</a></p></li>
+            </ul>
+        </div>
+
+       
+
+        
     </div>
+
+    <div class="pdf_container">
+        <object data="src/bulletin/BULLETIN_D'ADHESION_2023_24.pdf" type="application/pdf" width="90%" height="800px">
+        <p>Unable to display PDF file. <a href="src/bulletin/BULLETIN_D'ADHESION_2023_24.pdf">Download</a> instead.</p>
+        </object>
+        <object data="src/bulletin/ATELIERS_2023_24.pdf" type="application/pdf" width="90%" height="800px">
+        <p>Unable to display PDF file. <a href="src/bulletin/ATELIERS_2023_24.pdf">Download</a> instead.</p>
+        </object>
+        <object data="src/bulletin/ATELIERS_2023_24_60+.pdf" type="application/pdf" width="90%" height="800px">
+        <p>Unable to display PDF file. <a href="src/bulletin/ATELIERS_2023_24_60+.pdf">Download</a> instead.</p>
+        </object>
+    </div>
+    
     <script src="app/app.js"></script>
 </body>
 

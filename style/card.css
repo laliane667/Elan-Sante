@@ -169,7 +169,8 @@
 }
 
 #stroke1{
-    stroke: #6abfe3;
+    stroke: #0db1f3;
+    /* stroke: #6abfe3; */
 }
 #stroke2{
     stroke: #ffd670;
@@ -178,7 +179,7 @@
     stroke: #ff9770;
 }
 #stroke4{
-    stroke: #88d16b;
+    stroke: #2cd74b;
 }
 .stroke {
     /* stroke: white; */

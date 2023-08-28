@@ -83,18 +83,34 @@
       justify-content: space-between;
     }
 
+    .preview-section-title{
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 5px 15px;
+    }
+
     .newspapper {
       text-align: justify;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 1.1rem;
       line-height: 20px;
       font-weight: 100;
-      padding: 15px;
+      padding: 5px 15px;
+    }
 
+    .image-container{
+      width: 100%;
+      display: flex;
+    }
+
+    .uploaded-preview-image{
+      margin: 0 auto;
+      height: 20vh;
+      width: auto;
     }
 
     .content-item {
-
       margin-top: 15px;
       width: 100%;
       box-sizing: border-box;
@@ -149,11 +165,12 @@
     }
 
     .article-header-title{
-      text-align: center;
+      text-align: left;
       width: 50%;
       display: flex;
       flex-direction: column;
     }
+
 
     .article-title {
       width: 100%;
@@ -197,7 +214,14 @@
     }
 
 
-
+    .form-bloc-container{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+      margin: 15px 0;
+    }
 
     .tool-container{
       margin: 20px auto 0 auto;
@@ -216,10 +240,16 @@
     }
 
     .bloc-trash{
-      background-color: #910000;
+      background-color: #333;
+      width: 28px;
+      height: 24px;
+      border: none;
+      border-radius: 5px;
+      margin: auto 5px auto 0;
     }
 
     .full-width-form{
+      width: 95%;
       padding: 15px 0;
       background-color: #78b3e6;
       border: solid;
@@ -227,19 +257,15 @@
       /* min-height: 20px; */
     }
 
-    .article-title input,
-    .article-subtitle input{
-      border: none;
-      width: 60%;
-      padding: 3px 5px;
-      margin-left: 15px;
-      font-size: 1rem;
+    .half-width-form{
+      width: 47%;
+      padding: 15px 0;
+      background-color: #78b3e6;
+      border: solid;
+      border-color: #333;
     }
 
-    .article-title label,
-    .article-subtitle label{
-      margin: auto 0;
-    }
+    
 
 
     .form-title-input{
@@ -250,6 +276,7 @@
       font-size: 1rem;
     }
 
+    .form-image-input-container,
     .form-text-input-container{
       width: 100%;
       display: flex;
@@ -280,8 +307,75 @@
       margin: auto 0;
       overflow-y: auto; /* Add scroll bar if max-height is exceeded */
     }
+
+
+    .form-image-input{
+      width: 90%;
+    }
     
 
+    .form-title,
+    .form-author,
+    .form-date,
+    .form-status,
+    .form-subtitle{
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-title label,
+    .form-author label,
+    .form-date label,
+    .form-status label,
+    .form-subtitle label{
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      margin-left: 5px;
+    }
+
+    .form-title input,
+    .form-date input,
+    .form-author select,
+    .form-status select,
+    .form-subtitle input{
+      border: none;
+      /* border-top: solid #c0c0c054 1px; */
+      border-bottom: solid #c0c0c054 1px;
+      padding: 5px;
+      font-size: 1rem;
+    }
+
+    .form-title input::placeholder,
+    .form-date input,
+    .form-status select,
+    .form-author select,
+    .form-subtitle input::placeholder{
+      color: #636363;
+      font-size: 1rem;
+    }
+
+    .status-definition{
+      font-size: 0.9rem;
+      margin-top: 10px;
+      margin-left: 15px;
+      color: #333;
+    }
+
+    .form-message-container{
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .success-message{
+      color: green;
+    }
+
+    .error-message{
+      color: red;
+    }
 
   </style>
 </head>
@@ -290,7 +384,7 @@
   <script src="app/form-publication.js"></script>
   <div class="loader">
     <div style="position: absolute; width: 100%; height: 100%; display: flex;">
-      <img id="loader-logo" src="src/images/logo_elan_sante.png" alt=":)">
+      <img id="loader-logo" src="src/images/logos/logo_elan_sante.png" alt=":)">
     </div>
     <div class="loader-inner">
       <div class="loader-line-wrap">
@@ -305,8 +399,9 @@
     </div>
   </div>
   <nav class="navbar">
-    <img id="navbar__logo" src="src/images/logo_accueil.png" alt="logo">
-
+    <a href="index.html">
+      <img id="navbar__logo" src="src/images/logos/logo_accueil.png" alt="logo">
+    </a>
     <div class="navbar__container">
       <div class="navbar__toggle" id="mobile-menu">
         <span class="bar"></span>
@@ -350,68 +445,63 @@
 
     <div class="timeline-item" id="title-1">
       
+      <div class="form-title">
+        <label for="titre">Titre :</label>
+        <input type="text" name="titre" placeholder="Écrire ici...">
+      </div>
+
+      
+      <div class="form-subtitle">
+        <label for="sous-titre">Sous-titre :</label>
+        <input type="text" name="sous-titre" placeholder="Écrire ici...">
+      </div>
+
       <div class="article-header">
-        <div class="article-header-title">
-          <div class="article-title">
-            <label for="titre">Titre :</label>
-            <input type="text" name="titre" placeholder="Écrire ici...">
-          </div>
-          <div class="article-subtitle">
-            <label for="sous-titre">Sous-titre :</label>
-            <input type="text" name="sous-titre" placeholder="Écrire ici...">
+        <div class="article-header-title">   
+          <div class="form-author">
+            <label for="auteur">Auteur :</label>
+            <select id="auteur" name="auteur">
+              <option value="Sylvie Lamouroux">Sylvie Lamouroux</option>
+              <option value="Dominique Richier-Rousseau">Dominique Richier-Rousseau</option>
+            </select>
           </div>
         </div>
-        <h1 class="article-author">Par : <a href="">Mathieu Kaminski</a></h1>
+
+        <div class="article-header-title">
+          <div class="form-date">
+            <label for="date">Date :</label>
+            <input type="date" name="date" id="dateInput">
+          </div>
+        </div>
       </div>
       
+      <div class="form-status">
+        <label for="status">Status :</label>
+        <select id="input-status" name="status">
+          <option value="br">Brouillon</option>
+          <option value="pr">Privé</option>
+          <option value="nr">Non-répertorié</option>
+          <option value="pbl">Publique</option>
+        </select>
+
+        <h1 class="status-definition" id="article-status-preview"></h1>
+      </div>
+
       <div class="article-content-wrapper">
         <div class="content-container">
+
           
-          <!-- <div class="content-item full-width">
-            <p class="newspapper">La sédentarité est un mode de vie caractérisé par une faible activité physique et une
-              grande proportion de temps passé assis ou allongé. Elle est devenue un problème de santé publique
-              croissant en raison de ses liens avec de nombreuses maladies chroniques, notamment les maladies
-              cardiaques, le diabète de type 2 et l'obésité.</p>
-          </div>
-          <div class="content-item half-width left">
-            <p class="newspapper">La sédentarité est également associée à un risque accru de dépression, de troubles de
-              l'humeur et de déclin cognitif. Les personnes qui passent de nombreuses heures assises ont également un
-              risque accru de mortalité prématurée.</p>
-            <p class="newspapper">Il est important de noter que la sédentarité est distincte de l'absence d'exercice
-              physique. Il est possible de faire de l'exercice régulièrement, mais de passer encore de nombreuses heures
-              assis ou allongé. Les personnes qui travaillent dans des emplois sédentaires, comme les travailleurs de
-              bureau, sont particulièrement à risque.</p>
-              <p class="newspapper">Il existe plusieurs moyens de réduire sa sédentarité. Les personnes qui travaillent
-                dans des emplois sédentaires peuvent se lever et se déplacer régulièrement tout au long de la journée. Ils
-                peuvent également utiliser un bureau debout ou un tapis de marche pour continuer à bouger tout en
-                travaillant. Il est également important de ne pas rester assis pendant de longues périodes.</p>
-          </div>
-          <div class="content-item half-width right">
-            
-            <p class="newspapper">Enfin, l'exercice physique régulier est un moyen important de contrecarrer les effets
-              négatifs de la sédentarité. Il est recommandé de faire au moins 150 minutes d'exercice modéré ou 75
-              minutes d'exercice vigoureux par semaine. Cela peut être fait en pratiquant une activité physique de votre
-              choix, comme la marche, la course à pied, la natation ou le vélo.</p>
-
-            <img class="content-image" src="src/images/article/article-1-img-1.jpeg">
-          </div>
-
-          <div class="content-item full-width">
-            <p class="newspapper">En conclusion, la sédentarité est un problème de santé publique croissant qui est lié
-              à de nombreuses maladies chroniques. Il est important de réduire sa sédentarité en se levant et en se
-              déplaçant régulièrement tout au long de la journée, en utilisant un bureau debout ou un tapis de marche et
-              en faisant de l'exercice physique régulier.</p>
-          </div> -->
-
-          <div class="tool-container">
-            <button onclick="javascript: addFullSection()" >Ajouter un bloc entier</button>
-            <button onclick="javascript: addDoubleHalfSection()">Ajouter un double bloc</button>
-            <button onclick="javascript: addDoubleHalfSection()">Enregistrer les modifications</button>
         </div>
+        <div class="form-message-container">
+          <!-- <h1 class="success-message">Les modifications ont été enregistrées correctement.</h1> -->
+          <h1 class="error-message">Une erreur est survenue</h1>
         </div>
-
+        <div class="tool-container">
+          <button onclick="javascript: addFullSection()" >Ajouter un bloc entier</button>
+          <button onclick="javascript: addDoubleHalfSection()">Ajouter un double bloc</button>
+          <button onclick="javascript: addDoubleHalfSection()">Enregistrer les modifications</button>
+        </div>
       </div>
-      <div class="timeline-date">29 Juin, 2023</div>
     </div>
 
 
@@ -422,13 +512,13 @@
             <h1 class="article-title"></h1>
             <h2 class="article-subtitle"></h2>
           </div>
-          <h1 class="article-author">Par : <a href="">Mathieu Kaminski</a></h1>
+          <h1 class="article-author">Par : <a id="article-author-preview" href="">Mathieu Kaminski</a></h1>
         </div>
         <div class="article-content-wrapper">
           <div class="content-container">
           </div>
         </div>
-        <div class="timeline-date">29 Juin, 2023</div>
+        <div class="timeline-date" id="article-date-preview"></div>
       </div>
 
   </div>

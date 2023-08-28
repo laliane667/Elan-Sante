@@ -19,8 +19,6 @@ const mainTop = document.querySelector('.main__top');
 menu.addEventListener('click', function(){
     menu.classList.toggle('is-active');
     menuLink.classList.toggle('active');
-    /* catalogContainer.classList.toggle('position'); */
-    /* mainTop.classList.toggle('height'); */
 });
 
 let addOrRemoveLogo = false;
