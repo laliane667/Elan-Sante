@@ -25,6 +25,7 @@
     display: flex;
     height: 32vh;
     width: 15vw;
+    min-width: 175px;
     border-radius: 15px;
     box-shadow: -1rem 0px 20px rgba(0, 0, 0, 0.3);
     transition: 0.8s ease-out;
@@ -69,7 +70,7 @@
     left: 10%;
     top: 52%;
     width: 100%;
-    background-color: rgba(255,255,255, 0.5);
+    background-color: rgba(255, 255, 255, 0.643);
     z-index: 1;
     /* background-color: #0000FF; */
 }
@@ -252,7 +253,7 @@ svg {
     transition: 0.6s ease-out;
 }
 
-@media screen and (max-width: 960px) {
+/* @media screen and (max-width: 960px) {
     .card {
         width: 20vw;
         height: 28vh;
@@ -274,31 +275,158 @@ svg {
     .card-activity-list li:hover:before {
         font-size: 1rem;
     }
+} */
 
-    /*
 
-    .card:hover .filledbar {
-        width: 100px;
+/* @media screen and (max-height: 800px) {
+    .card-activity-link {
+        font-size: 0.8rem;
     }
 
-    
-    
-    .animatedBar {
-        width: 100px;
+    .card .see-more{
+        top: 88%;
+        font-size: 0.8rem;
     }
-    
-    
 
-    .card h2{
-        top: 245px;
+}   */
+
+
+
+@media screen and (max-height: 800px){
+    @media screen and (max-width: 800px){
+        .card {
+            width: 25vw;
+            min-width: 0;
+        }
+    
+        .title, .card h1 {
+            font-size: 1rem;
+        }
+
+        
+    
+        .cardFamily{
+            width: 15px;
+        }
+        
+        .card-activity-link {
+            font-size: 0.8rem;
+            line-height: normal;
+        }
+
+        /* .card-activity-list{
+            top: 69%;
+        } */
+        
+        .card-activity-list li:hover:before {
+            font-size: 1rem;
+        }
+
+        .card .see-more{
+            top: 92%;
+            font-size: 0.7rem;
+        }
     }
-    */
-}
+    @media screen and (min-width: 800px){
+        .card {
+            width: 15vw;
+            height: 35vh;
+            min-width: 0;
+        }
+    
+        .title, .card h1 {
+            font-size: 1rem;
+        }
+
+        .cardFamily{
+            width: 15px;
+        }
+        
+        .card-activity-link {
+            font-size: 1rem;
+            line-height: normal;
+        }
+
+        /* .card-activity-list{
+            top: 69%;
+        } */
+        
+        .card-activity-list li:hover:before {
+            font-size: 1rem;
+        }
+
+        .card .see-more{
+            top: 92%;
+            font-size: 0.7rem;
+        }
+    }
+  }
+  
+  @media screen and (max-width: 800px){
+    @media screen and (min-height: 800px){
+        .card {
+            width: 25vw;
+            height: 28vh;
+            min-width: 0;
+        }
+    
+        .title, .card h1 {
+            font-size: 1rem;
+        }
+    
+        .cardFamily{
+            width: 15px;
+        }
+        
+        .card-activity-link {
+            font-size: 0.8rem;
+            line-height: normal;
+        }
+
+        /* .card-activity-list{
+            top: 69%;
+        } */
+        
+        .card-activity-list li:hover:before {
+            font-size: 1rem;
+        }
+
+        .card .see-more{
+            top: 92%;
+            font-size: 0.6rem;
+            padding-top: 2px;
+        }
+    }
+  }
+
+
+
+
+
+
+
 
 @media screen and (max-width: 560px) {
+    @media screen and (max-height: 800px) {
+
+    .title{
+        top: 48%;
+    }
+
+    .animatedBar{
+        top: 65%;
+    }
+
+    .card-activity-list{
+        top: 66%;
+    }
+
+    .card-activity-link{
+        font-size: 0.7rem;
+    }
+
     .card {
         width: 30vw;
-        height: 30vh;
     }
 
     .card:not(:first-child) {
@@ -309,35 +437,57 @@ svg {
         left: 10vw;
     } 
 
+    .circle {
+        top: 0px;
+        left: calc(50% - 60px);
+    }
+
+    .circleImage {
+        width: 72px;  
+        left: 24px;
+        top: 24px;
+    }
+    }
 }
+
 
 @media screen and (max-height: 800px) {
-    .card-activity-link {
+    @media screen and (max-width: 560px) {
+    .card {
+        width: 30vw;
+        height: 32vh;
+        min-width: 0;
+    }
+
+    .title{
         font-size: 0.8rem;
     }
 
     .card .see-more{
-        top: 88%;
-        font-size: 0.8rem;
+        top: 90%;
+        font-size: 0.7rem;
     }
-
+    }
 }
 
-@media screen and (max-height: 575px) {
+@media screen and (max-width: 500px) {
+    @media screen and (max-height: 450px) {
+
+    .animatedBar{
+        display: none;
+    }
+
     .card .see-more{
         display: none;
     }
 
-    .card-activity-link {
-        line-height: 4vh;
+    .title{
+        top: 55%;
     }
 
-    .emptybar {
-        display: none;
+    .card-activity-list{
+        top: 70%;
     }
-    .filledbar {
-        display: none;
     }
-    
 }
-  
+
