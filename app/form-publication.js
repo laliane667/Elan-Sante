@@ -2,67 +2,7 @@ let bloc_counter = 0;
 let paragraph_counter = 0;
 let title_counter = 0;
 let image_counter = 0;
-
-
-function getFormattedDate() {
-    const value = dateInput.value;
-
-    const [year, month, day] = value.split('-');
-
-    const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-                        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-    
-    const formatted = `${day} ${monthNames[parseInt(month, 10) - 1]}, ${year}`;
-
-    return formatted;
-}
-
-window.addEventListener('DOMContentLoaded', (event) => {
-    let titleInput = document.querySelector('input[name="titre"]');
-    let subtitleInput = document.querySelector('input[name="sous-titre"]');
-    let authorInput = document.querySelector('select[name="auteur"]');
-    let dateInput = document.querySelector('input[name="date"]');
-    let statusInput = document.querySelector('select[name="status"]');
-
-    const currentDate = new Date();
-    const formattedDate = currentDate.toISOString().split("T")[0];
-    dateInput.value = formattedDate;
-
-    
-
-    if (titleInput) {
-        titleInput.addEventListener('input', function() {
-            updateTitlePreview(this.value);
-        });
-    }
-
-    if (subtitleInput) {
-        subtitleInput.addEventListener('input', function() {
-            updateSubtitlePreview(this.value);
-        });
-    }
-
-    if (authorInput) {
-        updateAuthorPreview(authorInput.value);
-        authorInput.addEventListener('input', function(){
-            updateAuthorPreview(this.value);
-        });
-    }
-
-    if (dateInput) {
-        updateDatePreview(dateInput.value);
-        dateInput.addEventListener('input', function(){
-            updateDatePreview(this.value);
-        });
-    }
-
-    if (statusInput) {
-        updateStatusPreview(statusInput.value);
-        statusInput.addEventListener('input', function(){
-            updateStatusPreview(this.value);
-        });
-    }
-});
+let anchor_counter = 0;
 
 //========================   BIG SECTION   =========================================================================================================================================================//
 
@@ -73,7 +13,9 @@ function addFullSection(){
     
     let fullDivContainer = document.createElement('div');
     fullDivContainer.className = "form-bloc-container";
-     
+    fullDivContainer.draggable = true;
+    fullDivContainer.dataset.blocCounter = blocCounter;
+
     let fullDiv = document.createElement("div");
     fullDiv.className = "full-width full-width-form";
     fullDiv.id = "article-section-" + bloc_counter;
@@ -88,8 +30,11 @@ function addFullSection(){
 
     let imageButton = "<button class='form-button' onclick='javascript: addImage(" + bloc_counter +", 0)'>Image</button>";
 
-    /*let anchorButton = "<button class='form-button' onclick='javascript: addTitle(" + bloc_counter +")'>Lien</button>";
-     */
+    let anchorButton = "<button class='form-button' onclick='javascript: addAnchor(" + bloc_counter +", 0)'>URL</button>";
+    
+    let dragHandle = document.createElement("div");
+    dragHandle.className = "drag-handle";
+    dragHandle.innerHTML = "&#9776;"; 
  
     let trashButton = document.createElement("button");
     trashButton.className = "bloc-trash";
@@ -98,13 +43,18 @@ function addFullSection(){
     blocToolContainer.innerHTML += titleButton;
     blocToolContainer.innerHTML += textButton;
     blocToolContainer.innerHTML += imageButton;
-    /* blocToolContainer.innerHTML += anchorButton; */
+    blocToolContainer.innerHTML += anchorButton;
 
     fullDiv.append(blocToolContainer);
-    addFullSectionToPreview(bloc_counter);
-    bloc_counter += 1;
+    addFullSectionToPublication(bloc_counter);
+
+    fullDivContainer.addEventListener('dragstart', function(e) {
+        e.dataTransfer.setData('text/plain', blocCounter);
+    });
+    
     fullDivContainer.append(trashButton);
     fullDivContainer.append(fullDiv);
+    fullDivContainer.append(dragHandle);
     container.append(fullDivContainer);
     console.log("Full");
 
@@ -112,6 +62,8 @@ function addFullSection(){
         fullDivContainer.remove(); 
         removeSimpleSection(blocCounter);
     });
+
+    bloc_counter += 1;
 }
 
 function addDoubleHalfSection(){
@@ -121,6 +73,8 @@ function addDoubleHalfSection(){
 
     let fullDivContainer = document.createElement('div');
     fullDivContainer.className = "form-bloc-container";
+    fullDivContainer.draggable = true;
+    fullDivContainer.dataset.blocCounter = blocCounter;
 
     let halfDivLeft = document.createElement("div");
     halfDivLeft.className = "half-width-form left";
@@ -129,6 +83,10 @@ function addDoubleHalfSection(){
     let halfDivRight = document.createElement("div");
     halfDivRight.className = "half-width-form right";
     halfDivRight.id = "article-right-section-" + bloc_counter;
+
+    let dragHandle = document.createElement("div");
+    dragHandle.className = "drag-handle";
+    dragHandle.innerHTML = "&#9776;"; 
 
     let trashButton = document.createElement("button");
     trashButton.className = "bloc-trash";
@@ -143,18 +101,22 @@ function addDoubleHalfSection(){
     let leftTitleButton = "<button class='form-button' onclick='javascript: addTitle(" + bloc_counter +", 1)'>Titre</button>";
     let leftTextButton = "<button class='form-button' onclick='javascript: addText(" + bloc_counter +", 1)'>Text</button>";
     let leftImageButton = "<button class='form-button' onclick='javascript: addImage(" + bloc_counter +", 1)'>Image</button>";
+    let leftAnchorButton = "<button class='form-button' onclick='javascript: addAnchor(" + bloc_counter +", 1)'>URL</button>";
 
     let rightTitleButton = "<button class='form-button' onclick='javascript: addTitle(" + bloc_counter +", 2)'>Titre</button>";
     let rightTextButton = "<button class='form-button' onclick='javascript: addText(" + bloc_counter +", 2)'>Text</button>";
     let rightImageButton = "<button class='form-button' onclick='javascript: addImage(" + bloc_counter +", 2)'>Image</button>";
+    let rightAnchorButton = "<button class='form-button' onclick='javascript: addAnchor(" + bloc_counter +", 2)'>URL</button>";
 
     leftBlocToolContainer.innerHTML += leftTitleButton;
     leftBlocToolContainer.innerHTML += leftTextButton;
     leftBlocToolContainer.innerHTML += leftImageButton;
+    leftBlocToolContainer.innerHTML += leftAnchorButton;
 
     rightBlocToolContainer.innerHTML += rightTitleButton;
     rightBlocToolContainer.innerHTML += rightTextButton;
     rightBlocToolContainer.innerHTML += rightImageButton;
+    rightBlocToolContainer.innerHTML += rightAnchorButton;
 
     halfDivLeft.append(leftBlocToolContainer);
     halfDivRight.append(rightBlocToolContainer);
@@ -162,28 +124,50 @@ function addDoubleHalfSection(){
     fullDivContainer.append(trashButton);
     fullDivContainer.append(halfDivLeft);
     fullDivContainer.append(halfDivRight);
+    fullDivContainer.append(dragHandle);
 
     container.append(fullDivContainer);
 
-    addHalfSectionToPreview(bloc_counter);
+    addHalfSectionToPublication(bloc_counter);
 
     trashButton.addEventListener('click', function() {
         fullDivContainer.remove();
         removeDoubleSection(blocCounter);
     });
+
+    fullDivContainer.addEventListener('dragstart', function(e) {
+        e.dataTransfer.setData('text/plain', blocCounter);
+    });
+    
+   /*  container.addEventListener('dragover', function(e) {
+        e.preventDefault();
+    });
+    
+    container.addEventListener('drop', function(e) {
+        e.preventDefault();
+        let from = Number(e.dataTransfer.getData('text/plain'));
+        let to = Array.from(container.children).indexOf(e.target.closest('.form-bloc-container'));
+        
+        if (to >= 0) {
+            rearrangeSections(from, to);
+            rearrangePublicationSections(from, to);
+        }
+    }); */
+
+    
     bloc_counter += 1;
 
 }
 
 function removeSimpleSection(bloc_counter){
-    let id = "preview-full-width-section-" + bloc_counter;
+    let id = "publication-full-width-section-" + bloc_counter;
     let section = document.getElementById(id);
     section.remove(); 
 }
 
 function removeDoubleSection(bloc_counter){
-    let rightId = "preview-half-right-section-" + bloc_counter;
-    let leftId = "preview-half-left-section-" + bloc_counter;
+    let rightId = "publication-half-right-section-" + bloc_counter;
+    let leftId = "publication-half-left-section-" + bloc_counter;
     let rightSection = document.getElementById(rightId);
     let leftSection = document.getElementById(leftId);
     rightSection.remove(); 
@@ -212,15 +196,15 @@ function addTitle(sectionId, blocType){
     let id = -1;
     switch(blocType){
         case 0 : id = 'article-section-' + sectionId;
-        addTitleToFullSectionPreview(sectionId, titleId);
+        addTitleToFullSectionPublication(sectionId, titleId);
         break;
 
         case 1 : id = 'article-left-section-' + sectionId;
-        addTitleToHalfSectionPreview(sectionId, titleId, 1);
+        addTitleToHalfSectionPublication(sectionId, titleId, 1);
         break;
 
         case 2 : id = 'article-right-section-' + sectionId;
-        addTitleToHalfSectionPreview(sectionId, titleId, 2);
+        addTitleToHalfSectionPublication(sectionId, titleId, 2);
         break;
     }
 
@@ -230,9 +214,9 @@ function addTitle(sectionId, blocType){
 
     titleInput.addEventListener('input', function() {
         switch(blocType){
-            case 0 : updateFullSectionPreview(this.value, "title", titleId); break;
-            case 1 : updateHalfSectionPreview(this.value, 1, "title", titleId); break;    
-            case 2 : updateHalfSectionPreview(this.value, 2, "title", titleId); break;
+            case 0 : updateFullSectionPublication(this.value, "title", titleId); break;
+            case 1 : updateHalfSectionPublication(this.value, 1, "title", titleId); break;    
+            case 2 : updateHalfSectionPublication(this.value, 2, "title", titleId); break;
         }
     });
 
@@ -240,9 +224,9 @@ function addTitle(sectionId, blocType){
         inputContainer.remove();
 
         switch (blocType) {
-            case 0: removeTitleFromFullSectionPreview(titleId); break;
-            case 1: removeTitleFromHalfSectionPreview(1, titleId); break;
-            case 2: removeTitleFromHalfSectionPreview(2, titleId); break;
+            case 0: removeTitleFromFullSectionPublication(titleId); break;
+            case 1: removeTitleFromHalfSectionPublication(1, titleId); break;
+            case 2: removeTitleFromHalfSectionPublication(2, titleId); break;
         }
 
     });
@@ -255,6 +239,7 @@ function addText(sectionId, blocType) {
 
     let inputContainer = document.createElement("div");
     inputContainer.className = "form-text-input-container";
+    inputContainer.id = "styled-text-input-" + paragraphId;
 
     let trashInput = document.createElement("button");
     trashInput.className = "form-trash-button";
@@ -268,17 +253,17 @@ function addText(sectionId, blocType) {
     switch (blocType) {
         case 0:
             id = 'article-section-' + sectionId;
-            addParagraphToFullSectionPreview(sectionId, paragraphId);
+            addParagraphToFullSectionPublication(sectionId, paragraphId);
             break;
 
         case 1:
             id = 'article-left-section-' + sectionId;
-            addParagraphToHalfSectionPreview(sectionId, paragraphId, 1);
+            addParagraphToHalfSectionPublication(sectionId, paragraphId, 1);
             break;
 
         case 2:
             id = 'article-right-section-' + sectionId;
-            addParagraphToHalfSectionPreview(sectionId, paragraphId, 2);
+            addParagraphToHalfSectionPublication(sectionId, paragraphId, 2);
             break;
     }
 
@@ -289,9 +274,9 @@ function addText(sectionId, blocType) {
     textInput.addEventListener('input', function() {
         autoAdjustHeight(this); 
         switch(blocType){
-            case 0 : updateFullSectionPreview(this.value, "paragraph", paragraphId); break;
-            case 1 : updateHalfSectionPreview(this.value, 1, "paragraph", paragraphId); break;    
-            case 2 : updateHalfSectionPreview(this.value, 2, "paragraph", paragraphId); break;
+            case 0 : updateFullSectionPublication(this.value, "paragraph", paragraphId); break;
+            case 1 : updateHalfSectionPublication(this.value, 1, "paragraph", paragraphId); break;    
+            case 2 : updateHalfSectionPublication(this.value, 2, "paragraph", paragraphId); break;
         }
     });
 
@@ -299,9 +284,9 @@ function addText(sectionId, blocType) {
         inputContainer.remove();
 
         switch (blocType) {
-            case 0: removeParagraphFromFullSectionPreview(paragraphId); break;
-            case 1: removeParagraphFromHalfSectionPreview(1, paragraphId); break;
-            case 2: removeParagraphFromHalfSectionPreview(2, paragraphId); break;
+            case 0: removeParagraphFromFullSectionPublication(paragraphId); break;
+            case 1: removeParagraphFromHalfSectionPublication(1, paragraphId); break;
+            case 2: removeParagraphFromHalfSectionPublication(2, paragraphId); break;
         }
 
     });
@@ -329,17 +314,17 @@ function addImage(sectionId, blocType){
     switch (blocType) {
         case 0:
             id = 'article-section-' + sectionId;
-            addImageToFullSectionPreview(sectionId, imageId);
+            addImageToFullSectionPublication(sectionId, imageId);
             break;
 
         case 1:
             id = 'article-left-section-' + sectionId;
-            addImageToHalfSectionPreview(sectionId, imageId, 1);
+            addImageToHalfSectionPublication(sectionId, imageId, 1);
             break;
 
         case 2:
             id = 'article-right-section-' + sectionId;
-            addImageToHalfSectionPreview(sectionId, imageId, 2);
+            addImageToHalfSectionPublication(sectionId, imageId, 2);
             break;
     }
 
@@ -351,9 +336,9 @@ function addImage(sectionId, blocType){
         inputContainer.remove();
 
         switch (blocType) {
-            case 0: removeImageFromFullSectionPreview(imageId); break;
-            case 1: removeImageFromHalfSectionPreview(1, imageId); break;
-            case 2: removeImageFromHalfSectionPreview(2, imageId); break;
+            case 0: removeImageFromFullSectionPublication(imageId); break;
+            case 1: removeImageFromHalfSectionPublication(1, imageId); break;
+            case 2: removeImageFromHalfSectionPublication(2, imageId); break;
         }
     });
 
@@ -367,9 +352,9 @@ function addImage(sectionId, blocType){
                 let imgSrc = event.target.result;
 
                 switch (blocType) {
-                    case 0: updateFullSectionPreview(imgSrc, "image", imageId); break;
-                    case 1: updateHalfSectionPreview(imgSrc, 1, "image", imageId); break;
-                    case 2: updateHalfSectionPreview(imgSrc, 2, "image", imageId); break;
+                    case 0: updateFullSectionPublication(imgSrc, "image", imageId); break;
+                    case 1: updateHalfSectionPublication(imgSrc, 1, "image", imageId); break;
+                    case 2: updateHalfSectionPublication(imgSrc, 2, "image", imageId); break;
                 }
             };
 
@@ -380,48 +365,107 @@ function addImage(sectionId, blocType){
     bloc_counter += 1;
 }
 
+function addAnchor(sectionId, blocType) {
+    let anchorId = anchor_counter;
+
+    let inputContainer = document.createElement("div");
+    inputContainer.className = "form-text-input-container";
+
+    let trashInput = document.createElement("button");
+    trashInput.className = "form-trash-button";
+    trashInput.innerHTML = "&#9587;";
+
+    let textInput = document.createElement("input");
+    textInput.className = "form-title-input";
+    textInput.placeholder = "Entrez un URL...";
+
+
+    let id = -1;
+    switch (blocType) {
+        case 0:
+            id = 'article-section-' + sectionId;
+            addAnchorToFullSectionPublication(sectionId, anchorId);
+            break;
+
+        case 1:
+            id = 'article-left-section-' + sectionId;
+            addAnchorToHalfSectionPublication(sectionId, anchorId, 1);
+            break;
+
+        case 2:
+            id = 'article-right-section-' + sectionId;
+            addAnchorToHalfSectionPublication(sectionId, anchorId, 2);
+            break;
+    }
+
+    inputContainer.append(trashInput);
+    inputContainer.append(textInput);
+    document.getElementById(id).append(inputContainer);
+
+    textInput.addEventListener('input', function() {
+        autoAdjustHeight(this); 
+        switch(blocType){
+            case 0 : updateFullSectionPublication(this.value, "anchor", anchorId); break;
+            case 1 : updateHalfSectionPublication(this.value, 1, "anchor", anchorId); break;    
+            case 2 : updateHalfSectionPublication(this.value, 2, "anchor", anchorId); break;
+        }
+    });
+
+    trashInput.addEventListener('click', function () {
+        inputContainer.remove();
+
+        switch (blocType) {
+            case 0: removeAnchorFromFullSectionPublication(anchorId); break;
+            case 1: removeAnchorFromHalfSectionPublication(1, anchorId); break;
+            case 2: removeAnchorFromHalfSectionPublication(2, anchorId); break;
+        }
+
+    });
+
+    anchor_counter += 1;
+}
 
 //================================================================================================================================================================================================//
 
 
 //========================   PARAGRAPH   =========================================================================================================================================================//
 
-function addParagraphToFullSectionPreview(sectionId, id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addParagraphToFullSectionPublication(sectionId, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let paragraph = document.createElement("p");
         paragraph.className = "newspapper";
-        paragraph.id = "preview-full-width-paragraph-" + id;
+        paragraph.id = "publication-full-width-paragraph-" + id;
 
-        let id_ = "preview-full-width-section-" + sectionId;
+        let id_ = "publication-full-width-section-" + sectionId;
         document.getElementById(id_).append(paragraph);
     }
 }
 
-function addParagraphToHalfSectionPreview(sectionId, id, destination){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addParagraphToHalfSectionPublication(sectionId, id, destination){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let paragraph = document.createElement("p");
         paragraph.className = "newspapper";
 
         let destinationId = -1;
         if(destination == 1){
-            paragraph.id = "preview-half-left-paragraph-" + id;
-            destinationId = "preview-half-left-section-" + sectionId;
+            paragraph.id = "publication-half-left-paragraph-" + id;
+            destinationId = "publication-half-left-section-" + sectionId;
 
         }else if (destination == 2){
-            paragraph.id = "preview-half-right-paragraph-" + id;
-            destinationId = "preview-half-right-section-" + sectionId;
+            paragraph.id = "publication-half-right-paragraph-" + id;
+            destinationId = "publication-half-right-section-" + sectionId;
         }
 
         document.getElementById(destinationId).append(paragraph);
     }
 }
 
-function removeParagraphFromFullSectionPreview(id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
-        let paragraphId = "preview-full-width-paragraph-" + id;
+function removeParagraphFromFullSectionPublication(id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
+        let paragraphId = "publication-full-width-paragraph-" + id;
         let paragraph = document.getElementById(paragraphId);
         if(paragraph){
             paragraph.remove();
@@ -430,15 +474,15 @@ function removeParagraphFromFullSectionPreview(id){
     }
 }
 
-function removeParagraphFromHalfSectionPreview(destination, id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function removeParagraphFromHalfSectionPublication(destination, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let paragraphId = -1;
         if(destination == 1){
-            paragraphId= "preview-half-left-paragraph-" + id;
+            paragraphId= "publication-half-left-paragraph-" + id;
 
         }else if (destination == 2){
-            paragraphId = "preview-half-right-paragraph-" + id;
+            paragraphId = "publication-half-right-paragraph-" + id;
         }
         let paragraph = document.getElementById(paragraphId);
         if(paragraph){
@@ -452,42 +496,42 @@ function removeParagraphFromHalfSectionPreview(destination, id){
 
 //========================   TITLE   =========================================================================================================================================================//
 
-function addTitleToFullSectionPreview(sectionId, id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addTitleToFullSectionPublication(sectionId, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let title = document.createElement("p");
-        title.className = "preview-section-title";
-        title.id = "preview-full-width-title-" + id;
+        title.className = "publication-section-title";
+        title.id = "publication-full-width-title-" + id;
 
-        let id_ = "preview-full-width-section-" + sectionId;
+        let id_ = "publication-full-width-section-" + sectionId;
         document.getElementById(id_).append(title);
     }
 }
 
-function addTitleToHalfSectionPreview(sectionId, id, destination){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addTitleToHalfSectionPublication(sectionId, id, destination){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let title = document.createElement("p");
-        title.className = "preview-section-title";
+        title.className = "publication-section-title";
 
         let destinationId = -1;
         if(destination == 1){
-            title.id = "preview-half-left-title-" + id;
-            destinationId = "preview-half-left-section-" + sectionId;
+            title.id = "publication-half-left-title-" + id;
+            destinationId = "publication-half-left-section-" + sectionId;
 
         }else if (destination == 2){
-            title.id = "preview-half-right-title-" + id;
-            destinationId = "preview-half-right-section-" + sectionId;
+            title.id = "publication-half-right-title-" + id;
+            destinationId = "publication-half-right-section-" + sectionId;
         }
 
         document.getElementById(destinationId).append(title);
     }
 }
 
-function removeTitleFromFullSectionPreview(id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
-        let titleId = "preview-full-width-title-" + id;
+function removeTitleFromFullSectionPublication(id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
+        let titleId = "publication-full-width-title-" + id;
         let title = document.getElementById(titleId);
         if(title){
             title.remove();
@@ -496,14 +540,14 @@ function removeTitleFromFullSectionPreview(id){
     }
 }
 
-function removeTitleFromHalfSectionPreview(destination, id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function removeTitleFromHalfSectionPublication(destination, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let titleId = -1;
         if(destination == 1){
-            titleId = "preview-half-left-title-" + id;
+            titleId = "publication-half-left-title-" + id;
         }else if (destination == 2){
-            titleId = "preview-half-right-title-" + id;
+            titleId = "publication-half-right-title-" + id;
         }
         let title = document.getElementById(titleId);
         if(title){
@@ -517,36 +561,36 @@ function removeTitleFromHalfSectionPreview(destination, id){
 
 //========================   IMAGE   =========================================================================================================================================================//
 
-function addImageToFullSectionPreview(sectionId, id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addImageToFullSectionPublication(sectionId, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let image = document.createElement("img");
-        image.className = "uploaded-preview-image";
-        image.id = "preview-full-width-image-" + id;
+        image.className = "uploaded-publication-image";
+        image.id = "publication-full-width-image-" + id;
 
         let container = document.createElement("div");
         container.className = "image-container";
         container.append(image);
 
-        let id_ = "preview-full-width-section-" + sectionId;
+        let id_ = "publication-full-width-section-" + sectionId;
         document.getElementById(id_).append(container);
     }
 }
 
-function addImageToHalfSectionPreview(sectionId, id, destination){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addImageToHalfSectionPublication(sectionId, id, destination){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let image = document.createElement("img");
-        image.className = "uploaded-preview-image";
+        image.className = "uploaded-publication-image";
 
         let destinationId = -1;
         if(destination == 1){
-            image.id = "preview-half-left-image-" + id;
-            destinationId = "preview-half-left-section-" + sectionId;
+            image.id = "publication-half-left-image-" + id;
+            destinationId = "publication-half-left-section-" + sectionId;
 
         }else if (destination == 2){
-            image.id = "preview-half-right-image-" + id;
-            destinationId = "preview-half-right-section-" + sectionId;
+            image.id = "publication-half-right-image-" + id;
+            destinationId = "publication-half-right-section-" + sectionId;
         }
 
         let container = document.createElement("div");
@@ -557,10 +601,10 @@ function addImageToHalfSectionPreview(sectionId, id, destination){
     }
 }
 
-function removeImageFromFullSectionPreview(id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
-        let imageId = "preview-full-width-image-" + id;
+function removeImageFromFullSectionPublication(id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
+        let imageId = "publication-full-width-image-" + id;
         let image = document.getElementById(imageId);
         if(image){
             image.remove();
@@ -569,18 +613,84 @@ function removeImageFromFullSectionPreview(id){
     }
 }
 
-function removeImageFromHalfSectionPreview(destination, id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function removeImageFromHalfSectionPublication(destination, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let imageId = -1;
         if(destination == 1){
-            imageId = "preview-half-left-image-" + id;
+            imageId = "publication-half-left-image-" + id;
         }else if (destination == 2){
-            imageId = "preview-half-right-image-" + id;
+            imageId = "publication-half-right-image-" + id;
         }
         let image = document.getElementById(imageId);
         if(image){
             image.remove();
+        }
+
+    }
+}
+
+//================================================================================================================================================================================================//
+
+
+//========================   ANCHOR   =========================================================================================================================================================//
+
+function addAnchorToFullSectionPublication(sectionId, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
+        let anchor = document.createElement("a");
+        anchor.className = "publication-section-anchor";
+        anchor.id = "publication-full-width-anchor-" + id;
+
+        let id_ = "publication-full-width-section-" + sectionId;
+        document.getElementById(id_).append(anchor);
+    }
+}
+
+function addAnchorToHalfSectionPublication(sectionId, id, destination){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
+        let anchor = document.createElement("a");
+        anchor.className = "publication-section-anchor";
+
+        let destinationId = -1;
+        if(destination == 1){
+            anchor.id = "publication-half-left-anchor-" + id;
+            destinationId = "publication-half-left-section-" + sectionId;
+
+        }else if (destination == 2){
+            anchor.id = "publication-half-right-anchor-" + id;
+            destinationId = "publication-half-right-section-" + sectionId;
+        }
+
+        document.getElementById(destinationId).append(anchor);
+    }
+}
+
+function removeAnchorFromFullSectionPublication(id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
+        let anchorId = "publication-full-width-anchor-" + id;
+        let anchor = document.getElementById(anchorId);
+        if(anchor){
+            anchor.remove();
+        }
+
+    }
+}
+
+function removeAnchorFromHalfSectionPublication(destination, id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
+        let anchorId = -1;
+        if(destination == 1){
+            anchorId = "publication-half-left-anchor-" + id;
+        }else if (destination == 2){
+            anchorId = "publication-half-right-anchor-" + id;
+        }
+        let anchor = document.getElementById(anchorId);
+        if(anchor){
+            anchor.remove();
         }
 
     }
@@ -592,58 +702,59 @@ function removeImageFromHalfSectionPreview(destination, id){
 
 //========================   PREVIEW   =========================================================================================================================================================//
 
-function updateFullSectionPreview(text, targetType, id){
-    let previewSection = document.getElementById("realtime-preview");
+function updateFullSectionPublication(text, targetType, id){
+    let publicationSection = document.getElementById("realtime-publication");
 
-    if(previewSection){
+    if(publicationSection){
 
         let id_;
         switch(targetType){
-            case "title" : id_ = "preview-full-width-title-" + id; break;
-
-            case "paragraph" : id_ = "preview-full-width-paragraph-" + id; break;
-
-            case "image" : id_ = "preview-full-width-image-" + id; break;
-
-            /* let preview = document.getElementById("realtime-preview");
-            let previewSection = preview.querySelector('.content-container');
-            let imageElement = document.createElement('img');
-            imageElement.src = text;
-            //imageElement.className = 'uploaded-preview-image'; // To style the image in preview if required
-            previewSection.appendChild(imageElement); */
+            case "title" : id_ = "publication-full-width-title-" + id; break;
+            case "paragraph" : id_ = "publication-full-width-paragraph-" + id; break;
+            case "image" : id_ = "publication-full-width-image-" + id; break;
+            case "anchor" : id_ = "publication-full-width-anchor-" + id; break;
         }
 
         let destination = document.getElementById(id_);
         if(destination){
             if(targetType == "image"){
                 destination.src = text;
-            }else{
+            }else if(targetType == "anchor"){
+                destination.innerHTML = text;
+                destination.href = text;
+            }else if(targetType == "paragraph"){
+                destination.innerHTML = text;
+                /* updatePreview(destination, text); */
+            }
+            else{
                 destination.innerHTML = text;
             }
         }
     }
 }
 
-function updateHalfSectionPreview(text, pan, targetType, id){
-    let previewSection = document.getElementById("realtime-preview");
+function updateHalfSectionPublication(text, pan, targetType, id){
+    let publicationSection = document.getElementById("realtime-publication");
 
     console.log("ID"+ id);
-    if(previewSection){
+    if(publicationSection){
 
         let destinationId = -1;
         if(pan == 1){
             switch(targetType){
-                case "title" : destinationId = "preview-half-left-title-" + id; break;
-                case "paragraph" : destinationId = "preview-half-left-paragraph-" + id; break;
-                case "image" : destinationId = "preview-half-left-image-" + id; break;
+                case "title" : destinationId = "publication-half-left-title-" + id; break;
+                case "paragraph" : destinationId = "publication-half-left-paragraph-" + id; break;
+                case "image" : destinationId = "publication-half-left-image-" + id; break;
+                case "anchor" : destinationId = "publication-half-left-anchor-" + id; break;
             }
             
 
         }else if (pan == 2){
             switch(targetType){
-                case "title" : destinationId = "preview-half-right-title-" + id; break;
-                case "paragraph" : destinationId = "preview-half-right-paragraph-" + id; break;
-                case "image" : destinationId = "preview-half-right-image-" + id; break;
+                case "title" : destinationId = "publication-half-right-title-" + id; break;
+                case "paragraph" : destinationId = "publication-half-right-paragraph-" + id; break;
+                case "image" : destinationId = "publication-half-right-image-" + id; break;
+                case "anchor" : destinationId = "publication-half-right-anchor-" + id; break;
             }
             
         }
@@ -652,6 +763,12 @@ function updateHalfSectionPreview(text, pan, targetType, id){
         if(destination){
             if(targetType == "image"){
                 destination.src = text;
+            }else if(targetType == "anchor"){
+                destination.innerHTML = text;
+                destination.href = text;
+            }else if(targetType == "paragraph"){
+                destination.innerHTML = text;
+                /* updatePreview(destination, text); */
             }else{
                 destination.innerHTML = text;
             }
@@ -659,73 +776,33 @@ function updateHalfSectionPreview(text, pan, targetType, id){
     }
 }
 
-function updateTitlePreview(title) {
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection) {
-        previewSection.querySelector('.article-title').textContent = title;
-    }
-}
-
-function updateSubtitlePreview(subtitle) {
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection) {
-        previewSection.querySelector('.article-subtitle').textContent = subtitle;
-    }
-}
-
-function updateAuthorPreview(author) {
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection) {
-        previewSection.querySelector('#article-author-preview').innerHTML = author;
-    }
-}
-
-function updateDatePreview(date) {
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection) {
-        previewSection.querySelector('#article-date-preview').innerHTML = getFormattedDate();
-    }
-}
-
-function updateStatusPreview(status) {
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection) {
-        switch(status){
-            case "br" : document.querySelector('#article-status-preview').innerHTML = "Vous-seul pourrez voir et modifier l'article."; break;
-            case "pr" : document.querySelector('#article-status-preview').innerHTML = "Tous les administrateurs pourront voir et modifier l'article."; break;
-            case "nr" : document.querySelector('#article-status-preview').innerHTML = "Visible par tout le monde avec le lien de partage. Pas visible dans 'Publications'."; break;
-            case "pbl" : document.querySelector('#article-status-preview').innerHTML = "L'article est publié sur le site."; break;
-        }
-        
-    }
-}
 
 
 
-function addFullSectionToPreview(id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addFullSectionToPublication(id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         let fullDiv =  document.createElement("div");
         fullDiv.className = "content-item full-width";
-        fullDiv.id = "preview-full-width-section-" + id;
-        previewSection.querySelector('.content-container').append(fullDiv);
+        fullDiv.id = "publication-full-width-section-" + id;
+        publicationSection.querySelector('.content-container').append(fullDiv);
     }
 }
 
-function addHalfSectionToPreview(id){
-    let previewSection = document.getElementById("realtime-preview");
-    if(previewSection){
+function addHalfSectionToPublication(id){
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection){
         
         let leftDiv =  document.createElement("div");
         leftDiv.className = "content-item half-width left";
-        leftDiv.id = "preview-half-left-section-" + id;
+        leftDiv.id = "publication-half-left-section-" + id;
 
         let rightDiv =  document.createElement("div");
         rightDiv.className = "content-item half-width right";
-        rightDiv.id = "preview-half-right-section-" + id;
+        rightDiv.id = "publication-half-right-section-" + id;
 
-        previewSection.querySelector('.content-container').append(leftDiv);
-        previewSection.querySelector('.content-container').append(rightDiv);
+        publicationSection.querySelector('.content-container').append(leftDiv);
+        publicationSection.querySelector('.content-container').append(rightDiv);
     }
 }
 
@@ -735,4 +812,350 @@ function addHalfSectionToPreview(id){
 function autoAdjustHeight(textarea) {
     textarea.style.height = 'auto'; 
     textarea.style.height = textarea.scrollHeight + 'px'; 
+}
+
+
+
+function getFormattedDate() {
+    const value = dateInput.value;
+
+    const [year, month, day] = value.split('-');
+
+    const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+                        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    
+    const formatted = `${day} ${monthNames[parseInt(month, 10) - 1]}, ${year}`;
+
+    return formatted;
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    
+    let titleInput = document.querySelector('input[name="titre"]');
+    let subtitleInput = document.querySelector('input[name="sous-titre"]');
+    let authorInput = document.querySelector('select[name="auteur"]');
+    let dateInput = document.querySelector('input[name="date"]');
+    let statusInput = document.querySelector('select[name="status"]');
+
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString().split("T")[0];
+    dateInput.value = formattedDate;
+
+    
+
+    if (titleInput) {
+        titleInput.addEventListener('input', function() {
+            updateTitlePublication(this.value);
+        });
+    }
+
+    if (subtitleInput) {
+        subtitleInput.addEventListener('input', function() {
+            updateSubtitlePublication(this.value);
+        });
+    }
+
+    if (authorInput) {
+        updateAuthorPublication(authorInput.value);
+        authorInput.addEventListener('input', function(){
+            updateAuthorPublication(this.value);
+        });
+    }
+
+    if (dateInput) {
+        updateDatePublication(dateInput.value);
+        dateInput.addEventListener('input', function(){
+            updateDatePublication(this.value);
+        });
+    }
+
+    if (statusInput) {
+        updateStatusPublication(statusInput.value);
+        statusInput.addEventListener('input', function(){
+            updateStatusPublication(this.value);
+        });
+    }
+
+    initializeDragAndDrop();
+});
+
+
+
+function updateTitlePublication(title) {
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection) {
+        publicationSection.querySelector('.article-title').textContent = title;
+    }
+}
+
+function updateSubtitlePublication(subtitle) {
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection) {
+        publicationSection.querySelector('.article-subtitle').textContent = subtitle;
+    }
+}
+
+function updateAuthorPublication(author) {
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection) {
+        publicationSection.querySelector('#article-author-publication').innerHTML = author;
+    }
+}
+
+function updateDatePublication(date) {
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection) {
+        publicationSection.querySelector('#article-date-publication').innerHTML = getFormattedDate();
+    }
+}
+
+function updateStatusPublication(status) {
+    let publicationSection = document.getElementById("realtime-publication");
+    if(publicationSection) {
+        switch(status){
+            case "br" : document.querySelector('#article-status-publication').innerHTML = "Vous-seul pourrez voir et modifier l'article."; break;
+            case "pr" : document.querySelector('#article-status-publication').innerHTML = "Tous les administrateurs pourront voir et modifier l'article."; break;
+            case "nr" : document.querySelector('#article-status-publication').innerHTML = "Visible par tout le monde avec le lien de partage. Pas visible dans 'Publications'."; break;
+            case "pbl" : document.querySelector('#article-status-publication').innerHTML = "L'article est publié sur le site."; break;
+        }
+        
+    }
+}
+function rearrangeSections(fromIndex, toIndex) {
+    let container = document.querySelector('.content-container');
+    let sections = Array.from(container.querySelectorAll('.form-bloc-container'));
+
+    if (!sections[fromIndex]) return;
+
+    let fromSection = sections[fromIndex];
+
+    if (fromIndex < toIndex) {
+        if (toIndex + 1 < sections.length) {
+            container.insertBefore(fromSection, sections[toIndex + 1]);
+        } else {
+            container.append(fromSection);
+        }
+    } else if (fromIndex > toIndex) {
+        container.insertBefore(fromSection, sections[toIndex]);
+    }
+
+    sections = Array.from(container.querySelectorAll('.form-bloc-container'));
+    sections.forEach((section, idx) => {
+        let isDouble = section.querySelector('.half-width-form');
+        if (isDouble) {
+            section.querySelector('.left').id = "article-left-section-" + idx;
+            section.querySelector('.right').id = "article-right-section-" + idx;
+        } else {
+            section.querySelector('.full-width-form').id = "article-section-" + idx;
+        }
+
+        section.dataset.blocCounter = idx;
+    });
+
+    initializeDragAndDrop();
+}
+
+
+
+
+
+function rearrangePublicationSections(fromIndex, toIndex) {
+    let publicationSection = document.getElementById("realtime-publication");
+    let sections = publicationSection.querySelectorAll('.content-container .content-item');
+
+    let fromSections = Array.from(sections).filter(section => {
+        let currentIdx = parseInt(section.id.split("-").pop());
+        return currentIdx === fromIndex;
+    });
+
+    let toSection = sections[toIndex * 2];
+
+    if (!toSection && fromSections.length) {
+        fromSections.forEach(fromSection => {
+            fromSection.parentElement.append(fromSection);
+        });
+    } else if (toSection) {
+        fromSections.forEach(fromSection => {
+            toSection.parentElement.insertBefore(fromSection, toSection);
+        });
+    }
+
+    // Reset IDs first
+    sections.forEach(section => {
+        section.id = '';
+    });
+
+    // Update the IDs
+    sections = publicationSection.querySelectorAll('.content-container .content-item');
+    let verticalPos = 0; // This will track the vertical position
+    for(let i = 0; i < sections.length; i++) {
+        let section = sections[i];
+        if (section.classList.contains('left')) {
+            section.id = "publication-half-left-section-" + verticalPos;
+        } else if (section.classList.contains('right')) {
+            section.id = "publication-half-right-section-" + verticalPos;
+            verticalPos++; // Move to next vertical position only after right half
+        } else {
+            section.id = "publication-full-width-section-" + verticalPos;
+            verticalPos++;
+        }
+    }
+
+}
+/* 
+function initializeDragAndDrop() {
+    let container = document.querySelector(".content-container");
+    
+    container.addEventListener('dragover', function(e) {
+        e.preventDefault();
+    });
+    
+    container.addEventListener('drop', function(e) {
+        e.preventDefault();
+        let from = Number(e.dataTransfer.getData('text/plain'));
+        let to = Array.from(container.children).indexOf(e.target.closest('.form-bloc-container'));
+        
+        if (to >= 0) {
+            rearrangeSections(from, to);
+            rearrangePublicationSections(from, to);
+        }
+    });
+}
+
+ */
+
+function initializeDragAndDrop() {
+    let draggableItems = document.querySelectorAll('.form-bloc-container'); 
+
+    draggableItems.forEach(item => {
+        // Clear any old listeners
+        item.removeEventListener('dragstart', handleDragStart);
+
+        // Add the new listener
+        item.addEventListener('dragstart', handleDragStart);
+    });
+}
+
+function handleDragStart(e) {
+    e.dataTransfer.setData('text/plain', e.currentTarget.dataset.blocCounter);
+}
+
+// This function should be called every time sections are rearranged or modified
+function refreshEventListeners() {
+    initializeDragAndDrop();
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    // This is the main container's event listeners, which can be set once and don't need to be refreshed
+    let container = document.querySelector(".content-container");
+    container.addEventListener('dragover', function(e) {
+        e.preventDefault();
+    });
+    
+    container.addEventListener('drop', function(e) {
+        e.preventDefault();
+        let from = Number(e.dataTransfer.getData('text/plain'));
+        let to = Array.from(container.children).indexOf(e.target.closest('.form-bloc-container'));
+        
+        if (to >= 0) {
+            rearrangeSections(from, to);
+            rearrangePublicationSections(from, to);
+
+            // IMPORTANT: Refresh the event listeners after rearranging
+            refreshEventListeners();
+        }
+    });
+
+    // Initialize event listeners when the page loads
+    refreshEventListeners();
+});
+
+
+
+
+let lastFocusedTextarea = null;
+
+// Track the last focused textarea
+document.addEventListener('focus', function(e) {
+    if (e.target.matches('.form-text-input')) {
+        lastFocusedTextarea = e.target;
+    }
+}, true);
+
+function applyStyle(style) {
+    if (!lastFocusedTextarea) return;
+
+    const container = lastFocusedTextarea.closest('.form-text-input-container');
+    const containerId = container.getAttribute('id');
+    
+    let id = extractNumberFromEnd(containerId);
+
+    let paragraphId = "publication-full-width-paragraph-" + id;
+    let halfLeftParagraphId = "publication-half-left-paragraph-" + id;
+    let halfRightParagraphId = "publication-half-right-paragraph-" + id;
+
+    let preview = document.getElementById(paragraphId);
+    if(!preview){
+        preview = document.getElementById(halfLeftParagraphId);
+        if(!preview){
+            preview = document.getElementById(halfRightParagraphId);
+            if(!preview){
+                return;
+            }
+        }
+    }
+
+    /* if (!lastFocusedTextarea.selectionEnd - lastFocusedTextarea.selectionStart) return; */ // No text is selected.
+/* 
+    if (!preview) {
+        preview = document.createElement('div');
+        preview.className = "newspaper";
+        container.appendChild(preview);
+    } */
+
+    let styledText = lastFocusedTextarea.value;
+    switch (style) {
+        case 'normal':
+            styledText = wrapSelectedText(lastFocusedTextarea, '');
+            break;
+        case 'bold':
+            styledText = wrapSelectedText(lastFocusedTextarea, '**');
+            break;
+        case 'italic':
+            styledText = wrapSelectedText(lastFocusedTextarea, '\\');
+            break;
+        case 'underline':
+            styledText = wrapSelectedText(lastFocusedTextarea, '__');
+            break;
+    }
+
+    lastFocusedTextarea.value = styledText;
+    updatePreview(lastFocusedTextarea, preview);
+}
+
+function wrapSelectedText(textarea, wrapper) {
+    const selection = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+    return textarea.value.substring(0, textarea.selectionStart) + wrapper + selection + wrapper + textarea.value.substring(textarea.selectionEnd);
+}
+
+function updatePreview(textarea, preview) {
+    let styledText = textarea.value;
+
+    // Convert bold (e.g. **text** to <strong>text</strong>)
+    styledText = styledText.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+
+    // Convert italic (e.g. \text\ to <i>text</i>)
+    styledText = styledText.replace(/\\([^\\]+)\\/g, '<i>$1</i>');
+
+    // Convert underline (e.g. __text__ to <u>text</u>)
+    styledText = styledText.replace(/__([^_]+)__/g, '<u>$1</u>');
+
+    preview.innerHTML = styledText;
+}
+
+
+function extractNumberFromEnd(str) {
+    const parts = str.split('-');
+    const lastPart = parts[parts.length - 1];
+    return parseInt(lastPart, 10);
 }

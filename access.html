@@ -25,22 +25,22 @@
     <style>
         #login_container, #signup_container {
             display: none;
-            left: 25%;
+            left: 0%;
             opacity: 0;
             z-index: 0;
         }
 
         #menu_container {
-            left: 25%;
+            left: 0%;
             opacity: 1;
             z-index: 1;
-            
         }
 
         .adh_container {
             top: 20%;
             position: absolute;
             width: 50%;
+            margin: 0 25%;
             height: fit-content;
             display: flex;
             flex-direction: column;
@@ -136,17 +136,47 @@
             font-size: 1.2rem;
             margin: 0 10px;
             border: none;
-            flex-grow: 1; 
+            width: 100%;
         }
 
         .access-back-button{
             cursor: pointer;
             transition: all 0.5s ease-out;
-            border-bottom: solid 1px #00000000;
+            padding: 3px 8px;
+            margin: 2px;
+            border-radius: 15px;
+            border: solid 1px #ffffff;
         }
         .access-back-button:hover{
-            border-bottom: solid 1px #ffffff;
+            padding: 5px 10px;
+            margin: 0;
         }
+
+        @media screen and (max-width: 1060px) {
+            .adh_container {
+                width: 100%;
+                min-height: 92.5%;
+                margin: 0;
+                top: 7.5%;
+                justify-content: center;
+                padding: 10% 5%;
+            }
+
+            .adh_container h1 {
+                margin-top: 25px;
+                font-size: 1.2rem;
+            }
+
+            .adh_link li:hover {
+                padding-left: 10px;
+            }
+
+            .adh_link li:hover:before {
+                left: 8%;
+                margin-left: 0;
+            }
+        }
+
     </style>
 </head>
 
@@ -214,19 +244,20 @@
     <div class="switch__container">
         <form class="adh_container" id="signup_container">
 
-            <h1>Inscrivez-vous :</h1>
 
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 25px;">
                 <h1 style="opacity: 0;">< Retour</h1>
                 <h1 class="access-back-button">Retour ></h1>
             </div>
+
+            <h1>Inscrivez-vous :</h1>
 
             <div class="adh_item">
                 <ul class="adh_link">
                     <li>
                         <div class="access-input-container">
-                            <label>Code de sécurité</label>
-                            <input name="security" type="password">
+                            <!-- <label>Code de sécurité</label> -->
+                            <input name="security" type="password" placeholder="Code de sécurité">
                         </div>
                     </li>
                 </ul>
@@ -236,8 +267,8 @@
                 <ul class="adh_link">
                     <li>
                         <div class="access-input-container">
-                            <label>Prénom</label>
-                            <input name="firstname">
+                            <!-- <label>Prénom</label> -->
+                            <input name="firstname" placeholder="Prénom">
                         </div>
                     </li>
                 </ul>
@@ -247,8 +278,8 @@
                 <ul class="adh_link">
                     <li>
                         <div class="access-input-container">
-                            <label>Nom</label>
-                            <input name="name">
+                            <!-- <label>Nom</label> -->
+                            <input name="name" placeholder="Nom">
                         </div>
                     </li>
                 </ul>
@@ -259,8 +290,8 @@
                 <ul class="adh_link">
                     <li>
                         <div class="access-input-container">
-                            <label>Email :</label>
-                            <input name="email" type="email">
+                            <!-- <label>Email :</label> -->
+                            <input name="email" type="email" placeholder="Email">
                         </div>
                     </li>
                 </ul>
@@ -270,8 +301,8 @@
                 <ul class="adh_link">
                     <li>
                         <div class="access-input-container">
-                            <label>Mot de passe :</label>
-                            <input name="password" type="password">
+                            <!-- <label>Mot de passe :</label> -->
+                            <input name="password" type="password" placeholder="Mot de passe">
                         </div>
                     </li>
                 </ul>
@@ -307,19 +338,19 @@
 
         <form class="adh_container" id="login_container">
 
-            <h1>Connectez-vous :</h1>
-
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 25px;">
                 <h1 class="access-back-button">< Retour</h1>
                 <h1 style="opacity: 0;">Retour ></h1>
             </div>
     
+            <h1>Connectez-vous :</h1>
+
             <div class="adh_item">
                 <ul class="adh_link">
                     <li>
                         <div class="access-input-container">
-                            <label>Email :</label>
-                            <input name="email">
+                            <!-- <label>Email :</label> -->
+                            <input name="email" placeholder="Email">
                         </div>
                     </li>
                 </ul>
@@ -329,8 +360,8 @@
                 <ul class="adh_link">
                     <li>
                         <div class="access-input-container">
-                            <label>Mot de passe :</label>
-                            <input name="password">
+                            <!-- <label>Mot de passe :</label> -->
+                            <input name="password" placeholder="Mot de passe">
                         </div>
                     </li>
                 </ul>
@@ -347,7 +378,7 @@
     $('.access-button[name="login"]').on('click', function() {
         // Animate the main div to slide out to the left
         $('#menu_container').animate({
-            left: '0',
+            left: '-50%',
             opacity: '0'
         }, 0, function() {
             $(this).hide();
@@ -361,7 +392,7 @@
 
     $('.access-button[name="signup"]').on('click', function() {
         $('#menu_container').animate({
-            right: '0',
+            right: '50%',
             opacity: '0'
         }, 0, function() {
             $(this).hide();
@@ -380,7 +411,7 @@
         });
 
         $('#menu_container').show().css('left', '0').animate({
-            left: '25%', 
+            left: '0%', 
             opacity: '1'
         }, 0);
     });
@@ -393,7 +424,7 @@
         });
 
         $('#menu_container').show().css('right', '0').animate({
-            right: '25%', 
+            right: '0%', 
             opacity: '1'
         }, 0);
     });

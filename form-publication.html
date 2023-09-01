@@ -83,13 +83,27 @@
       justify-content: space-between;
     }
 
-    .preview-section-title{
+    .publication-section-title{
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
       font-size: 1.1rem;
       padding: 5px 15px;
     }
 
+    .publication-section-anchor{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.1rem;
+      margin: 5px 15px;
+      width: fit-content;
+      color: #236ce0;
+      border-bottom: solid 1px #236ce000;
+      transition: all 0.5s ease-out;
+      text-decoration: none;
+    }
+
+    .publication-section-anchor:hover{
+      border-bottom: solid 1px #236ce0;
+    }
     .newspapper {
       text-align: justify;
       font-family: Arial, Helvetica, sans-serif;
@@ -99,12 +113,17 @@
       padding: 5px 15px;
     }
 
+    .newspapper u, i{
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 100;
+    }
+
     .image-container{
       width: 100%;
       display: flex;
     }
 
-    .uploaded-preview-image{
+    .uploaded-publication-image{
       margin: 0 auto;
       height: 20vh;
       width: auto;
@@ -221,6 +240,7 @@
       justify-content: space-between;
       align-items: start;
       margin: 15px 0;
+      background-color: #00000000;
     }
 
     .tool-container{
@@ -245,7 +265,18 @@
       height: 24px;
       border: none;
       border-radius: 5px;
-      margin: auto 5px auto 0;
+      margin: auto 10px auto 0;
+      font-size: 0.9rem;
+    }
+
+    .drag-handle{
+      cursor: pointer;
+      color: #000000;
+      display: flex;
+      align-items:baseline;
+      justify-content: space-around;
+      margin: auto 0 auto 10px;
+      font-size: 1.2rem;
     }
 
     .full-width-form{
@@ -484,7 +515,7 @@
           <option value="pbl">Publique</option>
         </select>
 
-        <h1 class="status-definition" id="article-status-preview"></h1>
+        <h1 class="status-definition" id="article-status-publication"></h1>
       </div>
 
       <div class="article-content-wrapper">
@@ -500,25 +531,28 @@
           <button onclick="javascript: addFullSection()" >Ajouter un bloc entier</button>
           <button onclick="javascript: addDoubleHalfSection()">Ajouter un double bloc</button>
           <button onclick="javascript: addDoubleHalfSection()">Enregistrer les modifications</button>
+          <button onclick="javascript: applyStyle('bold')">Gras</button>
+          <button onclick="javascript: applyStyle('italic')">Italic</button>
+          <button onclick="javascript: applyStyle('underline')">Souligné</button>
         </div>
       </div>
     </div>
 
 
 
-    <div class="timeline-item" id="realtime-preview">
+    <div class="timeline-item" id="realtime-publication">
         <div class="article-header">
           <div class="article-header-title">
             <h1 class="article-title"></h1>
             <h2 class="article-subtitle"></h2>
           </div>
-          <h1 class="article-author">Par : <a id="article-author-preview" href="">Mathieu Kaminski</a></h1>
+          <h1 class="article-author">Par : <a id="article-author-publication" href="">Mathieu Kaminski</a></h1>
         </div>
         <div class="article-content-wrapper">
           <div class="content-container">
           </div>
         </div>
-        <div class="timeline-date" id="article-date-preview"></div>
+        <div class="timeline-date" id="article-date-publication"></div>
       </div>
 
   </div>

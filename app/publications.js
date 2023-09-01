@@ -1,6 +1,6 @@
 let last_known_scroll_position = 0;
 let ticking = false;
-let speed = -0.09;
+let speed = -0.03;
 
 function centerSidebarLink(scroll_pos) {
     const sidebarLinks = document.querySelectorAll("#sidebar a");
@@ -125,11 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.1
     }); */
 
-
+/* 
 
     document.querySelectorAll('.timeline-item').forEach(item => {
         observer.observe(item);
-    });
+    }); */
 
     /* const firstSidebarLink = document.querySelector("#sidebar a");
     if (firstSidebarLink) {
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log('First sidebar link not found');
     } */
 
-    const timelineItems = Array.from(document.querySelectorAll('.timeline-item'));
+    /* const timelineItems = Array.from(document.querySelectorAll('.timeline-item'));
 
     timelineItems.forEach(item => {
         const btn = item.querySelector('.toggle-content');
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.textContent = 'Voir moins';
             }
         });
-    });
+    }); */
 });
 
 
