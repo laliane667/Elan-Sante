@@ -41,6 +41,8 @@
     }
 
     #sidebar {
+      background-color: rgba(119, 119, 119, 0);
+      backdrop-filter: unset;
       font-family: 'Roboto', sans-serif;
       position: fixed;
       top: 0;
@@ -48,6 +50,7 @@
       width: fit-content;
       height: 100%;
       overflow-y: auto;
+      z-index: 1;
     }
 
     #sidebar nav {
@@ -70,7 +73,7 @@
       padding: 10px;
       text-decoration: none;
       color: #ffffff;
-      background-color: rgba(0, 0, 0, 0.124);
+      background-color: rgba(0, 0, 0, 0.433);
       width: 300px;
       font-size: 1.2rem;
       transition: all 0.4 ease-in-out;
@@ -79,7 +82,7 @@
 
     .subtitle {
       font-size: 1rem;
-      color: #ababab;
+      color: #d4d4d4;
     }
 
     #sidebar ul li a:hover {
@@ -88,9 +91,11 @@
 
 
     #timeline-container {
+      z-index: 0;
       position: relative;
-      max-width: 55%;
+      max-width: 70%;
       margin: 0 auto;
+      margin-left: 310px;
       margin-top: 20px;
       padding: 20px;
     }
@@ -333,8 +338,8 @@
     }
 
     @media screen and (max-width: 1000px) {
-      #sidebar {
-        display: none;
+      #timeline-container {
+        margin: 0 auto;
       }
 
       .content-item {
@@ -367,6 +372,30 @@
       .newspapper strong {
         font-size: 0.8rem;
       }
+
+
+    #sidebar {
+      background-color: rgba(119, 119, 119, 0.234);
+      backdrop-filter: blur(10px);
+      left: -100vw;
+    }
+
+    #sidebar ul li a {
+      margin-top: 0;
+      background-color: rgba(0, 0, 0, 0.433);
+      width: 100vw;
+      font-size: 1rem;
+    }
+
+    .subtitle{
+      font-size: 0.8rem;
+    }
+
+    #open-sidebar{
+      opacity: 1;
+    }
+
+
     }
 
     @media screen and (max-width: 800px) {
@@ -377,8 +406,35 @@
       #timeline-container {
         max-width: 100%;
         margin: 0 auto;
-        padding: 40px 0;
+        padding: 60px 0;
       }
+    }
+
+    .sidebar_button {
+      position: fixed;
+      top: 90px;
+      left: 0px;
+      padding-left: 8px;
+      padding-top: 2px;
+      padding-bottom: 5px;
+      padding-right: 8px;
+      font-size: 2rem;
+      width: fit-content;
+      height: fit-content;
+      color: #fff;
+      z-index: 2;
+    }
+
+    #open-sidebar {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.181);
+      border: none;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    #close-sidebar {
+      opacity: 1;
     }
   </style>
 </head>
@@ -444,6 +500,10 @@
   </nav>
 
   <div id="page_container">
+    <div class="sidebar_button_container">
+      <div class="sidebar_button" id="open-sidebar">&#8801;</div>
+      <div class="sidebar_button" id="close-sidebar">&#215;</div>
+    </div>
     <div id="sidebar">
       <nav>
         <ul>
@@ -1092,6 +1152,10 @@
 
     </div>
   </div>
+  <script>
+    
+
+  </script>
   <script src="app/publications.js"></script>
   <script src="app/app.js"></script>
 </body>

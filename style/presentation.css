@@ -249,7 +249,16 @@
   margin-bottom: 100px;
 }
 
-.indiv-activity:hover {
+.indiv-activity-extra{
+  z-index: 100;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: blue;
+  text-align: center;
+}
+
+.indiv-activity:hover, .indiv-activity-extra:hover {
   text-decoration: underline;
 }
 
