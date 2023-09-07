@@ -24,19 +24,19 @@ function addFullSection(){
     blocToolContainer.className = "form-bloc-tool-container";
 
 
-    let titleButton = "<button class='form-button' onclick='javascript: addTitle(" + bloc_counter +", 0)'>Titre</button>";
+    let titleButton = "<span class='form-span' onclick='javascript: addTitle(" + bloc_counter +", 0)'>Titre</span>";
 
-    let textButton = "<button class='form-button' onclick='javascript: addText(" + bloc_counter +", 0)'>Text</button>";
+    let textButton = "<span class='form-span' onclick='javascript: addText(" + bloc_counter +", 0)'>Text</span>";
 
-    let imageButton = "<button class='form-button' onclick='javascript: addImage(" + bloc_counter +", 0)'>Image</button>";
+    let imageButton = "<span class='form-span' onclick='javascript: addImage(" + bloc_counter +", 0)'>Image</span>";
 
-    let anchorButton = "<button class='form-button' onclick='javascript: addAnchor(" + bloc_counter +", 0)'>URL</button>";
+    let anchorButton = "<span class='form-span' onclick='javascript: addAnchor(" + bloc_counter +", 0)'>URL</span>";
     
     let dragHandle = document.createElement("div");
     dragHandle.className = "drag-handle";
     dragHandle.innerHTML = "&#9776;"; 
  
-    let trashButton = document.createElement("button");
+    let trashButton = document.createElement("span");
     trashButton.className = "bloc-trash";
     trashButton.innerHTML = "&#10060;";
 
@@ -88,7 +88,7 @@ function addDoubleHalfSection(){
     dragHandle.className = "drag-handle";
     dragHandle.innerHTML = "&#9776;"; 
 
-    let trashButton = document.createElement("button");
+    let trashButton = document.createElement("span");
     trashButton.className = "bloc-trash";
     trashButton.innerHTML = "&#10060;";
 
@@ -98,15 +98,15 @@ function addDoubleHalfSection(){
     let rightBlocToolContainer = document.createElement("div");
     rightBlocToolContainer.className = "form-bloc-tool-container";
 
-    let leftTitleButton = "<button class='form-button' onclick='javascript: addTitle(" + bloc_counter +", 1)'>Titre</button>";
-    let leftTextButton = "<button class='form-button' onclick='javascript: addText(" + bloc_counter +", 1)'>Text</button>";
-    let leftImageButton = "<button class='form-button' onclick='javascript: addImage(" + bloc_counter +", 1)'>Image</button>";
-    let leftAnchorButton = "<button class='form-button' onclick='javascript: addAnchor(" + bloc_counter +", 1)'>URL</button>";
+    let leftTitleButton = "<span class='form-span' onclick='javascript: addTitle(" + bloc_counter +", 1)'>Titre</span>";
+    let leftTextButton = "<span class='form-span' onclick='javascript: addText(" + bloc_counter +", 1)'>Text</span>";
+    let leftImageButton = "<span class='form-span' onclick='javascript: addImage(" + bloc_counter +", 1)'>Image</span>";
+    let leftAnchorButton = "<span class='form-span' onclick='javascript: addAnchor(" + bloc_counter +", 1)'>URL</span>";
 
-    let rightTitleButton = "<button class='form-button' onclick='javascript: addTitle(" + bloc_counter +", 2)'>Titre</button>";
-    let rightTextButton = "<button class='form-button' onclick='javascript: addText(" + bloc_counter +", 2)'>Text</button>";
-    let rightImageButton = "<button class='form-button' onclick='javascript: addImage(" + bloc_counter +", 2)'>Image</button>";
-    let rightAnchorButton = "<button class='form-button' onclick='javascript: addAnchor(" + bloc_counter +", 2)'>URL</button>";
+    let rightTitleButton = "<span class='form-span' onclick='javascript: addTitle(" + bloc_counter +", 2)'>Titre</span>";
+    let rightTextButton = "<span class='form-span' onclick='javascript: addText(" + bloc_counter +", 2)'>Text</span>";
+    let rightImageButton = "<span class='form-span' onclick='javascript: addImage(" + bloc_counter +", 2)'>Image</span>";
+    let rightAnchorButton = "<span class='form-span' onclick='javascript: addAnchor(" + bloc_counter +", 2)'>URL</span>";
 
     leftBlocToolContainer.innerHTML += leftTitleButton;
     leftBlocToolContainer.innerHTML += leftTextButton;
@@ -185,8 +185,8 @@ function addTitle(sectionId, blocType){
     let inputContainer = document.createElement("div");
     inputContainer.className = "form-text-input-container";
 
-    let trashInput = document.createElement("button");
-    trashInput.className = "form-trash-button";
+    let trashInput = document.createElement("span");
+    trashInput.className = "form-trash-span";
     trashInput.innerHTML = "&#9587;";
 
     let titleInput = document.createElement("input");
@@ -241,8 +241,8 @@ function addText(sectionId, blocType) {
     inputContainer.className = "form-text-input-container";
     inputContainer.id = "styled-text-input-" + paragraphId;
 
-    let trashInput = document.createElement("button");
-    trashInput.className = "form-trash-button";
+    let trashInput = document.createElement("span");
+    trashInput.className = "form-trash-span";
     trashInput.innerHTML = "&#9587;";
 
     let textInput = document.createElement("textarea");
@@ -300,8 +300,8 @@ function addImage(sectionId, blocType){
     let inputContainer = document.createElement("div");
     inputContainer.className = "form-image-input-container";
 
-    let trashInput = document.createElement("button");
-    trashInput.className = "form-trash-button";
+    let trashInput = document.createElement("span");
+    trashInput.className = "form-trash-span";
     trashInput.innerHTML = "&#9587;";
 
 
@@ -371,8 +371,8 @@ function addAnchor(sectionId, blocType) {
     let inputContainer = document.createElement("div");
     inputContainer.className = "form-text-input-container";
 
-    let trashInput = document.createElement("button");
-    trashInput.className = "form-trash-button";
+    let trashInput = document.createElement("span");
+    trashInput.className = "form-trash-span";
     trashInput.innerHTML = "&#9587;";
 
     let textInput = document.createElement("input");
