@@ -710,7 +710,6 @@
   .direction-l .flag:before,
   .direction-r .flag:before {
     position: absolute;
-    font-size: rem;
     top: -30px;
     left: 50%;
     content: ' ';
@@ -778,7 +777,10 @@
   }
   
   @media screen and (max-width: 660px) {
-  
+  .flag {
+    font-size: 0.8rem;
+  }
+
   .direction-l .desc,
   .direction-r .desc {
     margin: 1em 4em 0 4em;
