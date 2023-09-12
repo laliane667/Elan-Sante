@@ -415,6 +415,9 @@
     #galery-ebe #img-inner,
     #galery-fb #img-inner,
     #galery-sh #img-inner,
+    #galery-sr #img-inner,
+    #galery-as #img-inner,
+    #galery-ra #img-inner,
     #galery-mb #img-inner {
       top: 0;
       opacity: 0;
@@ -438,6 +441,9 @@
     #galery-ebe #img-inner img,
     #galery-fb #img-inner img,
     #galery-sh #img-inner img,
+    #galery-sr #img-inner img,
+    #galery-as #img-inner img,
+    #galery-ra #img-inner img,
     #galery-mb #img-inner img {
       height: 100%;
       width: 100%;
@@ -459,6 +465,9 @@
     #galery-ebe #img-inner:hover~label.sb-bignav,
     #galery-fb #img-inner:hover~label.sb-bignav,
     #galery-sh #img-inner:hover~label.sb-bignav,
+    #galery-sr #img-inner:hover~label.sb-bignav,
+    #galery-as #img-inner:hover~label.sb-bignav,
+    #galery-ra #img-inner:hover~label.sb-bignav,
     #galery-mb #img-inner:hover~label.sb-bignav {
       opacity: 0.5;
     }
@@ -467,6 +476,9 @@
     #galery-ebe label.sb-bignav:hover,
     #galery-fb label.sb-bignav:hover,
     #galery-sh label.sb-bignav:hover,
+    #galery-sr label.sb-bignav:hover,
+    #galery-as label.sb-bignav:hover,
+    #galery-ra label.sb-bignav:hover,
     #galery-mb label.sb-bignav:hover {
       opacity: 1;
     }
@@ -475,6 +487,9 @@
     #galery-ebe .sb-bignav,
     #galery-fb .sb-bignav,
     #galery-sh .sb-bignav,
+    #galery-sr .sb-bignav,
+    #galery-as .sb-bignav,
+    #galery-ra .sb-bignav,
     #galery-mb .sb-bignav {
       width: 25%;
       height: 100%;
@@ -501,6 +516,9 @@
     #galery-ebe .sb-bignav-icon,
     #galery-fb .sb-bignav-icon,
     #galery-sh .sb-bignav-icon,
+    #galery-sr .sb-bignav-icon,
+    #galery-as .sb-bignav-icon,
+    #galery-ra .sb-bignav-icon,
     #galery-mb .sb-bignav-icon {
       position: absolute;
       display: flex;
@@ -520,6 +538,9 @@
     #galery-ebe input:checked+li>#img-inner,
     #galery-fb input:checked+li>#img-inner,
     #galery-sh input:checked+li>#img-inner,
+    #galery-sr input:checked+li>#img-inner,
+    #galery-as input:checked+li>#img-inner,
+    #galery-ra input:checked+li>#img-inner,
     #galery-mb input:checked+li>#img-inner {
       opacity: 1;
 
@@ -536,6 +557,9 @@
     #galery-fb input:checked+li>label,
     #galery-ebe input:checked+li>label,
     #galery-sh input:checked+li>label,
+    #galery-sr input:checked+li>label,
+    #galery-as input:checked+li>label,
+    #galery-ra input:checked+li>label,
     #galery-apa input:checked+li>label {
       display: block;
     }
@@ -1082,13 +1106,33 @@
     </div>
 
     <div class="activity-global-container" id="activity-mind">
-      <h1 class="activity-global-title">Gestion du stress</h1>
+      <h1 class="activity-global-title">Bien-être</h1>
 
       <div class="timeline-item mind" id="sr" data-type="mind">
-        <div class="activity-data">
-          <h1 class="activity-title">Sophro-Relaxation</h1>
-          <h1 class="activity-presentator">Avec : <a href="presentation.html#sg">Sabrina Gautier–Adige</a></h1>
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Sophro-Relaxation</h1>
+            <h1 class="activity-presentator">Avec : <a href="presentation.html#sg">Sabrina Gautier–Adige</a></h1>
+          </div>
+  
+          <div class="activity-image">
+            <ul class="activity-image-body" id="galery-sr">
+              <input type="radio" name="radio-btn-sr" id="img-sr-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/sophro.jpeg">
+                </div>
+                <label for="img-sr-3" class="sb-bignav" title="Précédent">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-sr-2" class="sb-bignav" title="Suivant">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+            </ul>
+          </div>
         </div>
+        
 
         <div class="article-content-wrapper">
           <div class="content-container">
@@ -1148,10 +1192,13 @@
 
 
       <div class="timeline-item mind" id="pc" data-type="mind">
-        <div class="activity-data">
-          <h1 class="activity-title">Méditation de pleine conscience</h1>
-          <h1 class="activity-presentator">Par : <a href="">Caroline Reverdy-Bazin</a></h1>
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Méditation de pleine conscience</h1>
+            <h1 class="activity-presentator">Par : <a href="">Caroline Reverdy-Bazin</a></h1>
+          </div>
         </div>
+        
 
         <div class="article-content-wrapper">
           <div class="content-container">
@@ -1380,37 +1427,41 @@
         <button class="toggle-content">Voir moins</button>
       </div>
 
-
-
       <div class="timeline-item mind" id="sh" data-type="mind">
-        <div class="activity-data">
-          <h1 class="activity-title">Art-Thérapie (à venir)</h1>
-          <h1 class="activity-presentator">Avec : <a href="presentation.html#pf">Pascale Fontaine</a></h1>
+
+        <div class="activity-header">
+          <div class="activity-data">
+            <h1 class="activity-title">Art-Thérapie (à venir)</h1>
+            <h1 class="activity-presentator">Avec : <a href="presentation.html#pf">Pascale Fontaine</a></h1>
+          </div>
         </div>
 
         <div class="article-content-wrapper">
           <div class="content-container">
             <div class="content-item full-width">
-              <p class="section-description">L art- thérapie offre des voies de communication autres que le langage qu il utilise également puisque les
+              <div class="section-description">
+                L'art-thérapie offre des voies de communication autres que le langage qu'il
+                utilise également puisque les
                 séances sont guidées par un art-thérapeute.<br><br>
-                Le Journal Créatif utilise des outils d Art-Therapie mais reste dans le domaine du développement personnel,
-                du ressourcement. C est un journal personnel, intime et créatif. Il utilise l écriture, le dessin, le
+                Le Journal Créatif utilise des outils d'Art-Thérapie mais reste dans le domaine du développement
+                personnel,
+                du ressourcement. C'est un journal personnel, intime et créatif. Il utilise l'écriture, le dessin, le
                 collage et fait ainsi appel à notre réflexion, notre inconscient, nos émotions : tout notre être est
                 sollicité, de façon ludique.<br><br>
-                Le Journal Créatif se pratique en groupe, au sein d un journal personnel et les thématiques proposées par
-                Elan Santé concernent les trois domaines de la santé (physique, alimentation, gestion du stress).<br><br>
-    
-                Les bénéfices du Journal Créatif :<br>
-                Les effets peuvent être Thérapeutiques, en accompagnement des soins médicaux. C est une connexion à soi,
-                pour trouver des réponses à nos questions, prendre de meilleures décisions, voir plus clair dans ce qui se
-                passe dans notre vie, nous relaxer, gérer notre stress, développer notre créativité, aller vers le "
-                mieux-être ".</p>
-
-
+                Le Journal Créatif se pratique en petit groupe, guidé par un professionnel formé au Journal Créatif, au
+                sein d'un journal personnel ; les thématiques proposées par
+                Elan Santé concernent les trois domaines de la santé : physique, alimentation, gestion du
+                stress.<br><br>
+                Quels sont les bénéfices du Journal Créatif ?<br>
+                Les effets peuvent être thérapeutiques, en accompagnement des soins médicaux. C'est une connexion à soi,
+                pour trouver des réponses à nos questions, prendre de meilleures décisions, voir plus clair dans ce qui
+                se
+                passe dans notre vie, nous relaxer, gérer notre stress, et développer notre créativité pour aller en
+                définitive vers le "
+                mieux-être ".
+              </div>               
             </div>
-
           </div>
-
         </div>
         <hr>
         <button class="toggle-content">Voir moins</button>
@@ -1430,7 +1481,20 @@
           </div>
 
           <div class="activity-image">
-            <img src="src/images/activity/alim_sante.png">
+            <ul class="activity-image-body" id="galery-as">
+              <input type="radio" name="radio-btn-as" id="img-as-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/alim_sante.png">
+                </div>
+                <label for="img-as-3" class="sb-bignav" title="Précédent">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-as-2" class="sb-bignav" title="Suivant">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -1494,7 +1558,20 @@
           </div>
 
           <div class="activity-image">
-            <img src="src/images/activity/comportement_alimentaire.jpg">
+            <ul class="activity-image-body" id="galery-ra">
+              <input type="radio" name="radio-btn-ra" id="img-ra-1" checked />
+              <li class="img-container">
+                <div id="img-inner">
+                  <img src="src/images/activity/comportement_alimentaire.jpeg">
+                </div>
+                <label for="img-ra-3" class="sb-bignav" title="Précédent">
+                  <span class="sb-bignav-icon">&#x2039;</span>
+                </label>
+                <label for="img-ra-2" class="sb-bignav" title="Suivant">
+                  <span class="sb-bignav-icon">&#x203a;</span>
+                </label>
+              </li>
+            </ul>
           </div>
         </div>
 
