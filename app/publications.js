@@ -39,7 +39,7 @@ function handleSidebarToggle() {
     $('#close-sidebar').on('click', function() {
         $('#sidebar').animate({
             left: '-100vw'
-        }, 300, function() {
+        }, 100, function() {
             $(this).hide();
         });
 
@@ -50,7 +50,7 @@ function handleSidebarToggle() {
     $('#open-sidebar').on('click', function() {
         $("#sidebar").show().animate({
             left: '0%'
-        }, 300);
+        }, 100);
 
         $('#open-sidebar').hide();
         $('#close-sidebar').show();
@@ -97,7 +97,7 @@ document.querySelectorAll('#sidebar a').forEach(item => {
         if(window.screen.width < 1000){
             $('#sidebar').animate({
                 left: '-100vw'
-            }, 300, function() {
+            }, 100, function() {
                 $(this).hide();
             });
     
