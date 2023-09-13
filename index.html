@@ -26,28 +26,6 @@
 </head>
 
 <body>
-    <div class="loader">
-        <div style="position: absolute; width: 100%; height: 100%; display: flex;">
-            <img id="loader-logo" src="src/images/logos/logo_elan_sante.png" alt=":)">
-        </div>
-        <div class="loader-inner">
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
-            <!-- <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div> -->
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
-            <!-- <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div> -->
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
-        </div>
-    </div>
     <nav class="navbar">
         <a href="index.html">
             <img id="navbar__logo" src="src/images/logos/logo_accueil.png" alt="logo">
@@ -146,7 +124,7 @@
             promouvoir la santé physique et mentale.</h3>
     </div>
 
-    
+
 
     <div class="sectionContainer">
 
@@ -221,47 +199,47 @@
     </div>
 
 
-    
+
     <div class="recent_news_container">
-                    <h1>&#x25B7; FORUM DES ASSOCIATIONS :</h1>
-                    <h2>Retrouvez-nous le samedi 9 septembre de 10h à 16h30 au gymnase A. Mauresmo à l’Isle Adam ! </h2>
-                
-        
+        <h1>&#x25B7; FORUM DES ASSOCIATIONS :</h1>
+        <h2>Retrouvez-nous le samedi 9 septembre de 10h à 16h30 au gymnase A. Mauresmo à l’Isle Adam ! </h2>
+
+
     </div>
 
     <script>
         const inputs = document.querySelectorAll('.carouselContainer input[type="radio"]');
-let currentIndex = Array.from(inputs).indexOf(document.querySelector('.carouselContainer input[type="radio"]:checked'));
-let direction = 1; // Start with a positive direction (to the right)
+        let currentIndex = Array.from(inputs).indexOf(document.querySelector('.carouselContainer input[type="radio"]:checked'));
+        let direction = 1; // Start with a positive direction (to the right)
 
-function switchRadio() {
-  // Uncheck the current radio
-  inputs[currentIndex].checked = false;
+        function switchRadio() {
+            // Uncheck the current radio
+            inputs[currentIndex].checked = false;
 
-  // Update the index
-  currentIndex += direction;
+            // Update the index
+            currentIndex += direction;
 
-  // If we've reached the far right, change direction to the left
-  if (currentIndex + 1 >= inputs.length) {
-    direction = -1;
-    currentIndex = inputs.length - 2; // We subtract 2 because we're counting zero-based and we've already incremented in this cycle
-  }
+            // If we've reached the far right, change direction to the left
+            if (currentIndex + 1 >= inputs.length) {
+                direction = -1;
+                currentIndex = inputs.length - 2; // We subtract 2 because we're counting zero-based and we've already incremented in this cycle
+            }
 
-  // If we've reached the far left, change direction to the right
-  if (currentIndex - 1 < 0) {
-    direction = 1;
-    currentIndex = 1; // We add 1 because we've already decremented in this cycle
-  }
+            // If we've reached the far left, change direction to the right
+            if (currentIndex - 1 < 0) {
+                direction = 1;
+                currentIndex = 1; // We add 1 because we've already decremented in this cycle
+            }
 
-  // Check the next radio
-  inputs[currentIndex].checked = true;
-}
+            // Check the next radio
+            inputs[currentIndex].checked = true;
+        }
 
-// Switch the radio input every 2 seconds
-setInterval(switchRadio, 8000);
+        // Switch the radio input every 2 seconds
+        setInterval(switchRadio, 8000);
 
-</script>
-<script src="app/app.js"></script>
+    </script>
+    <script src="app/app.js"></script>
     <script src="app/section.js"></script>
 </body>
 
