@@ -73,10 +73,11 @@ body{
   .presentation_sentance_container{
     position: absolute;
     display: flex;
+    flex-direction: column;
     align-items: center;
     top: 375px;
     width: 100%;
-    height: 18vh;
+    height: fit-content;
     /* background-color: aqua; */
     word-wrap: break-word;  /* breaks the word and wrap onto the next line */
   }
@@ -84,17 +85,18 @@ body{
   .recent_news_container{
     padding: 12px;
     border-radius: 10px;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     color: #fff;
-    top: 470px;
-    left: 25%;
+    /* top: 500px; */
+    /* left: 25%; */
     width: 50%;
-    height: 14vh;
+    height: fit-content;
     overflow: hidden;
+    margin-top: 5px;
   }
 
   .recent_news_container h1{
@@ -120,8 +122,8 @@ body{
     text-align: center;
     color: #fff;
     width: fit-content;
-    line-height: 5vh;
-    margin: 0 auto;
+    /* line-height: 5vh; */
+    margin: 20px auto;
     border-top: solid #ffffff5a 1px;
     border-bottom: solid #ffffff5a 1px;
     /* background-color: rgba(0, 0, 0, 0); */
@@ -153,8 +155,8 @@ body{
     }
 
     .recent_news_container{
-      top: 480px;
-      left: 10%;
+      /* top: 500px;
+      left: 10%; */
       width: 80%;
     }
 
@@ -163,18 +165,18 @@ body{
   
 
   @media screen and (max-width: 800px) {
-    .presentation_sentance_container{
+    /* .presentation_sentance_container{
       height: 30vh;
-    }
+    } */
 
     #presentation_sentance{
       font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1400 - 300)));
     }
 
-    .recent_news_container{
+    /* .recent_news_container{
       top: 535px;
       height: 16vh;
-    }
+    } */
   }
 
   
@@ -190,7 +192,7 @@ body{
       font-weight: 100;
     }
 
-    @media screen and (max-height: 700px) {
+    /* @media screen and (max-height: 700px) {
       .recent_news_container{
         top: 525px;
         height: 14vh;
@@ -202,7 +204,7 @@ body{
         top: 525px;
         height: 18vh;
       }
-    }
+    } */
   }
 
 
