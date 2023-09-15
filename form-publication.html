@@ -247,8 +247,7 @@
     }
 
     .form-bloc-tool-container {
-      max-width: 50%;
-      min-width: fit-content;
+      width: fit-content;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -263,7 +262,7 @@
       min-height: fit-content;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
 
     .form-span,
@@ -328,7 +327,7 @@
 
     .full-width-form {
       width: 95%;
-      padding: 15px 0;
+      padding: 5px 0;
       background-color: #78b3e6;
       border: solid;
       border-color: #333;
@@ -337,8 +336,8 @@
 
     .half-width-form {
       width: 47%;
-      padding: 15px 0;
-      background-color: #78b3e6;
+      padding: 5px 0;
+      background-color: #b0d2f1;
       border: solid;
       border-color: #333;
     }
@@ -457,6 +456,16 @@
     .error-message {
       color: red;
     }
+
+
+    @media screen and (max-width: 1060px) {
+      .form-span,
+      .tool-container button,
+      .tool-container span,
+      .tool-container div {
+          font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 
@@ -564,9 +573,13 @@
           <div class="tool-container">
             <span onclick="javascript: addFullSection()">Ajouter un bloc entier</span>
             <span onclick="javascript: addDoubleHalfSection()">Ajouter un double bloc</span>
+          </div>
+          <div class="tool-container">
             <div onclick="javascript: applyStyle('bold')">Gras</div>
             <div onclick="javascript: applyStyle('italic')">Italic</div>
             <div onclick="javascript: applyStyle('underline')">Souligné</div>
+          </div>
+          <div class="tool-container">
             <button>Enregistrer les modifications</button>
           </div>
         </div>

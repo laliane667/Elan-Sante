@@ -28,20 +28,20 @@
 <body>
     <div class="loader">
         <div style="position: absolute; width: 100%; height: 100%; display: flex;">
-          <img id="loader-logo" src="src/images/logos/logo_elan_sante.png" alt=":)">
+            <img id="loader-logo" src="src/images/logos/logo_elan_sante.png" alt=":)">
         </div>
         <div class="loader-inner">
-          <div class="loader-line-wrap">
-            <div class="loader-line"></div>
-          </div>
-          <div class="loader-line-wrap">
-            <div class="loader-line"></div>
-          </div>
-          <div class="loader-line-wrap">
-            <div class="loader-line"></div>
-          </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
         </div>
-      </div>
+    </div>
     <nav class="navbar">
         <a href="index.html">
             <img id="navbar__logo" src="src/images/logos/logo_accueil.png" alt="logo">
@@ -140,14 +140,61 @@
             promouvoir la santé physique et mentale.</h3>
 
         <div class="recent_news_container">
+                <div class="switch_container">
+                    <h1>Modifier</h1>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div id="contentOn" style="display: none;">
+                    <form action="">
+                    <input tabindex="text" placeholder="&#x25B7; PROCHAIN ATELIER :"
+                        value="&#x25B7; PROCHAIN ATELIER :">
+                    <input style="margin: 5px 0;" tabindex="text" placeholder="Vendredi 20 Octobre de 16h à 18H"
+                        value="Vendredi 20 Octobre de 16h à 18H">
+                    <textarea name="" maxlength="300" cols="40" rows="3" placeholder="Ma trousse à pharmacie naturelle ou comment transformer les plantes médicinales en remèdes&nbsp;?<br>
+                        Un atelier découverte autour des plantes pour apprendre à les utiliser."></textarea>
+                    <button id="actu-update-submit" type="submit">Enregistrer</button>
+                    </form>
+                </div>
+
+                <div id="contentOff">
+                    <h1>&#x25B7; PROCHAIN ATELIER :</h1>
+                    <h4 style="margin: 5px 0;">Vendredi 20 Octobre de 16h à 18H</h4>
+                    <h2>
+                        Ma trousse à pharmacie naturelle ou comment transformer les plantes médicinales en
+                        remèdes&nbsp;?<br>
+                        Un atelier découverte autour des plantes pour apprendre à les utiliser.
+                    </h2>
+                </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="presentation_sentance_container">
+        <h3 id="presentation_sentance">Notre objectif :
+            promouvoir la santé physique et mentale.</h3>
+
+        <div class="recent_news_container">
+            <div class="switch_container">
+                <h1>Prévisualiser</h1>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+            </div>
+            
             <h1>&#x25B7; PROCHAIN ATELIER :</h1>
+            <h4 style="margin: 5px 0;">Vendredi 20 Octobre de 16h à 18H</h4>
             <h2>
-                Vendredi 20 Octobre de 16h à 18H<br><br>
                 Ma trousse à pharmacie naturelle ou comment transformer les plantes médicinales en remèdes&nbsp;?<br>
                 Un atelier découverte autour des plantes pour apprendre à les utiliser.
             </h2>
         </div>
-    </div>
+    </div> -->
 
 
 
@@ -217,52 +264,49 @@
                 </li>
             </ul>
         </div>
-
-        <!-- <div class="see-more-section">
-            <a href="activites.html">Voir toutes les activités</a>
-        </div> -->
     </div>
 
+    <script>
+        // Get references to the content containers and the checkbox
+        const contentOn = document.getElementById("contentOn");
+        const contentOff = document.getElementById("contentOff");
+        const switchCheckbox = document.querySelector(".switch_container input[type='checkbox']");
 
+        // Add an event listener for the checkbox's change event
+        switchCheckbox.addEventListener("change", function () {
+            // If the checkbox is checked, show the ON content and hide the OFF content
+            if (switchCheckbox.checked) {
+                contentOn.style.display = "flex";
+                contentOff.style.display = "none";
+            } else {
+                // If the checkbox is unchecked, hide the ON content and show the OFF content
+                contentOn.style.display = "none";
+                contentOff.style.display = "flex";
+            }
+        });
+    </script>
 
-    <!-- <div class="recent_news_container">
-        <h1>&#x25B7; PROCHAIN ATELIER :</h1>
-        <h2>
-            Vendredi 20 Octobre de 16h à 18H<br>
-            Ma trousse à pharmacie naturelle ou comment transformer les plantes médicinales en remèdes ?<br>
-            Un atelier découverte autour des plantes pour apprendre à les utiliser.
-        </h2>
-    </div> -->
 
     <script>
         const inputs = document.querySelectorAll('.carouselContainer input[type="radio"]');
         let currentIndex = Array.from(inputs).indexOf(document.querySelector('.carouselContainer input[type="radio"]:checked'));
-        let direction = 1; // Start with a positive direction (to the right)
+        let direction = 1;
 
         function switchRadio() {
-            // Uncheck the current radio
             inputs[currentIndex].checked = false;
-
-            // Update the index
             currentIndex += direction;
 
-            // If we've reached the far right, change direction to the left
             if (currentIndex + 1 >= inputs.length) {
                 direction = -1;
-                currentIndex = inputs.length - 2; // We subtract 2 because we're counting zero-based and we've already incremented in this cycle
+                currentIndex = inputs.length - 2;
             }
 
-            // If we've reached the far left, change direction to the right
             if (currentIndex - 1 < 0) {
                 direction = 1;
-                currentIndex = 1; // We add 1 because we've already decremented in this cycle
+                currentIndex = 1;
             }
-
-            // Check the next radio
             inputs[currentIndex].checked = true;
         }
-
-        // Switch the radio input every 2 seconds
         setInterval(switchRadio, 8000);
 
     </script>
