@@ -165,7 +165,7 @@ body{
     /* font-family: 'Roboto', sans-serif; */
     font-weight: 100;
     font-size: calc(24px + (35 - 24) * ((100vw - 300px) / (1400 - 300)));
-    padding: 0 5%;
+    padding: 10px 5%;
     text-align: center;
     color: #fff;
     width: fit-content;

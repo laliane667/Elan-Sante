@@ -783,7 +783,7 @@ function addFullSectionToPublication(id){
     let publicationSection = document.getElementById("realtime-publication");
     if(publicationSection){
         let fullDiv =  document.createElement("div");
-        fullDiv.className = "content-item full-width";
+        fullDiv.className = "content-item full-width content-atome";
         fullDiv.id = "publication-full-width-section-" + id;
         publicationSection.querySelector('.content-container').append(fullDiv);
     }
@@ -793,6 +793,10 @@ function addHalfSectionToPublication(id){
     let publicationSection = document.getElementById("realtime-publication");
     if(publicationSection){
         
+        let fullDiv =  document.createElement("div");
+        fullDiv.className = "form-bloc-container content-atome";
+        fullDiv.id = "publication-half-full-section-" + id;
+
         let leftDiv =  document.createElement("div");
         leftDiv.className = "content-item half-width left";
         leftDiv.id = "publication-half-left-section-" + id;
@@ -801,8 +805,9 @@ function addHalfSectionToPublication(id){
         rightDiv.className = "content-item half-width right";
         rightDiv.id = "publication-half-right-section-" + id;
 
-        publicationSection.querySelector('.content-container').append(leftDiv);
-        publicationSection.querySelector('.content-container').append(rightDiv);
+        fullDiv.append(leftDiv);
+        fullDiv.append(rightDiv);
+        publicationSection.querySelector('.content-container').append(fullDiv);
     }
 }
 
@@ -922,8 +927,17 @@ function updateStatusPublication(status) {
     }
 }
 function rearrangeSections(fromIndex, toIndex) {
-    let container = document.querySelector('.content-container');
+    let container = document.querySelector('#form-publication-container');
     let sections = Array.from(container.querySelectorAll('.form-bloc-container'));
+
+    for(let i = 0; i < sections.length; i++) {
+    let children = Array.from(sections[i].querySelectorAll('.form-span'));
+        for(let j = 0; j < children.length; j++) {
+            console.log("Onclick : " + children[j].getAttribute('onclick'));
+        }    
+    }
+
+    //TODO: Reange les onclick attribute
 
     if (!sections[fromIndex]) return;
 
@@ -961,7 +975,7 @@ function rearrangeSections(fromIndex, toIndex) {
 
 function rearrangePublicationSections(fromIndex, toIndex) {
     let publicationSection = document.getElementById("realtime-publication");
-    let sections = publicationSection.querySelectorAll('.content-container .content-item');
+    let sections = publicationSection.querySelectorAll('.content-atome');
 
     let fromSections = Array.from(sections).filter(section => {
         let currentIdx = parseInt(section.id.split("-").pop());
@@ -986,18 +1000,32 @@ function rearrangePublicationSections(fromIndex, toIndex) {
     });
 
     // Update the IDs
-    sections = publicationSection.querySelectorAll('.content-container .content-item');
+    sections = publicationSection.querySelectorAll('.content-atome');
     let verticalPos = 0; // This will track the vertical position
     for(let i = 0; i < sections.length; i++) {
         let section = sections[i];
-        if (section.classList.contains('left')) {
-            section.id = "publication-half-left-section-" + verticalPos;
-        } else if (section.classList.contains('right')) {
-            section.id = "publication-half-right-section-" + verticalPos;
+        if (section.classList.contains('left') && section.classList.contains('right') ) {
+            section.id = "publication-half-full-section-" + verticalPos;
             verticalPos++; // Move to next vertical position only after right half
         } else {
             section.id = "publication-full-width-section-" + verticalPos;
             verticalPos++;
+        }
+    }
+    sections = publicationSection.querySelectorAll('.content-item');
+    verticalPos = 0; // This will track the vertical position
+    for(let i = 0; i < sections.length; i++) {
+        let section = sections[i];
+        if (toString(section.getAttribute('class')).includes('left')) {
+            console.log("victoire");
+            section.id = "publication-half-left-section-" + verticalPos;
+            verticalPos++;
+        } else if (toString(section.getAttribute('class')).includes('right')) {
+            section.id = "publication-half-right-section-" + verticalPos;
+            verticalPos++; // Move to next vertical position only after right half
+        } else {
+           // section.id = "publication-full-width-section-" + verticalPos;
+           verticalPos++;
         }
     }
 
