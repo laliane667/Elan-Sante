@@ -163,6 +163,8 @@ function removeSimpleSection(bloc_counter){
     let id = "publication-full-width-section-" + bloc_counter;
     let section = document.getElementById(id);
     section.remove(); 
+    refreshFormIds();
+    refreshPreviewIds();
 }
 
 function removeDoubleSection(bloc_counter){
@@ -172,6 +174,8 @@ function removeDoubleSection(bloc_counter){
     let leftSection = document.getElementById(leftId);
     rightSection.remove(); 
     leftSection.remove(); 
+    refreshFormIds();
+    refreshPreviewIds();
 }
 //================================================================================================================================================================================================//
 
@@ -736,7 +740,7 @@ function updateFullSectionPublication(text, targetType, id){
 function updateHalfSectionPublication(text, pan, targetType, id){
     let publicationSection = document.getElementById("realtime-publication");
 
-    console.log("ID"+ id);
+    //console.log("ID"+ id);
     if(publicationSection){
 
         let destinationId = -1;
@@ -926,16 +930,16 @@ function updateStatusPublication(status) {
         
     }
 }
+
+function replaceFirstIntInString(str, newInt) {
+    return str.replace(/\d+/, newInt.toString());
+}
+
 function rearrangeSections(fromIndex, toIndex) {
     let container = document.querySelector('#form-publication-container');
     let sections = Array.from(container.querySelectorAll('.form-bloc-container'));
 
-    for(let i = 0; i < sections.length; i++) {
-    let children = Array.from(sections[i].querySelectorAll('.form-span'));
-        for(let j = 0; j < children.length; j++) {
-            console.log("Onclick : " + children[j].getAttribute('onclick'));
-        }    
-    }
+    
 
     //TODO: Reange les onclick attribute
 
@@ -953,6 +957,14 @@ function rearrangeSections(fromIndex, toIndex) {
         container.insertBefore(fromSection, sections[toIndex]);
     }
 
+    refreshFormIds();
+
+    initializeDragAndDrop();
+}
+
+
+function refreshFormIds(){
+    let container = document.querySelector('#form-publication-container');
     sections = Array.from(container.querySelectorAll('.form-bloc-container'));
     sections.forEach((section, idx) => {
         let isDouble = section.querySelector('.half-width-form');
@@ -966,11 +978,18 @@ function rearrangeSections(fromIndex, toIndex) {
         section.dataset.blocCounter = idx;
     });
 
-    initializeDragAndDrop();
+    let verticalPos = 0; 
+    for(let i = 0; i < sections.length; i++) {
+    let children = Array.from(sections[i].querySelectorAll('.form-span'));
+        for(let j = 0; j < children.length; j++) {
+            let currAttribute = children[j].getAttribute('onclick');
+            let newAttribute = replaceFirstIntInString(currAttribute, verticalPos);
+            //console.log(newAttribute);
+            children[j].setAttribute('onclick', newAttribute);
+        }    
+        verticalPos++;
+    }
 }
-
-
-
 
 
 function rearrangePublicationSections(fromIndex, toIndex) {
@@ -994,17 +1013,25 @@ function rearrangePublicationSections(fromIndex, toIndex) {
         });
     }
 
+    refreshPreviewIds();    
+
+}
+
+function refreshPreviewIds(){
+    let publicationSection = document.getElementById("realtime-publication");
+    let sections = publicationSection.querySelectorAll('.content-atome');
+
     // Reset IDs first
-    sections.forEach(section => {
+    /* sections.forEach(section => {
         section.id = '';
-    });
+    }); */
 
     // Update the IDs
-    sections = publicationSection.querySelectorAll('.content-atome');
     let verticalPos = 0; // This will track the vertical position
     for(let i = 0; i < sections.length; i++) {
         let section = sections[i];
-        if (section.classList.contains('left') && section.classList.contains('right') ) {
+        let someID = section.id;
+        if (someID.includes('half-full')) {
             section.id = "publication-half-full-section-" + verticalPos;
             verticalPos++; // Move to next vertical position only after right half
         } else {
@@ -1016,19 +1043,25 @@ function rearrangePublicationSections(fromIndex, toIndex) {
     verticalPos = 0; // This will track the vertical position
     for(let i = 0; i < sections.length; i++) {
         let section = sections[i];
-        if (toString(section.getAttribute('class')).includes('left')) {
-            console.log("victoire");
-            section.id = "publication-half-left-section-" + verticalPos;
-            verticalPos++;
-        } else if (toString(section.getAttribute('class')).includes('right')) {
-            section.id = "publication-half-right-section-" + verticalPos;
-            verticalPos++; // Move to next vertical position only after right half
-        } else {
-           // section.id = "publication-full-width-section-" + verticalPos;
-           verticalPos++;
+        let doubleBlocCounter = 0;
+        if (section.id.includes('left') || section.id.includes('right') ) {
+            if (section.id.includes('left')) {
+                section.id = "publication-half-left-section-" + verticalPos;
+                doubleBlocCounter++;
+            } else if (section.id.includes('right')) {
+                section.id = "publication-half-right-section-" + verticalPos;
+                doubleBlocCounter++;
+            }
+            if(doubleBlocCounter == 2){
+                verticalPos++; 
+                doubleBlocCounter = 0;
+            }
+        }
+        else {
+        // section.id = "publication-full-width-section-" + verticalPos;
+        verticalPos++;
         }
     }
-
 }
 /* 
 function initializeDragAndDrop() {
