@@ -20,425 +20,7 @@
   <link rel="stylesheet" href="style/font.css">
   <link rel="stylesheet" href="style/style.css">
 
-  <link rel="stylesheet" href="style/accueil.css">
-  <link rel="stylesheet" href="style/carousel.css">
-  <link rel="stylesheet" href="style/section.css">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #0771ab;
-      background-image: linear-gradient(to left, #023e73, #034e86, #055f98, #0771ab, #0a83bd, #0a83bd, #0a83bd, #0a83bd, #0771ab, #055f98, #034e86, #023e73);
-    }
-
-    #page_container {
-      position: absolute;
-      width: 100%;
-      height: fit-content;
-      transition: background-color 2s ease-out;
-    }
-
-    #sidebar {
-      background-color: rgba(119, 119, 119, 0);
-      backdrop-filter: unset;
-      font-family: 'Roboto', sans-serif;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: fit-content;
-      height: 100%;
-      overflow-y: auto;
-      z-index: 1;
-    }
-
-    #sidebar nav {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    #sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    #sidebar ul li a {
-      margin-top: 1px;
-      display: block;
-      padding: 10px;
-      text-decoration: none;
-      color: #ffffff;
-      background-color: rgba(0, 0, 0, 0.433);
-      width: 300px;
-      font-size: 1.2rem;
-      transition: all 0.4 ease-in-out;
-      white-space: nowrap;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-      color: #d4d4d4;
-    }
-
-    #sidebar ul li a:hover {
-      padding-left: 20px;
-    }
-
-
-    #timeline-container {
-      z-index: 0;
-      position: relative;
-      max-width: 70%;
-      margin: 0 auto;
-      margin-left: 310px;
-      margin-top: 20px;
-      padding: 20px;
-    }
-
-    .timeline-item {
-      padding: 10px;
-      position: relative;
-      background-color: #fff;
-      border-radius: 6px;
-      margin-bottom: 50px;
-      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: 100%;
-      height: 50px;
-      border-left: 3px solid #ffffff;
-    }
-
-
-    .timeline-item:first-child::before {
-      display: none;
-    }
-
-    .timeline-item .article-content-wrapper {
-      /* padding: 15px; */
-      height: fit-content;
-      /* opacity: 0; */
-      max-height: fit-content;
-      overflow: hidden;
-      transition: height 800ms ease-out, opacity 0.8s ease-in-out;
-    }
-
-
-
-    .timeline-item:first-child .article-content-wrapper {
-      height: fit-content;
-    }
-
-    .content-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-
-    .publication-section-title {
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bold;
-      font-size: 1.4rem;
-      padding: 5px 15px;
-      margin-top: 5px;
-    }
-
-    .publication-section-anchor {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1.1rem;
-      margin: 2px 15px;
-      width: fit-content;
-      color: #236ce0;
-      border-bottom: solid 1px #236ce000;
-      transition: all 0.5s ease-out;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .publication-section-anchor:hover {
-      border-bottom: solid 1px #236ce0;
-    }
-
-    .newspapper {
-      text-align: justify;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1.1rem;
-      line-height: 20px;
-      font-weight: 100;
-      margin-top: 5px;
-      padding: 5px 15px;
-    }
-
-    .newspapper u,
-    i {
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 100;
-      font-size: 1.1rem;
-    }
-
-    .newspapper strong {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1.1rem;
-    }
-
-
-    .image-container {
-      width: 100%;
-      display: flex;
-    }
-
-    .uploaded-publication-image {
-      margin: 10px auto;
-      height: 20vh;
-      width: auto;
-    }
-
-    .content-item {
-
-      margin-top: 20px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .content-item.half-width {
-      width: calc(50%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .content-image {
-      margin: auto;
-      width: 80%;
-    }
-
-    .content-item[data-y-position="top"] {
-      align-self: flex-start;
-    }
-
-    .content-item[data-y-position="center"] {
-      align-self: center;
-    }
-
-    .content-item[data-y-position="bottom"] {
-      align-self: flex-end;
-    }
-
-
-    .timeline-date {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #35424a;
-      color: #fff;
-      padding: 5px 15px;
-      border-radius: 50px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .timeline-content {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .article-header {
-      margin-top: 10px;
-      font-family: 'Roboto', sans-serif;
-      width: 100%;
-      display: inline-flex;
-    }
-
-    .article-header-title {
-      text-align: center;
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .article-title {
-      width: 100%;
-      margin: 0;
-      font-size: 1.5rem;
-      color: #3d3d3d;
-      overflow: hidden;
-    }
-
-    .article-author {
-      width: 50%;
-      margin: auto 0;
-      text-align: center;
-    }
-
-    .article-author,
-    .article-author a {
-      text-decoration: none;
-      font-size: 1.2rem;
-      color: #3d3d3d;
-      overflow: hidden;
-    }
-
-    .article-author a:hover {
-      text-decoration: underline;
-    }
-
-    .article-subtitle {
-      font-weight: 500;
-      width: 100%;
-      font-size: 1.2rem;
-      margin-top: 5px;
-      color: #575757;
-    }
-
-    .article-content {
-      margin: 15px 0;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    .toggle-content {
-      background: none;
-      border: none;
-      color: #337ab7;
-      cursor: pointer;
-      padding: 0;
-      font: inherit;
-      text-decoration: none;
-    }
-
-    .toggle-content:hover {
-      text-decoration: underline;
-    }
-
-
-    @media screen and (max-width: 1100px) {
-      #timeline-container {
-        max-width: 75%;
-        margin-right: 0;
-      }
-
-      .timeline-item::before {
-        left: 20px;
-      }
-
-      .timeline-date {
-        left: 20px;
-        transform: translateX(0);
-      }
-    }
-
-    @media screen and (max-width: 1000px) {
-      #timeline-container {
-        margin: 0 auto;
-      }
-
-      .content-item {
-        margin-top: 10px;
-      }
-
-      .publication-section-title {
-        font-size: 1.1rem;
-        padding: 5px 8px;
-        margin-top: 5px;
-      }
-
-      .publication-section-anchor {
-        font-size: 0.8rem;
-        margin: 2px 8px;
-      }
-
-      .newspapper {
-        font-size: 0.8rem;
-        line-height: 15px;
-        margin-top: 5px;
-        padding: 5px 8px;
-      }
-
-      .newspapper u,
-      i {
-        font-size: 0.8rem;
-      }
-
-      .newspapper strong {
-        font-size: 0.8rem;
-      }
-
-
-    #sidebar {
-      background-color: rgba(119, 119, 119, 0.234);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      left: -100vw;
-    }
-
-    #sidebar ul li a {
-      margin-top: 0;
-      background-color: rgba(0, 0, 0, 0.433);
-      width: 100vw;
-      font-size: 1rem;
-    }
-
-    .subtitle{
-      font-size: 0.8rem;
-    }
-
-    #open-sidebar{
-      opacity: 1;
-    }
-
-
-    }
-
-    @media screen and (max-width: 800px) {
-      .timeline-item {
-        padding: 10px 3px;
-      }
-
-      #timeline-container {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 60px 0;
-      }
-    }
-
-    .sidebar_button {
-      display: inline;
-      position: fixed;
-      top: 90px;
-      left: 0px;
-      padding-left: 8px;
-      padding-top: 2px;
-      padding-bottom: 5px;
-      padding-right: 8px;
-      font-size: 2rem;
-      width: fit-content;
-      height: fit-content;
-      color: #fff;
-      z-index: 2;
-    }
-
-    #open-sidebar {
-      opacity: 1;
-      background-color: rgba(0, 0, 0, 0.181);
-      border: none;
-      border-top-right-radius: 15px;
-      border-bottom-right-radius: 15px;
-    }
-
-    #close-sidebar {
-      opacity: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="style/publication.css">
 </head>
 
 <body>
@@ -484,6 +66,8 @@
       </ul>
     </div>
   </nav>
+  <button id="button-top" onclick="goTop()"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+  <button id="button-bottom" onclick="goBottom()"><i class="fa-solid fa-arrows-down-to-line"></i></button>
 
   <div id="page_container">
     <div class="sidebar_button_container">
@@ -494,18 +78,18 @@
     <div id="sidebar">
       <nav>
         <ul>
-          <li><a href="#title-6" data-target="title-6">La sédentarité <br> Une préocupation
-                pour
-                tous ! </a></li>
-          <li><a href="#title-5" data-target="title-5">L'éducation Thérapeutique<br> </a>
+          <li><a href="#publication-8" data-target="publication-8">Le microbiote au centre<br>d’un dialogue</a></li>
+          <li><a href="#publication-7" data-target="publication-7">La sédentarité <br> Une préocupation pour tous ! </a></li>
+          <li><a href="#publication-6" data-target="publication-6">Qu’est-ce que l’effet placebo ?<br></a></li>
+          <li><a href="#publication-5" data-target="publication-5">L'éducation Thérapeutique<br> </a>
           </li>
-          <li><a href="#title-4" data-target="title-4">L'ostéoporose<br> Conférence du 15
+          <li><a href="#publication-4" data-target="publication-4">L'ostéoporose<br> Conférence du 15
                 Octobre </a></li>
-          <li><a href="#title-3" data-target="title-3">Connaissez vous l'Art-Thérapie ?<br> <span
+          <li><a href="#publication-3" data-target="publication-3">Connaissez vous l'Art-Thérapie ?<br> <span
                 class="subtitle"></span> </a></li>
-          <li><a href="#title-2" data-target="title-2">L'endométriose aujourd'hui <br> Conférence
+          <li><a href="#publication-2" data-target="publication-2">L'endométriose aujourd'hui <br> Conférence
                 du 15 Mai </a></li>
-          <li><a href="#title-1" data-target="title-1">La pleine conscience :<br> Être versus
+          <li><a href="#publication-1" data-target="publication-1">La pleine conscience :<br> Être versus
                 Faire ? </a></li>
         </ul>
       </nav>
@@ -513,12 +97,78 @@
 
     <div id="timeline-container">
 
-      <div class="timeline-item" id="title-6">
+
+      <div class="timeline-item hidden" id="publication-8" >
+        <div class="article-header">
+          <div class="article-header-title">
+            <h1 class="article-title"><span>Le microbiote au centre d’un dialogue</span></h1>
+            <h2 class="article-subtitle"><span>ASUPRIMER</span></h2>
+          </div>
+          <h1 class="article-author">Par : <a id="article-author-publication" href="presentation.html#dr">Dominique Rousseau</a></h1>
+        </div>
+        <div class="article-content-wrapper">
+          <div class="content-container">
+          <div class="content-item full-width content-atome" id="publication-full-width-section-0"><div class="image-container"><img class="uploaded-publication-image" id="publication-full-width-image-0" src="src/images/article/article-8-img-1.jpg"></div><p class="newspapper" id="publication-full-width-paragraph-0">Depuis plusieurs années le microbiote intestinal est sur le devant de la scène. On parle aussi
+  d’un dialogue entre le microbiote et notre cerveau ; mais reprécisons d’abord ce qu’est le
+  microbiote.</p><p class="newspapper" id="publication-full-width-paragraph-1">Notre tube digestif abrite toute une communauté d’organismes microscopiques regroupant à la
+  fois des bactéries, des virus, des champignons et parfois des parasites&nbsp;: c’est ce que l’on appelle
+  le microbiote intestinal. Il existe aussi des microbiotes respiratoire, cutané, urogénital et
+  buccal. Le plus important en nombre et en complexité est le microbiote intestinal : 500 à 1000
+  espèces bactériennes différentes chez une seule personne !</p></div><div class="content-item full-width content-atome" id="publication-full-width-section-1"><p class="publication-section-title" id="publication-full-width-title-0">Le microbiote : notre deuxième cerveau&nbsp;?</p><p class="newspapper" id="publication-full-width-paragraph-2">Les chercheurs ont rapidement compris que le microbiote intestinal interagissait avec
+  l’ensemble des organes du corps, et qu’il a de multiples rôles : participer à la digestion bien sûr,
+  mais aussi à l’immunité, au métabolisme, à la communication entre les organes…
+  D’où l’appellation de «&nbsp;deuxième cerveau&nbsp;». Pour autant, le microbiote est-il aux commandes de
+  notre organisme ?</p><p class="newspapper" id="publication-full-width-paragraph-3">En fait, l’expression «&nbsp;deuxième cerveau&nbsp;» découle de l’existence dans le tube digestif, à
+  proximité du microbiote, d’un véritable système nerveux : des neurones dits «&nbsp;autonomes&nbsp;»
+  c’est à dire actifs sans contrôle volontaire qui régulent nos fonctions digestives et immunitaires
+  (c’est au niveau du tube digestif que les agents extérieurs arrivent principalement). On sait que
+  ces neurones sont aussi capables de produire des neuro-transmetteurs, tels ceux synthétisés par
+  le cerveau. Alors, le parallèle avec cet organe supérieur a été fait, mais alors qui décide de quoi
+  ?</p></div><div class="content-item full-width content-atome" id="publication-full-width-section-2"><p class="publication-section-title" id="publication-full-width-title-1">L’axe intestin-cerveau : un dialogue continu</p><p class="newspapper" id="publication-full-width-paragraph-4">Cet axe intéresse au plus haut point médecins et chercheurs. Pourquoi ? D’abord parce que l’on
+  avait observé que certaines pathologies neuronales s’accompagnaient de modifications au niveau
+  digestif : le premier exemple est la maladie de Parkinson. On a a observé que les perturbations
+  digestives sont précoces, présentes avant les symptômes de la maladie. Dans l’autisme, il existe
+  aussi des symptômes digestifs et un microbiote altéré. Les personnes souffrant du syndrome de
+  l’intestin irritable (appelé SII) sont aussi plus sujettes à l’anxiété et à la dépression que les
+  personnes n’ayant pas de SII.</p><p class="newspapper" id="publication-full-width-paragraph-5">Le stress aigu, tout le monde en a fait l’expérience, peut avoir des conséquences sur le transit
+  et la digestion. Qui n’a pas eu mal au ventre lors d’un événement stressant ?</p><p class="newspapper" id="publication-full-width-paragraph-6">Il existe donc des indices en faveur de l’existence de relations étroites entre ces deux organes :
+  intestin et cerveau. Et on sait maintenant que la communication entre les deux se fait en
+  permanence via deux voies principales : nerveuse directe (donc très rapide), sanguine (via des
+  médiateurs) : le microbiote intervient, lui, en modulant ces informations.</p><p class="newspapper" id="publication-full-width-paragraph-7">Le cerveau est donc en permanence informé de l’état du tube digestif et vice-versa, via le
+  microbiote. C’est le dialogue intestin-microbiote-cerveau !</p></div><div class="content-item full-width content-atome" id="publication-full-width-section-3"><p class="publication-section-title" id="publication-full-width-title-2">Le microbiote, un rôle central</p><p class="newspapper" id="publication-full-width-paragraph-8">Quels rôles a t-il dans ce dialogue ? Et bien il joue de nombreuses fonctions en coordonnant tous les messages ! Il intervient dans la digestion et est capable d’informer le cerveau sur les travaux en cours ; il est très réactif : dès que l’on commence à manger certaines bactéries se
+  multiplient.</p><p class="newspapper" id="publication-full-width-paragraph-9">Il gère la perméabilité intestinale donc l’absorption des nutriments. En cas de stress, il est
+  informé au plus vite, et apporte une réponse en fabriquant certains composés.
+  Il participe bien sûr à l’absorption des nutriments issus des aliments et oriente la réaction
+  immunitaire. Il participe à la régulation de l’inflammation via la synthèse de nombreux agents
+  ou hormones.</p><p class="newspapper" id="publication-full-width-paragraph-10">Le microbiote est au centre des recherches dans les maladies digestives et, de manière récente,
+  également dans les dysfonctions touchant le cerveau.</p></div><div class="content-item full-width content-atome" id="publication-full-width-section-4"><p class="publication-section-title" id="publication-full-width-title-3">Quelles implications pour la santé ?</p><p class="newspapper" id="publication-full-width-paragraph-11">Les implications sur notre santé sont importantes puisque la connaissance de ces mécanismes
+  permettra de mieux comprendre l’apparition de certaines maladies et, peut-être, de les
+  prévenir. L’axe intestin-microbiote-cerveau devient ainsi une cible d’action pour la prise en
+  charge des patients comme par exemple dans le SII, l’autisme, ou la dépression : on va tenter de
+  modifier le microbiote pour rétablir le bon fonctionnement de l’axe intestin-cerveau. Des
+  résultats intéressants montrent que cette approche permet une amélioration des symptômes. De
+  nombreuses études sont en cours dans ce domaine.</p><p class="newspapper" id="publication-full-width-paragraph-12">De plus, il est essentiel de comprendre que l’on peut prévenir les dysfonctionnements de cet axe
+  à de multiples niveaux&nbsp;:</p><p class="newspapper" id="publication-full-width-paragraph-13">- par des apports en nutriments protecteurs : il a été montré que les personnes qui ont des
+  apports suffisants en végétaux variés (= fibres prébiotiques nécessaires au microbiote) et en
+  oméga 3 (lipides présents dans les poissons gras par exemple) sont moins à risque de dépression
+  et d’anxiété. A l’inverse on sait qu’une alimentation «&nbsp;ultra-transformée&nbsp;» prédispose à un
+  risque supérieur de dépression</p><p class="newspapper" id="publication-full-width-paragraph-14">- par une activité physique régulière qui module le microbiote et favorise la diversité bactérienne</p><p class="newspapper" id="publication-full-width-paragraph-15">- par une exposition limitée aux agents polluants environnementaux (pollution, produits
+  chimiques, UV, tabac, perturbateurs endocriniens…)</p></div><div class="content-item full-width content-atome" id="publication-full-width-section-5"><p class="newspapper" id="publication-full-width-paragraph-17">Et cela dès le début de la vie puisque le microbiote se construit dès la naissance !</p><p class="newspapper" id="publication-full-width-paragraph-18">Favoriser un bon dialogue intestin-cerveau semble donc être un élément clé pour une bonne
+  santé&nbsp;!</p></div></div>
+        </div>
+        <hr>
+        <div class="timeline-date" id="article-date-publication">Novembre, 2023</div>
+      </div>
+
+     
+
+
+      <div class="timeline-item hidden" id="publication-7">
 
         <div class="article-header">
           <div class="article-header-title">
-            <h1 class="article-title">La sédentarité</h1>
-            <h2 class="article-subtitle">Une préocupation pour tous !</h2>
+            <h1 class="article-title"><span>La sédentarité</span></h1>
+            <h2 class="article-subtitle"><span>Une préocupation pour tous !</span></h2>
           </div>
           <h1 class="article-author">Par : <a href="presentation.html#mk">Mathieu Kaminski</a></h1>
         </div>
@@ -575,8 +225,55 @@
         <div class="timeline-date">Juin 2023</div>
       </div>
 
+      <div class="timeline-item hidden" id="publication-6">
+        <div class="article-header">
+          <div class="article-header-title">
+            <h1 class="article-title"><span>Qu’est-ce que l’effet placebo ?</span></h1>
+            <h2 class="article-subtitle"><span>ASURP</span></h2>
+          </div>
+          <h1 class="article-author">Par : <a id="article-author-publication" href="presentation.html#pf">Pascale Fontaine</a></h1>
+        </div>
+        
+        <div class="article-content-wrapper">
+          <div class="content-container">
+          <div class="content-item full-width content-atome" id="publication-full-width-section-0"><div class="image-container"><img class="uploaded-publication-image" id="publication-full-width-image-0" src="src/images/article/article-7-img-1.jpg"></div></div><div class="content-item full-width content-atome" id="publication-full-width-section-1"><p class="newspapper" id="publication-full-width-paragraph-0">Un <strong>placebo</strong> est une substance inerte qui donne à penser au patient que le
+  traitement va être bénéfique. Il a le goût et l’aspect de celui qu’il substitue
+  mais il est dénué de substance active.</p><p class="newspapper" id="publication-full-width-paragraph-1">Il est également utilisé pour les essais thérapeutiques par exemple pour
+  l’étude dite «&nbsp;en double aveugle&nbsp;» dans laquelle le sujet reçoit un traitement
+  à titre expérimental sans savoir s’il prend la substance thérapeutique ou le
+  placebo.</p><p class="newspapper" id="publication-full-width-paragraph-2">«&nbsp;Placebo&nbsp;» est un mot latin qui signifie&nbsp;: «&nbsp;je plairai&nbsp;». Sous entendu pour
+  le médecin «&nbsp;je plairai à qui me demande de lui prescrire un traitement&nbsp;» ou
+  encore «&nbsp;il me plaira&nbsp;» au patient qui prend la médication.</p></div><div class="form-bloc-container content-atome" id="publication-half-full-section-2"><div class="content-item half-width left" id="publication-half-left-section-2"><p class="newspapper" id="publication-half-left-paragraph-3">Si le patient ignore que le médicament est neutre et qu’il fait confiance à
+  son médecin, s’il est persuadé de son efficacité, nous pouvons maintenant
+  parler&nbsp; <strong>«&nbsp;d’effet placebo&nbsp;»</strong>. Cet effet jouera également pour une substance
+  médicamenteuse qui, elle, est active.</p><p class="newspapper" id="publication-half-left-paragraph-4">L’effet placebo est donc le <strong>phénomène psychologique</strong> qui survient dans
+  le cerveau dès la prescription car elle sera accompagnée de suggestions
+  verbales liées à un bénéfice clinique. L’effet perdure et se potentialise lors
+  de la prise de la médication.</p><p class="newspapper" id="publication-half-left-paragraph-6">Prenons l’exemple d’un patient qui réclame sa «&nbsp;pilule bleue&nbsp;» pour
+  dormir&nbsp;: il est persuadé de son efficacité, sa couleur a son importance et le
+  fait que le médecin la reconnaisse comme telle potentialise ses effets.</p></div><div class="content-item half-width right" id="publication-half-right-section-2"><p class="newspapper" id="publication-half-right-paragraph-5">Nous voyons ainsi que la relation de confiance entre le médecin et son patient est
+  primordiale. L’effet placebo est enclenché dès l’attente du patient qui
+  prépare son corps et son esprit à anticiper un résultat. La baisse de l’anxiété
+  et du stress induite par la prescription et la prise du traitement accélère
+  également le processus de guérison.</p><p class="newspapper" id="publication-half-right-paragraph-7">L’effet placebo est donc un processus psychologique, culturel, social,
+  relationnel, émotionnel, cognitif et physiologique qui crée une attente
+  d’efficacité.</p></div></div><div class="content-item full-width content-atome" id="publication-full-width-section-3"><p class="newspapper" id="publication-full-width-paragraph-8">Nous avons besoin de «&nbsp;croire&nbsp;» mais lorsque la croyance est négative,
+  nous sommes dans <strong>«&nbsp;l’effet nocebo&nbsp;»</strong> qui est l’effet inverse de l’effet placebo.</p><p class="newspapper" id="publication-full-width-paragraph-9">Prononcer une phrase négative associée à la prise d’un traitement envoie
+  au cerveau un message qui active une réaction de stress pouvant retarder
+  l’action du traitement. C’est pour cette raison que les soignants apprennent
+  à utiliser la conversation «&nbsp;positive&nbsp;» pour accompagner vers la tranquillité
+  et amorcer l’effet placebo.</p><p class="newspapper" id="publication-full-width-paragraph-10">Avoir la conviction qu’une chose va se produire est une étape importante
+  pour qu’elle se produise, pour accompagner une guérison et également
+  dans la prévention des maladies. Créons et vivons l’effet placebo au
+  quotidien&nbsp;: en mangeant un plat sain, en faisant une activité physique, et en
+  prenant du plaisir à nos activités, signes positifs pour notre cerveau&nbsp;!</p></div></div>
+        </div>
+        <hr>
 
-      <div class="timeline-item" id="title-5">
+        <div class="timeline-date" id="article-date-publication">Novembre, 2021</div>
+      </div>
+
+      <div class="timeline-item" id="publication-5">
         <div class="article-header">
           <div class="article-header-title">
             <h1 class="article-title">L'éducation Thérapeutique</h1>
@@ -690,7 +387,7 @@
       </div>
 
 
-      <div class="timeline-item" id="title-4">
+      <div class="timeline-item" id="publication-4">
         <div class="article-header">
           <div class="article-header-title">
             <h1 class="article-title">L'ostéoporose : l'état des lieux en 2020</h1>
@@ -806,7 +503,7 @@
       </div>
 
 
-      <div class="timeline-item" id="title-3">
+      <div class="timeline-item" id="publication-3">
         <div class="article-header">
           <div class="article-header-title">
             <h1 class="article-title">Connaissez vous l'Art-Thérapie ?</h1>
@@ -912,7 +609,7 @@
       </div>
 
 
-      <div class="timeline-item" id="title-2">
+      <div class="timeline-item" id="publication-2">
 
         <div class="article-header">
           <div class="article-header-title">
@@ -1045,7 +742,7 @@
 
 
       <!--  -->
-      <div class="timeline-item" id="title-1">
+      <div class="timeline-item" id="publication-1">
         <div class="article-header">
           <div class="article-header-title">
             <h1 class="article-title">La Pleine conscience :</h1>

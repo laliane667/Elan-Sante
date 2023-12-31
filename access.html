@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="style/font.css">
     <link rel="stylesheet" href="style/style.css">
 
-    <link rel="stylesheet" href="style/adhesion.css">
+    <link rel="stylesheet" href="style/admin.css">
 
     <style>
         #login_container, #signup_container {
@@ -60,8 +60,9 @@
             margin: 25px 0;
             width: 100%;
             height: 75px;
-            background-color: #fff;
+            background-color: #ffffff;
             box-shadow: 15px 15px 40px rgba(0, 0, 0, .5);
+            display: flex;
         }
 
         .adh_link {
@@ -87,19 +88,18 @@
             cursor: pointer;
             color: #000000;
             background-color: #fff;
-            border-radius: 15px;
             text-decoration: none;
-            border-width: 1px;
             line-height: normal;
             border: solid;
-            border-color: #fff;
+            border: none;
             font-size: 1.2rem;
             transition: all 0.5s ease;
+            transition: border 0s;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
         .access-button:hover {
-            border-color: #000000;
+            border-bottom: solid 1px #000000;
         }
 
         .adh_link li:hover:before {
@@ -303,20 +303,12 @@
             <h1>Bienvenue sur la page administrateur.</h1>
     
             <div class="adh_item">
-                <ul class="adh_link">
-                    <li>
-                        <button class="access-button" name="login">J'ai déjà un compte.</button>
-                    </li>
-                </ul>
+                <button class="access-button" name="login">J'ai déjà un compte.</button>
             </div>
             <h1>OU</h1>
     
             <div class="adh_item">
-                <ul class="adh_link">
-                    <li>
-                        <button class="access-button" name="signup">Je me créer un compte.</button>
-                    </li>
-                </ul>
+                <button class="access-button" name="signup">Je me créer un compte.</button>
             </div>
         </div> 
 

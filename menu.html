@@ -18,84 +18,56 @@
 
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/font.css">
-    <link rel="stylesheet" href="style/style.css">
 
-    <link rel="stylesheet" href="style/adhesion.css">
+    <link rel="stylesheet" href="style/admin.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="index.html">
-            <img id="navbar__logo" src="src/images/logos/logo_accueil.png" alt="logo">
-        </a>
-
-        <div class="navbar__container">
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <div class="page-container">
+        <h1>Mon tableau de bord</h1>
+        <div class="section-full">
+            <h1><i class="fa-solid fa-chevron-right"></i>&nbsp;Accueil</h1>
+            <div class="section-container">
+                <a href="publications.html" class="section">
+                    <i class="fa-solid fa-compass"></i>
+                    <h2>Accueil</h2>
+                </a>
+                <a href="publications.html" class="section">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    <h2>Modifier l'actualité</h2>
+                </a>
             </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item" id="navbar__linkLogoContainer">
-                    <div class="btn-container">
-                        <a href="index.html" class="animated-word">ACCUEIL</a>
-                    </div>
-                </li>
-                <li class="navbar__item" id="navbar__linkLogoContainer">
-                    <div class="btn-container">
-                        <a href="activites.html" class="animated-word">ACTIVITÉS</a>
-                    </div>
-                </li>
-                <li class="navbar__item">
-                    <div class="btn-container">
-                        <a href="publications.html" class="animated-word">PUBLICATIONS</a>
-                    </div>
-                </li>
-
-                <li class="navbar__item">
-                    <div class="btn-container">
-                        <a href="presentation.html" class="animated-word">QUI SOMMES-NOUS ?</a>
-                    </div>
-                </li>
-
-                <li class="navbar__item">
-                    <div class="btn-container">
-                        <a href="index.html" class="animated-word">ADHÉSION</a>
-                    </div>
-                </li>
-            </ul>
         </div>
-    </nav>
-
-
-    <div class="adh_container">
-        <h1>CENTRE DE CONTRÔLE</h1>
-
-        <div class="adh_item">
-            <ul class="adh_link">
-                <li>
-                    <a href="form-publication.html">Publications</a>
-                </li>
-            </ul>
+        <div class="section-full">
+            <h1><i class="fa-solid fa-chevron-right"></i>&nbsp;Publications</h1>
+            <div class="section-container">
+                <a href="publications.html" class="section">
+                    <i class="fa-solid fa-compass"></i>
+                    <h2>Publication</h2>
+                </a>
+                <a href="publications.html" class="section">
+                    <i class="fa-regular fa-square-plus"></i>
+                    <h2>Créer une publication</h2>
+                </a>
+                <a href="publications.html" class="section">
+                    <i class="fa-solid fa-list"></i>
+                    <h2>Liste des publications</h2>
+                </a>
+            </div>
         </div>
-
-        <div class="adh_item">
-            <ul class="adh_link">
-                <li>
-                    <a href="actu-update.html">Actualité récente</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="adh_item">
-            <ul class="adh_link">
-                <li>
-                    <a href="bulletin.html">Se déconnecter</a>
-                </li>
-            </ul>
+    
+        <div class="section-full">
+            <h1><i class="fa-solid fa-chevron-right"></i>&nbsp;Actions</h1>
+            <div class="section-container">
+                <a href="publications.html" class="section">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <h2>Se déconnecter</h2>
+                </a>
+            </div>
         </div>
     </div>
-    <script src="app/app.js"></script>
+
+    
 </body>
 
 </html>

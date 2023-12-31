@@ -2,6 +2,18 @@ let last_known_scroll_position = 0;
 let ticking = false;
 let speed = -0.03;
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.content-item');
+const hiddenSections = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+hiddenSections.forEach((el) => observer.observe(el));
 
 function centerSidebarLink(scroll_pos) {
     const sidebarLinks = document.querySelectorAll("#sidebar a");
@@ -10,6 +22,13 @@ function centerSidebarLink(scroll_pos) {
         let offset = index;
         link.style.transform = `translateY(${offset + scroll_pos * speed}px)`;
     });
+}
+function goTop() {
+    window.scrollTo(0, 0);
+}
+
+function goBottom() {
+    window.scrollTo(0, document.querySelector('#page_container').scrollHeight);
 }
 
 window.addEventListener('scroll', function (e) {
@@ -45,6 +64,8 @@ function handleSidebarToggle() {
 
         $('#close-sidebar').hide();
         $('#open-sidebar').show();
+        $('#button-top').hide();
+        $('#button-bottom').hide();
     });
 
     $('#open-sidebar').on('click', function() {
@@ -54,6 +75,8 @@ function handleSidebarToggle() {
 
         $('#open-sidebar').hide();
         $('#close-sidebar').show();
+        $('#button-top').show();
+        $('#button-bottom').show();
     });
 }
 
@@ -63,12 +86,15 @@ function test() {
         $('.sidebar_button_container').show();
         $('#close-sidebar').hide();
         $('#open-sidebar').show();
+        $('#button-top').hide();
+        $('#button-bottom').hide();
 
         handleSidebarToggle();
     } else {
         $('#sidebar').show().css('left', '0');  // Always show the sidebar on wider screens.
         $('.sidebar_button_container').hide();
-
+        $('#button-top').show();
+        $('#button-bottom').show();
         // Remove click event handlers to prevent unnecessary triggers.
         $('#close-sidebar').off('click');
         $('#open-sidebar').off('click');
@@ -103,10 +129,12 @@ document.querySelectorAll('#sidebar a').forEach(item => {
     
             $('#close-sidebar').hide();
             $('#open-sidebar').show();
+            $('#button-top').hide();
+            $('#button-bottom').hide();
         }
         let elem = document.querySelector(id);
         elem.scrollIntoView({
-            behavior: 'smooth'
+            behavior: 'instant'
         });
     });
 });

@@ -1,8 +1,16 @@
-let bloc_counter = 0;
+let bloc_counter = 1;
 let paragraph_counter = 0;
-let title_counter = 0;
+let title_counter = 1;
 let image_counter = 0;
 let anchor_counter = 0;
+
+
+function loadEditorValues(){
+    let ipt1 = document.getElementById('ipt1');
+    let destination = document.getElementById('article-section-0');
+    let ipt = destination.querySelector('.form-title-input');
+    ipt.value = ipt1.value;
+}
 
 //========================   BIG SECTION   =========================================================================================================================================================//
 
@@ -727,8 +735,8 @@ function updateFullSectionPublication(text, targetType, id){
                 destination.innerHTML = text;
                 destination.href = text;
             }else if(targetType == "paragraph"){
-                destination.innerHTML = text;
-                /* updatePreview(destination, text); */
+                //destination.innerHTML = text;
+                updatePreviewText(text, destination);
             }
             else{
                 destination.innerHTML = text;
@@ -771,8 +779,8 @@ function updateHalfSectionPublication(text, pan, targetType, id){
                 destination.innerHTML = text;
                 destination.href = text;
             }else if(targetType == "paragraph"){
-                destination.innerHTML = text;
-                /* updatePreview(destination, text); */
+                //destination.innerHTML = text;
+                updatePreviewText(text, destination);
             }else{
                 destination.innerHTML = text;
             }
@@ -839,7 +847,6 @@ function getFormattedDate() {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    
     let titleInput = document.querySelector('input[name="titre"]');
     let subtitleInput = document.querySelector('input[name="sous-titre"]');
     let authorInput = document.querySelector('select[name="auteur"]');
@@ -865,9 +872,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     if (authorInput) {
-        updateAuthorPublication(authorInput.value);
+        let name = getNameFromId(authorInput.value);
+        updateAuthorPublication(name);
         authorInput.addEventListener('input', function(){
-            updateAuthorPublication(this.value);
+            let name = getNameFromId(this.value);
+            updateAuthorPublication(name);
         });
     }
 
@@ -879,16 +888,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     if (statusInput) {
+
         updateStatusPublication(statusInput.value);
         statusInput.addEventListener('input', function(){
             updateStatusPublication(this.value);
         });
     }
+    loadEditorValues();
 
-    initializeDragAndDrop();
+    //initializeDragAndDrop();
 });
 
-
+function getNameFromId(id){
+    let options = Array.from(document.querySelectorAll('.select-auth'));
+    for(let i = 0; i < options.length; i++){
+        if(options[i].value == id){
+            return options[i].innerHTML;
+        }
+    }
+}
 
 function updateTitlePublication(title) {
     let publicationSection = document.getElementById("realtime-publication");
@@ -1098,17 +1116,17 @@ function initializeDragAndDrop() {
 }
 
 function handleDragStart(e) {
-    e.dataTransfer.setData('text/plain', e.currentTarget.dataset.blocCounter);
+    //e.dataTransfer.setData('text/plain', e.currentTarget.dataset.blocCounter);
 }
 
 // This function should be called every time sections are rearranged or modified
 function refreshEventListeners() {
-    initializeDragAndDrop();
+    //initializeDragAndDrop();
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
     // This is the main container's event listeners, which can be set once and don't need to be refreshed
-    let container = document.querySelector(".content-container");
+    /*let container = document.querySelector(".content-container");
     container.addEventListener('dragover', function(e) {
         e.preventDefault();
     });
@@ -1128,7 +1146,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     // Initialize event listeners when the page loads
-    refreshEventListeners();
+    refreshEventListeners();*/
 });
 
 
@@ -1214,9 +1232,25 @@ function updatePreview(textarea, preview) {
     preview.innerHTML = styledText;
 }
 
+function updatePreviewText(text, preview) {
+    let styledText = text;
+
+    // Convert bold (e.g. **text** to <strong>text</strong>)
+    styledText = styledText.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+
+    // Convert italic (e.g. \text\ to <i>text</i>)
+    styledText = styledText.replace(/\\([^\\]+)\\/g, '<i>$1</i>');
+
+    // Convert underline (e.g. __text__ to <u>text</u>)
+    styledText = styledText.replace(/__([^_]+)__/g, '<u>$1</u>');
+
+    preview.innerHTML = styledText;
+}
+
 
 function extractNumberFromEnd(str) {
     const parts = str.split('-');
     const lastPart = parts[parts.length - 1];
     return parseInt(lastPart, 10);
 }
+

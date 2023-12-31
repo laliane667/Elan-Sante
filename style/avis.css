@@ -1,0 +1,126 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(
+    to left,
+    #023e73,
+    #034e86,
+    #055f98,
+    #0771ab,
+    #0a83bd,
+    #0a83bd,
+    #0a83bd,
+    #0a83bd,
+    #0771ab,
+    #055f98,
+    #034e86,
+    #023e73
+  );
+  background-color: #023e73;
+}
+
+.avis_title {
+  font-size: 2rem;
+  font-weight: 100;
+  margin: 50px 0 10px 10%;
+  color: #fff;
+}
+
+.avis_container {
+  width: 86%;
+  margin: 0 7%;
+  padding: 25px 0;
+  /* vertical-align: middle; */
+  display: flex;
+  align-content: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.avis_column {
+  margin-top: 0;
+  margin: 0 10px;
+  flex-grow: 1;
+  height: fit-content;
+  /* 
+  max-width: 23%;
+  min-width: 275px; */
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.avis_row {
+  width: 100%;
+  /* margin-bottom: 15%; */
+  margin-bottom: 50px;
+  height: fit-content;
+  background-color: #fff;
+  box-shadow: 8px 15px 15px rgba(0, 0, 0, 0.4);
+}
+
+.avis {
+  width: 100%;
+  height: 100%;
+  color: #000000;
+  font-size: 1.2rem;
+  text-align: justify;
+  font-weight: 100;
+  font-style: oblique;
+}
+
+.bar {
+  margin: 5px auto;
+  height: 2px;
+  width: 80%;
+  background-color: #66bcdf;
+}
+
+.greenbar {
+  margin: 5px auto;
+  height: 2px;
+  width: 80%;
+  background-color: #99be43;
+}
+
+.avis p {
+  line-height: 2rem;
+}
+
+.avis_auth {
+  padding: 5% 7%;
+  font-style: normal;
+}
+
+.avis_para {
+  padding: 5% 7%;
+  letter-spacing: -0.01ch;
+  font-size: 1rem;
+}
+
+.avis_fa {
+  color: #66bcdf;
+  font-size: 1.5rem;
+  margin-left: 7%;
+}
+
+.avis_fa_green {
+  color: #99be43;
+  font-size: 1.5rem;
+  margin-left: 7%;
+}
+
+.avis_type {
+  padding: 0 7%;
+  text-align: right;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #858585;
+}

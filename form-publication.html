@@ -515,8 +515,10 @@
   </nav>
 
   <div id="timeline-container">
-
+    <input id="bloc_counter" type="hidden" value="0">
     <form>
+
+
       <div class="timeline-item">
 
         <div class="form-title">
@@ -535,8 +537,8 @@
             <div class="form-author">
               <label>Auteur :</label>
               <select id="auteur" name="auteur">
-                <option value="Sylvie Lamouroux">Sylvie Lamouroux</option>
-                <option value="Dominique Richier-Rousseau">Dominique Richier-Rousseau</option>
+                <option class="select-auth" value="0">Sylvie Lamouroux</option>
+                <option class="select-auth" value="1">Dominique Richier-Rousseau</option>
               </select>
             </div>
           </div>
@@ -550,7 +552,7 @@
         </div>
 
         <div class="form-status">
-          <label for="status">Status :</label>
+          <label>Status :</label>
           <select id="input-status" name="status">
             <option value="br">Brouillon</option>
             <option value="pr">Privé</option>
@@ -562,13 +564,14 @@
         </div>
 
         <div class="article-content-wrapper">
-          <div class="content-container" id="form-publication-container">
-
-
-          </div>
-          <div class="form-message-container">
+          
+          <!-- <div class="content-container" id="form-publication-container">
+            <input id="ipt1" type="hidden" value="zebi">
+            <div class="form-bloc-container" draggable="true" data-bloc-counter="0"><span class="bloc-trash">❌</span><div class="full-width full-width-form" id="article-section-0"><div class="form-bloc-tool-container"><span class="form-span" onclick="javascript: addTitle(0, 0)">Titre</span><span class="form-span" onclick="javascript: addText(0, 0)">Text</span><span class="form-span" onclick="javascript: addImage(0, 0)">Image</span><span class="form-span" onclick="javascript: addAnchor(0, 0)">URL</span></div><div class="form-text-input-container"><span class="form-trash-span">╳</span><input class="form-title-input" placeholder="Entrez un titre..."></div></div><div class="drag-handle">☰</div></div>
+          </div> -->
+          <div class="form-message-container"> 
             <!-- <h1 class="success-message">Les modifications ont été enregistrées correctement.</h1> -->
-            <h1 class="error-message">Une erreur est survenue</h1>
+          <h1 class="error-message">Une erreur est survenue</h1>
           </div>
           <div class="tool-container">
             <span onclick="javascript: addFullSection()">Ajouter un bloc entier</span>
@@ -583,7 +586,7 @@
             <button>Enregistrer les modifications</button>
           </div>
         </div>
-      </div>
+      </div> 
     </form>
 
 

@@ -1,0 +1,231 @@
+body {
+  /* background-image: linear-gradient(to right, #c5ebff, #a9dbf7, #8ecbee, #71bae7, #51aadf, #51aadf, #51aadf, #51aadf, #71bae7, #8ecbee, #a9dbf7, #c5ebff); */
+  background-image: linear-gradient(
+    to left,
+    #252525,
+    #2b2b2b,
+    #313031,
+    #373636,
+    #3d3c3c,
+    #3d3c3c,
+    #3d3c3c,
+    #3d3c3c,
+    #373636,
+    #313031,
+    #2b2b2b,
+    #252525
+  );
+  /* background-image: linear-gradient(to left, #6accf6, #56bff0, #43b1eb, #2fa4e5, #1b96de, #1b96de, #1b96de, #1b96de, #2fa4e5, #43b1eb, #56bff0, #6accf6); */
+  background-color: #252525;
+}
+
+.adm_filter_container {
+  width: 70%;
+  margin: 100px 15% 0 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adm_filter {
+  background-color: #fff;
+  padding: 5px 15px;
+}
+
+.adm_filter select {
+  border: none;
+}
+
+.adm_container {
+  width: 80%;
+  margin: 15px 10% 10%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.adm_item {
+  margin: 25px 0;
+  width: 100%;
+  height: fit-content;
+  background-color: #fff;
+  box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.adm_data_container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.adm_data {
+  width: 33%;
+}
+
+.adm_header {
+  width: 65%;
+}
+
+.adm_data,
+.adm_header {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.adm_data_title {
+  font-size: 1.5rem;
+  color: #3d3d3d;
+  margin: 5px 0;
+}
+.adm_data_subtitle {
+  font-size: 1.2rem;
+  margin: 10px 0 5px 0;
+  color: #575757;
+}
+
+.adm_data_status {
+  font-size: 1.2rem;
+  font-weight: 100;
+  margin: 5px 0 5px 0;
+  color: #000000;
+}
+
+.adm_data_info {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #000000;
+  margin: 5px 0;
+}
+
+.adm_link {
+  flex-grow: 1;
+  width: 20%;
+}
+
+.adm_link li {
+  cursor: pointer;
+  transition: all 0.5s ease;
+  width: 100%;
+  height: 33.33%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-left: 15px;
+}
+
+.adm_link li a {
+  text-align: left;
+  width: 100%;
+  padding-left: 5%;
+  color: blue;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.adm_link li:hover {
+  text-align: left;
+  margin-left: 20px;
+  border-color: #000000;
+}
+
+.adm_link li:hover:before {
+  content: "> ";
+  position: absolute;
+  left: 73%;
+  margin-left: 10px;
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1060px) {
+  .adm_container {
+    width: 100%;
+    height: 92.5vh;
+    margin: 0;
+    padding: 50px 5%;
+  }
+
+  .adm_container h1 {
+    margin-top: 25px;
+    font-size: 1.2rem;
+  }
+
+  /* .adm_link li:hover {
+padding-left: 10px;
+}
+*/
+  .adm_link li:hover:before {
+    left: 75.5%;
+  }
+}
+
+.page-container {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  width: 80%;
+  margin: 0px 10%;
+  padding-top: 25px;
+  background-color: #fff;
+}
+
+.section-full {
+  width: 100%;
+  padding: 20px 20px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.page-container h1,
+.section-full h1 {
+  margin: 0 5% 40px 5%;
+  width: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: 100;
+  color: #0c0e67;
+}
+.section-container {
+  margin: 0 10% 15px 10%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.section {
+  text-decoration: none;
+  cursor: pointer;
+  width: 160px;
+  height: 150px;
+  margin: 0 25px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  border: solid 1px #00000000;
+}
+
+.section:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  border: solid 1px #0c0e67;
+}
+
+.section i {
+  font-size: 3rem;
+  color: #0c0e67;
+  margin-bottom: 10px;
+}
+.section h2 {
+  text-align: center;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  color: #0c0e67;
+  font-family: Arial, Helvetica, sans-serif;
+}
