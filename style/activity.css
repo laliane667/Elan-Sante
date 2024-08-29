@@ -45,6 +45,18 @@ body {
   transition: transform 0.8s ease-out;
 }
 
+#sidebar ul li h1 {
+  display: block;
+  margin-bottom: 0px;
+  margin-top: 20px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #ffffff;
+  width: 250px;
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+
 #sidebar ul li a {
   display: block;
   margin-bottom: 0px;
@@ -54,6 +66,7 @@ body {
   background-color: rgba(0, 0, 0, 0.124);
   width: 250px;
   font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .subtitle {
@@ -141,8 +154,18 @@ body {
   margin-top: 15px;
   border-radius: 5px;
   color: #3d3d3d;
-  background-color: rgba(210, 21, 21, 0.503);
+
   width: fit-content;
+}
+
+.couleur-badge-bleu {
+  background-color: #66bcdf;
+  font-weight: 200;
+}
+
+.couleur-badge-saumon {
+  background-color: rgba(210, 21, 21, 0.503);
+  font-weight: 200;
 }
 
 .activity-presentator {
@@ -399,6 +422,7 @@ body {
 #galery-fb #img-inner,
 #galery-sh #img-inner,
 #galery-sr #img-inner,
+#galery-aromachologie #img-inner,
 #galery-as #img-inner,
 #galery-ra #img-inner,
 #galery-mb #img-inner {
@@ -424,6 +448,7 @@ body {
 #galery-fb #img-inner img,
 #galery-sh #img-inner img,
 #galery-sr #img-inner img,
+#galery-aromachologie #img-inner img,
 #galery-as #img-inner img,
 #galery-ra #img-inner img,
 #galery-mb #img-inner img {
@@ -448,6 +473,7 @@ body {
 #galery-fb #img-inner:hover ~ label.sb-bignav,
 #galery-sh #img-inner:hover ~ label.sb-bignav,
 #galery-sr #img-inner:hover ~ label.sb-bignav,
+#galery-aromachologie #img-inner:hover ~ label.sb-bignav,
 #galery-as #img-inner:hover ~ label.sb-bignav,
 #galery-ra #img-inner:hover ~ label.sb-bignav,
 #galery-mb #img-inner:hover ~ label.sb-bignav {
@@ -459,6 +485,7 @@ body {
 #galery-fb label.sb-bignav:hover,
 #galery-sh label.sb-bignav:hover,
 #galery-sr label.sb-bignav:hover,
+#galery-aromachologie label.sb-bignav:hover,
 #galery-as label.sb-bignav:hover,
 #galery-ra label.sb-bignav:hover,
 #galery-mb label.sb-bignav:hover {
@@ -470,6 +497,7 @@ body {
 #galery-fb .sb-bignav,
 #galery-sh .sb-bignav,
 #galery-sr .sb-bignav,
+#galery-aromachologie .sb-bignav,
 #galery-as .sb-bignav,
 #galery-ra .sb-bignav,
 #galery-mb .sb-bignav {
@@ -499,6 +527,7 @@ body {
 #galery-fb .sb-bignav-icon,
 #galery-sh .sb-bignav-icon,
 #galery-sr .sb-bignav-icon,
+#galery-aromachologie .sb-bignav-icon,
 #galery-as .sb-bignav-icon,
 #galery-ra .sb-bignav-icon,
 #galery-mb .sb-bignav-icon {
@@ -521,6 +550,7 @@ label[title="Suivant"] {
 #galery-fb input:checked + li > #img-inner,
 #galery-sh input:checked + li > #img-inner,
 #galery-sr input:checked + li > #img-inner,
+#galery-aromachologie input:checked + li > #img-inner,
 #galery-as input:checked + li > #img-inner,
 #galery-ra input:checked + li > #img-inner,
 #galery-mb input:checked + li > #img-inner {
@@ -540,6 +570,7 @@ label[title="Suivant"] {
 #galery-ebe input:checked + li > label,
 #galery-sh input:checked + li > label,
 #galery-sr input:checked + li > label,
+#galery-aromachologie input:checked + li > label,
 #galery-as input:checked + li > label,
 #galery-ra input:checked + li > label,
 #galery-apa input:checked + li > label {

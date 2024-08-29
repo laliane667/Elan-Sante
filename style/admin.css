@@ -19,6 +19,14 @@ body {
   background-color: #252525;
 }
 
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .adm_filter_container {
   width: 70%;
   margin: 100px 15% 0 15%;
@@ -108,19 +116,22 @@ body {
 }
 
 .adm_link li {
-  cursor: pointer;
   transition: all 0.5s ease;
   width: 100%;
-  height: 33.33%;
+  height: 25%;
   display: flex;
   align-items: center;
   justify-content: left;
   margin-left: 15px;
 }
 
-.adm_link li a {
+.adm_link li a,
+.adm_link li button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
   text-align: left;
-  width: 100%;
+  width: fit-content;
   padding-left: 5%;
   color: blue;
   text-decoration: none;
@@ -131,17 +142,17 @@ body {
 .adm_link li:hover {
   text-align: left;
   margin-left: 20px;
-  border-color: #000000;
+  text-decoration: underline;
 }
 
-.adm_link li:hover:before {
+/* .adm_link li:hover:before {
   content: "> ";
   position: absolute;
   left: 73%;
   margin-left: 10px;
   font-size: 1.4rem;
   font-weight: normal;
-}
+} */
 
 @media screen and (max-width: 1060px) {
   .adm_container {
@@ -173,6 +184,13 @@ padding-left: 10px;
   background-color: #fff;
 }
 
+@media screen and (max-width: 1300px) {
+  .page-container {
+    width: 100%;
+    margin: 0px;
+  }
+}
+
 .section-full {
   width: 100%;
   padding: 20px 20px;
@@ -182,7 +200,7 @@ padding-left: 10px;
 }
 .page-container h1,
 .section-full h1 {
-  margin: 0 5% 40px 5%;
+  margin: 0 5%;
   width: 90%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
@@ -195,14 +213,15 @@ padding-left: 10px;
   display: flex;
   flex-direction: row;
   justify-content: left;
+  flex-wrap: wrap;
 }
 
 .section {
   text-decoration: none;
   cursor: pointer;
-  width: 160px;
   height: 150px;
-  margin: 0 25px;
+  aspect-ratio: 1 / 1;
+  margin: 40px 25px 0 25px;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -220,7 +239,6 @@ padding-left: 10px;
 .section i {
   font-size: 3rem;
   color: #0c0e67;
-  margin-bottom: 10px;
 }
 .section h2 {
   text-align: center;
@@ -228,4 +246,45 @@ padding-left: 10px;
   font-size: 1.2rem;
   color: #0c0e67;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #b1b1b1;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.admin {
+  color: green;
+}
+
+.not-admin {
+  color: red;
 }

@@ -124,3 +124,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: #858585;
 }
+
+@media screen and (max-width: 1260px) {
+  .avis_title {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .avis_column {
+    max-width: 80%;
+  }
+}
